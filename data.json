@@ -124,6 +124,16 @@
     {"id": "C4", "text": "10+ real (not stock) photos uploaded to each GMB listing", "done": false},
     {"id": "C5", "text": "NAP block finalised (same phone, same address across all 14 listings)", "done": false},
     {"id": "C6", "text": "Microsoft + Apple IDs created and tested", "done": false},
-    {"id": "C7", "text": "kunaldahiya.me domain live (no placeholder page)", "done": false}
+    {"id": "C7", "text": "kunaldahiya.me domain live (no placeholder page)", "done": false},
+    {"id": "C8", "text": "[NEW] Install Rank Math SEO plugin (CRITICAL — no SEO plugin currently)", "done": false},
+    {"id": "C9", "text": "[NEW] Delete Breeze plugin (conflicts with Object Cache Pro)", "done": false},
+    {"id": "C10", "text": "[NEW] Activate Akismet (spam protection before blog posts go live)", "done": false},
+    {"id": "C11", "text": "[NEW] Backup site before Elementor Pro 4.2.1 update (security patch)", "done": false},
+    {"id": "C12", "text": "[NEW] Update Elementor Pro to 4.2.1 + verify layouts intact", "done": false},
+    {"id": "C13", "text": "[NEW] Change site title to 'Prime Bridge Media' (currently PixelPierNYC)", "done": false},
+    {"id": "C14", "text": "[NEW] Set permalinks to /%postname%/ (required for pillar slugs)", "done": false},
+    {"id": "C15", "text": "[NEW] Archive 66 demo items (26 pages + 40 posts) — see WP audit section 10", "done": false},
+    {"id": "C16", "text": "[NEW] Verify Google Search Console via DNS TXT", "done": false},
+    {"id": "C17", "text": "[NEW] Verify Bing Webmaster Tools", "done": false}
   ]
 }
