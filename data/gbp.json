@@ -1,0 +1,274 @@
+{
+  "version": "2026-08-18",
+  "tab_title": "GBP Profiles",
+  "tab_icon": "📍",
+  "last_updated": "2026-08-18T17:50:00+05:30",
+  "canonical_nap": {
+    "name": "Prime Bridge Media",
+    "address": "Sector 17, Chandigarh, India 160017",
+    "phone": "+91-XXXXXXXXXX",
+    "email": "hello@primebridgemedia.com",
+    "website": "https://primebridgemedia.com"
+  },
+  "summary": {
+    "total_listings": 4,
+    "profile_complete": 0,
+    "posts_drafted": 12,
+    "posts_published": 0,
+    "avg_reviews": 0
+  },
+  "listings": [
+    {
+      "id": "gbp-chd",
+      "city": "Chandigarh",
+      "label": "Prime Bridge Media — Chandigarh (HQ)",
+      "primary_category": "Marketing agency",
+      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
+      "areas_served": ["Chandigarh", "Mohali", "Panchkula", "Zirakpur"],
+      "setup": {
+        "claimed": false,
+        "verified": false,
+        "phone_verified": false,
+        "address_set": false,
+        "hours_set": false,
+        "description_added": false,
+        "logo_uploaded": false,
+        "cover_photo_uploaded": false,
+        "photos_count": 0,
+        "photos_target": 15,
+        "service_list_complete": false,
+        "attributes_set": false
+      },
+      "posts_target_per_week": 3,
+      "posts_drafted": [
+        {
+          "week": "W1",
+          "title": "Free Local SEO audit for Chandigarh businesses",
+          "body": "Want more customers from Google Maps? We offer a free 15-minute audit for Chandigarh businesses — doctors, restaurants, salons, gyms, lawyers and real estate. We'll show you exactly where you're losing customers and the 3 changes that will move the needle. Book at primebridgemedia.com.",
+          "cta": "Book",
+          "cta_url": "https://primebridgemedia.com/contact/",
+          "photo_suggestion": "Screenshot of Maps 3-pack with your business vs a competitor",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "We just launched in Chandigarh",
+          "body": "Prime Bridge Media is now serving Chandigarh-Tricity. We help local businesses get more customers from Google Maps, YouTube, and Meta. Local SEO, YouTube Ads, Meta Ads, WordPress websites. Free audit at primebridgemedia.com.",
+          "cta": "Learn more",
+          "cta_url": "https://primebridgemedia.com/",
+          "photo_suggestion": "Team photo or office desk",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "Tricity business? Stop losing customers to competitors on Google Maps",
+          "body": "If you're a Chandigarh business and you're not in the Google Maps 3-pack for your specialty, your competitors are getting the calls you should be getting. We fix that. Local SEO for doctors, restaurants, salons, gyms, lawyers and real estate builders. Free audit at primebridgemedia.com.",
+          "cta": "Get audit",
+          "cta_url": "https://primebridgemedia.com/contact/",
+          "photo_suggestion": "Before/after of Maps ranking positions",
+          "status": "draft"
+        }
+      ],
+      "posts_published": [],
+      "reviews": {
+        "count": 0,
+        "target": 10,
+        "average_rating": null,
+        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+      },
+      "issues": []
+    },
+    {
+      "id": "gbp-mohali",
+      "city": "Mohali",
+      "label": "Prime Bridge Media — Mohali",
+      "primary_category": "Marketing agency",
+      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
+      "areas_served": ["Mohali", "Phase 7", "Phase 8", "Phase 11", "Aerocity", "Kharar"],
+      "setup": {
+        "claimed": false,
+        "verified": false,
+        "phone_verified": false,
+        "address_set": false,
+        "hours_set": false,
+        "description_added": false,
+        "logo_uploaded": false,
+        "cover_photo_uploaded": false,
+        "photos_count": 0,
+        "photos_target": 15,
+        "service_list_complete": false,
+        "attributes_set": false
+      },
+      "posts_target_per_week": 3,
+      "posts_drafted": [
+        {
+          "week": "W1",
+          "title": "Mohali Phase 7 + Phase 11 businesses — free Maps audit",
+          "body": "Running a clinic, salon, gym or restaurant in Mohali? We'll audit your Google Business Profile for free and show you the 3 specific changes that will rank you higher in Maps. Local SEO specialists serving Phase 7, Phase 11, Aerocity and Kharar Road.",
+          "cta": "Book audit",
+          "cta_url": "https://primebridgemedia.com/local-seo-salons-mohali/",
+          "photo_suggestion": "Screenshot of a Phase 7 Maps result",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "Mohali real estate builders — get more site visits",
+          "body": "Builders in Mohali and Zirakpur: we run Meta + YouTube campaigns for new project launches. Lead cost 40-60% lower than generic agencies. We've built a Local SEO playbook specifically for VIP Road and Aerocity corridor builders. Free audit.",
+          "cta": "Get audit",
+          "cta_url": "https://primebridgemedia.com/contact/",
+          "photo_suggestion": "Drone shot of a Tricity project",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "We serve Mohali daily from Chandigarh HQ",
+          "body": "Prime Bridge Media is your Mohali digital marketing partner. Local SEO + ads + websites for Phase 7 clinics, Phase 11 restaurants, Aerocity gyms, Kharar Road salons. Book a free 15-min audit.",
+          "cta": "Learn more",
+          "cta_url": "https://primebridgemedia.com/local-seo-mohali/",
+          "photo_suggestion": "Office or client meeting photo",
+          "status": "draft"
+        }
+      ],
+      "posts_published": [],
+      "reviews": {
+        "count": 0,
+        "target": 10,
+        "average_rating": null,
+        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+      },
+      "issues": []
+    },
+    {
+      "id": "gbp-pkl",
+      "city": "Panchkula",
+      "label": "Prime Bridge Media — Panchkula",
+      "primary_category": "Marketing agency",
+      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
+      "areas_served": ["Panchkula", "Sector 5", "Sector 9", "Sector 12", "Sector 20", "Peer Muchalla", "Pinjore", "Mansa Devi"],
+      "setup": {
+        "claimed": false,
+        "verified": false,
+        "phone_verified": false,
+        "address_set": false,
+        "hours_set": false,
+        "description_added": false,
+        "logo_uploaded": false,
+        "cover_photo_uploaded": false,
+        "photos_count": 0,
+        "photos_target": 15,
+        "service_list_complete": false,
+        "attributes_set": false
+      },
+      "posts_target_per_week": 3,
+      "posts_drafted": [
+        {
+          "week": "W1",
+          "title": "Panchkula Sector 20 + Peer Muchalla — free Maps audit",
+          "body": "If your Panchkula business isn't in the Google Maps 3-pack for your specialty, customers are going to competitors. Free 15-min audit for Sector 20, Peer Muchalla, Mansa Devi, Pinjore businesses. Local SEO + ads + websites.",
+          "cta": "Book audit",
+          "cta_url": "https://primebridgemedia.com/local-seo-panchkula/",
+          "photo_suggestion": "Screenshot of Panchkula Maps result",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "Haryana-aware marketing for Panchkula businesses",
+          "body": "Panchkula customers are different from Chandigarh customers — different copy, different offers, different ad targeting. We adjust for the Haryana-Chandigarh customer mix. Free audit at primebridgemedia.com.",
+          "cta": "Get audit",
+          "cta_url": "https://primebridgemedia.com/contact/",
+          "photo_suggestion": "Panchkula landmark or office",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "Panchkula doctors, salons, gyms — we serve you",
+          "body": "Local SEO + YouTube + Meta ads for Panchkula clinics, salons, gyms, restaurants, lawyers and real estate. We serve the entire district from Pinjore to Mansa Devi. Free audit.",
+          "cta": "Learn more",
+          "cta_url": "https://primebridgemedia.com/",
+          "photo_suggestion": "Team photo",
+          "status": "draft"
+        }
+      ],
+      "posts_published": [],
+      "reviews": {
+        "count": 0,
+        "target": 10,
+        "average_rating": null,
+        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+      },
+      "issues": []
+    },
+    {
+      "id": "gbp-zkp",
+      "city": "Zirakpur",
+      "label": "Prime Bridge Media — Zirakpur",
+      "primary_category": "Marketing agency",
+      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
+      "areas_served": ["Zirakpur", "VIP Road", "Ambala Highway", "Peer Muchalla", "Baltana", "Dhakoli"],
+      "setup": {
+        "claimed": false,
+        "verified": false,
+        "phone_verified": false,
+        "address_set": false,
+        "hours_set": false,
+        "description_added": false,
+        "logo_uploaded": false,
+        "cover_photo_uploaded": false,
+        "photos_count": 0,
+        "photos_target": 15,
+        "service_list_complete": false,
+        "attributes_set": false
+      },
+      "posts_target_per_week": 3,
+      "posts_drafted": [
+        {
+          "week": "W1",
+          "title": "Zirakpur builders + property dealers — get more site visits",
+          "body": "Builders along VIP Road, Ambala Highway, Baltana, Dhakoli — we run Meta + YouTube + Local SEO campaigns for new project launches. Lead cost 40-60% lower than generic agencies. Free audit.",
+          "cta": "Book audit",
+          "cta_url": "https://primebridgemedia.com/local-seo-real-estate-zirakpur/",
+          "photo_suggestion": "Drone shot of VIP Road project",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "New to Zirakpur? Free Google Maps audit",
+          "body": "Just opened in Zirakpur? Most new businesses don't show up on Maps for 3-6 months. We speed that up to 30-60 days. Free audit for VIP Road, Ambala Highway, Peer Muchalla, Baltana businesses.",
+          "cta": "Get audit",
+          "cta_url": "https://primebridgemedia.com/local-seo-zirakpur/",
+          "photo_suggestion": "Zirakpur streetscape",
+          "status": "draft"
+        },
+        {
+          "week": "W1",
+          "title": "Zirakpur restaurants, doctors, salons — we serve you",
+          "body": "Local SEO + YouTube + Meta ads for Zirakpur restaurants, clinics, salons, gyms, lawyers. We know the VIP Road + Ambala Highway corridor. Free 15-min audit.",
+          "cta": "Learn more",
+          "cta_url": "https://primebridgemedia.com/",
+          "photo_suggestion": "Client meeting or office",
+          "status": "draft"
+        }
+      ],
+      "posts_published": [],
+      "reviews": {
+        "count": 0,
+        "target": 10,
+        "average_rating": null,
+        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+      },
+      "issues": []
+    }
+  ],
+  "global_checklist": [
+    {"id": "GBP-01", "task": "Use canonical NAP block from Citation Submission Tracker", "done": false, "section": "gbp"},
+    {"id": "GBP-02", "task": "Verify each listing by phone/SMS/postcard as required", "done": false, "section": "gbp"},
+    {"id": "GBP-03", "task": "Upload logo + cover photo to each listing", "done": false, "section": "gbp"},
+    {"id": "GBP-04", "task": "Upload 10+ business photos per listing (mix of office + clients + work)", "done": false, "section": "gbp"},
+    {"id": "GBP-05", "task": "Post Week 1 posts (3 per listing = 12 total)", "done": false, "section": "gbp"},
+    {"id": "GBP-06", "task": "Set up review-generation flow (QR code + WhatsApp)", "done": false, "section": "gbp"},
+    {"id": "GBP-07", "task": "Get 5 Google reviews across the 4 listings", "done": false, "section": "gbp"},
+    {"id": "GBP-08", "task": "Respond to every review within 24 hours", "done": false, "section": "gbp"},
+    {"id": "GBP-09", "task": "Set up Q&A section with 3-5 common questions per listing", "done": false, "section": "gbp"},
+    {"id": "GBP-10", "task": "Add each listing URL to NAP audit + start tracking", "done": false, "section": "gbp"}
+  ]
+}

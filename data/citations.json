@@ -1,0 +1,344 @@
+{
+  "version": "2026-08-18",
+  "tab_title": "Citations",
+  "tab_icon": "🔗",
+  "last_updated": "2026-08-18T17:50:00+05:30",
+  "canonical_nap": {
+    "name": "Prime Bridge Media",
+    "address": "Sector 17, Chandigarh, India 160017",
+    "phone": "+91-XXXXXXXXXX",
+    "email": "hello@primebridgemedia.com",
+    "website": "https://primebridgemedia.com"
+  },
+  "summary": {
+    "total_directories": 10,
+    "submitted": 0,
+    "live": 0,
+    "rejected": 0,
+    "completion_pct": 0
+  },
+  "directories": [
+    {
+      "id": "cit-01",
+      "name": "Justdial",
+      "url": "https://www.justdial.com/Add-Listing",
+      "da": 78,
+      "priority": "P0",
+      "category": "Marketing Services > Advertising Agency",
+      "verification_method": "Phone call (24-48h)",
+      "submit_url": "https://www.justdial.com/Add-Listing",
+      "submission_steps": [
+        "Go to justdial.com/Add-Listing",
+        "Search for Prime Bridge Media — if exists, claim it",
+        "Fill NAP exactly as in canonical block (paste, don't retype)",
+        "Select categories: Marketing Services (primary) + + Website Designers + Internet Marketing Service",
+        "Set hours: Mon-Sat 10:00-19:00",
+        "Upload logo + 5-10 photos",
+        "Answer verification call within 24-48h"
+      ],
+      "common_rejections": [
+        "Business name contains best or superlatives",
+        "Phone doesn't match call recipient",
+        "Address isn't a real physical location"
+      ],
+      "post_submit_actions": [
+        "Claim ownership after listing goes live",
+        "Complete Products/Services section",
+        "Add photos + cover image"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "45 min"
+    },
+    {
+      "id": "cit-02",
+      "name": "Sulekha",
+      "url": "https://www.sulekha.com/add-business",
+      "da": 72,
+      "priority": "P0",
+      "category": "Marketing Services > Digital Marketing",
+      "verification_method": "Email confirmation",
+      "submit_url": "https://www.sulekha.com/add-business",
+      "submission_steps": [
+        "Go to sulekha.com/add-business",
+        "Choose primary category: Marketing Services > Digital Marketing",
+        "Fill NAP from canonical",
+        "Add 4 service listings (Local SEO, YouTube Ads, Meta Ads, WordPress)",
+        "Upload logo + photos",
+        "Verify via hello@primebridgemedia.com email"
+      ],
+      "common_rejections": [
+        "Incomplete profile",
+        "Generic categories instead of specific"
+      ],
+      "post_submit_actions": [
+        "Complete every field",
+        "Add each service as separate listing",
+        "Upload all photos"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "30 min"
+    },
+    {
+      "id": "cit-03",
+      "name": "Google Business Profile (Chandigarh)",
+      "url": "https://business.google.com/",
+      "da": 100,
+      "priority": "P0",
+      "category": "Marketing agency",
+      "verification_method": "Postcard (5-14 days) OR phone/SMS",
+      "submit_url": "https://business.google.com/create",
+      "submission_steps": [
+        "Go to business.google.com",
+        "Sign in with the same Google account that owns the GMB",
+        "Create listing: Prime Bridge Media",
+        "Address: Sector 17, Chandigarh, India 160017",
+        "Phone: +91-XXXXXXXXXX",
+        "Category: Marketing agency (primary) + Internet marketing service + Website designer + Advertising agency",
+        "Use 750-char Chandigarh description from launch pack",
+        "Upload logo + cover photo + 10+ business photos",
+        "Verify by phone/SMS if available, else postcard"
+      ],
+      "common_rejections": [
+        "Duplicate of another GBP",
+        "PO Box or virtual office address",
+        "Category not matching business type"
+      ],
+      "post_submit_actions": [
+        "Respond to every review within 24h",
+        "Post weekly updates (3 per week)",
+        "Add Q&A entries"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "60 min"
+    },
+    {
+      "id": "cit-04",
+      "name": "Google Business Profile (Mohali / PKL / ZKP)",
+      "url": "https://business.google.com/",
+      "da": 100,
+      "priority": "P0",
+      "category": "Marketing agency",
+      "verification_method": "3 separate GMB listings — one per city",
+      "submit_url": "https://business.google.com/create",
+      "submission_steps": [
+        "Create 3 additional listings: Mohali, Panchkula, Zirakpur",
+        "Same canonical NAP except service area emphasis",
+        "Each uses city-specific 750-char description from launch pack",
+        "Verify each separately (3 postcards OR 3 phone verifications)"
+      ],
+      "common_rejections": [
+        "Google flags as duplicate if categories are identical across all 4"
+      ],
+      "post_submit_actions": [
+        "Track each listing separately in GBP tab",
+        "Post city-specific content (12 posts total = 3 per listing)"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "90 min (3 listings)"
+    },
+    {
+      "id": "cit-05",
+      "name": "IndiaMART",
+      "url": "https://www.indiamart.com/joinus/",
+      "da": 81,
+      "priority": "P0",
+      "category": "Marketing Services > Digital Marketing Services (Service Provider)",
+      "verification_method": "Phone + email (24-72h)",
+      "submit_url": "https://www.indiamart.com/joinus/",
+      "submission_steps": [
+        "Go to indiamart.com/joinus/",
+        "CRITICAL: Choose Service Provider (NOT Product Seller)",
+        "Category: Marketing Services > Digital Marketing Services",
+        "Fill NAP from canonical",
+        "Service title: Digital Marketing Services - Local SEO, YouTube Ads, Meta Ads, WordPress",
+        "Service description: Long version (750 chars) from launch pack"
+      ],
+      "common_rejections": [
+        "Wrongly listed as Product Seller (default)",
+        "Single-product listing instead of services"
+      ],
+      "post_submit_actions": [
+        "Skip TrustSeal paid option (₹30K/year not needed for citations)",
+        "Add catalog of all 4 services"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "30 min"
+    },
+    {
+      "id": "cit-06",
+      "name": "Bing Places",
+      "url": "https://www.bingplaces.com/",
+      "da": 92,
+      "priority": "P1",
+      "category": "Marketing agency",
+      "verification_method": "Phone call OR postcard (5-7 days)",
+      "submit_url": "https://www.bingplaces.com/",
+      "submission_steps": [
+        "Sign in with Microsoft account (create outlook.com if needed)",
+        "Click Add new business",
+        "RECOMMENDED: Import from Google Business Profile (pulls photos/hours/categories automatically)",
+        "If importing manually: fill NAP from canonical",
+        "Verify by phone (faster) if available"
+      ],
+      "common_rejections": [
+        "Address not matching GMB",
+        "Incomplete profile"
+      ],
+      "post_submit_actions": [
+        "Verify import pulled all photos correctly",
+        "Submit sitemap to Bing Webmaster"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "15 min"
+    },
+    {
+      "id": "cit-07",
+      "name": "Apple Maps (Business Connect)",
+      "url": "https://businessconnect.apple.com/",
+      "da": 95,
+      "priority": "P1",
+      "category": "Marketing Agency",
+      "verification_method": "Email + phone",
+      "submit_url": "https://businessconnect.apple.com/",
+      "submission_steps": [
+        "Sign in with Apple ID (create if needed)",
+        "Click Add a Business",
+        "Fill NAP from canonical",
+        "Category: Marketing Agency",
+        "Add logo + cover photo (Apple is strict on visual quality)",
+        "Verify via email + phone"
+      ],
+      "common_rejections": [
+        "Low-quality or stock logo/photo",
+        "Address format inconsistent with GMB"
+      ],
+      "post_submit_actions": [
+        "Approval takes 3-7 days — flag if not live by Day 10",
+        "Verify Siri surfaces the listing"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "20 min"
+    },
+    {
+      "id": "cit-08",
+      "name": "Practo",
+      "url": "https://www.practo.com/claim",
+      "da": 68,
+      "priority": "P1",
+      "category": "Healthcare Marketing / Clinic Marketing Service",
+      "verification_method": "Phone call",
+      "submit_url": "https://www.practo.com/claim",
+      "submission_steps": [
+        "Go to practo.com/claim",
+        "Click For Business > Claim your listing",
+        "Category: Healthcare Marketing / Clinic Marketing Service",
+        "Use VERTICAL-SPECIFIC description (clinics) from launch pack",
+        "Add services: Local SEO for clinics, Meta ads for doctors, Clinic website design",
+        "Verify by phone"
+      ],
+      "common_rejections": [
+        "Service-only businesses sometimes rejected — backup plan: build vertical landing page"
+      ],
+      "post_submit_actions": [
+        "Listings take 3-5 days — don't be alarmed by delay",
+        "Update bio with PBM website + services"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "45 min"
+    },
+    {
+      "id": "cit-09",
+      "name": "99acres",
+      "url": "https://www.99acres.com/",
+      "da": 74,
+      "priority": "P1",
+      "category": "Real estate marketing service (NOT property lister)",
+      "verification_method": "Phone + email",
+      "submit_url": "https://www.99acres.com/",
+      "submission_steps": [
+        "Sign up as service provider (NOT property lister)",
+        "Use VERTICAL-SPECIFIC description (real estate) from launch pack",
+        "Add services: Local SEO for real estate, Meta ads for builders, YouTube walkthroughs, Builder websites",
+        "Verify by phone + email"
+      ],
+      "common_rejections": [
+        "Heavy spam filters",
+        "Generic business name with tagline",
+        "Non-physical address",
+        "Service-only businesses sometimes rejected"
+      ],
+      "post_submit_actions": [
+        "Backup plan: build vertical landing page and re-try"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "45 min"
+    },
+    {
+      "id": "cit-10",
+      "name": "Yelp India",
+      "url": "https://biz.yelp.com/signup",
+      "da": 89,
+      "priority": "P2",
+      "category": "Marketing Agency + Advertising + Web Design",
+      "verification_method": "Phone call",
+      "submit_url": "https://biz.yelp.com/signup",
+      "submission_steps": [
+        "Sign up as business at biz.yelp.com/signup",
+        "Fill NAP from canonical",
+        "Categories: Marketing Agency + Advertising + Web Design",
+        "Add 5+ photos",
+        "Verify by phone"
+      ],
+      "common_rejections": [
+        "First 1-2 reviews get filtered as Not Recommended — reappear after activity"
+      ],
+      "post_submit_actions": [
+        "Don't be alarmed if early reviews are filtered",
+        "Encourage check-ins + photos from visitors"
+      ],
+      "status": "not_started",
+      "date_submitted": null,
+      "date_live": null,
+      "listing_url": null,
+      "time_estimate": "30 min"
+    }
+  ],
+  "global_checklist": [
+    {"id": "CIT-01", "task": "Confirm canonical NAP block finalised (phone + address locked)", "done": false, "section": "citations"},
+    {"id": "CIT-02", "task": "Logo + cover photo ready in /assets folder", "done": false, "section": "citations"},
+    {"id": "CIT-03", "task": "Microsoft + Apple IDs created and tested", "done": false, "section": "citations"},
+    {"id": "CIT-04", "task": "Day 7 submission session completed (~3 hours)", "done": false, "section": "citations"},
+    {"id": "CIT-05", "task": "All 10 submissions done within 24 hours", "done": false, "section": "citations"},
+    {"id": "CIT-06", "task": "Verification calls/SMS answered within 24h of receipt", "done": false, "section": "citations"},
+    {"id": "CIT-07", "task": "NAP audit run on Day 14 — verify all 10 listings show same NAP", "done": false, "section": "citations"},
+    {"id": "CIT-08", "task": "Add 2 more directories: TradeIndia + Foursquare (Phase 2, days 14-30)", "done": false, "section": "citations"},
+    {"id": "CIT-09", "task": "Add 5+ niche-specific directories per top niche (Phase 2)", "done": false, "section": "citations"}
+  ]
+}
