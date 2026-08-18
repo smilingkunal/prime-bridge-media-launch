@@ -87,7 +87,7 @@
         {
           "id": "WP-07",
           "task": "Archive 66 demo items (26 pages + 40 posts)",
-          "why": "PixelPierNYC demo content (artists, job posts) competes with PBM content in Google",
+          "why": "PixelPierNYC demo content (artists, job posts) competes with Prime Bridge Media content in Google",
           "how": "Use Bulk Edit to change status to Draft for all PixelPierNYC items. OR install Post Status Notifier plugin.",
           "time": "30 min",
           "priority": "P0",
@@ -247,5 +247,268 @@
     "rank_math_setup_wizard": "https://rankmath.com/kb/how-to-setup-rank-math/",
     "gsc_verification": "https://search.google.com/search-console/verify",
     "bing_webmaster": "https://www.bing.com/webmasters"
+  },
+  "timeline": {
+    "sprint_start": "2026-08-18",
+    "sprint_end": "2026-08-25",
+    "days": [
+      {
+        "day": "D1",
+        "date": "2026-08-18",
+        "label": "Foundation",
+        "status": "today",
+        "tasks": [
+          {
+            "id": "D1.1",
+            "task": "Backup site (UpdraftPlus / hosting panel)",
+            "why": "Safety net before any change",
+            "time": "10 min",
+            "priority": "P0",
+            "linked_wp_id": "WP-01"
+          },
+          {
+            "id": "D1.2",
+            "task": "Install Rank Math SEO plugin",
+            "why": "CRITICAL — no SEO plugin currently",
+            "time": "15 min",
+            "priority": "P0",
+            "linked_wp_id": "WP-02"
+          },
+          {
+            "id": "D1.3",
+            "task": "Set permalinks to /%postname%/",
+            "why": "REQUIRED for pillar slugs",
+            "time": "2 min",
+            "priority": "P0",
+            "linked_wp_id": "WP-03"
+          },
+          {
+            "id": "D1.4",
+            "task": "Change site title to Prime Bridge Media",
+            "why": "Brand consistency",
+            "time": "2 min",
+            "priority": "P0",
+            "linked_wp_id": "WP-04"
+          },
+          {
+            "id": "D1.5",
+            "task": "Delete Breeze + activate Akismet",
+            "why": "Cleanup + spam protection",
+            "time": "12 min",
+            "priority": "P0",
+            "linked_wp_id": "WP-05"
+          },
+          {
+            "id": "D1.6",
+            "task": "Archive 66 demo items + update Elementor Pro",
+            "why": "Demo content competes + security patch",
+            "time": "50 min",
+            "priority": "P0",
+            "linked_wp_id": "WP-07"
+          },
+          {
+            "id": "D1.7",
+            "task": "Verify GSC + Bing Webmaster",
+            "why": "Need to track rankings",
+            "time": "15 min",
+            "priority": "P1",
+            "linked_wp_id": "WP-13"
+          }
+        ]
+      },
+      {
+        "day": "D2",
+        "date": "2026-08-19",
+        "label": "Pillars 1-3",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "D2.1",
+            "task": "Publish /local-seo-doctors-chandigarh/",
+            "why": "Highest-intent niche",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-P1"
+          },
+          {
+            "id": "D2.2",
+            "task": "Publish /local-seo-restaurants-chandigarh/",
+            "why": "Café + restaurant 3-pack play",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-P2"
+          },
+          {
+            "id": "D2.3",
+            "task": "Publish /local-seo-salons-mohali/",
+            "why": "Phase 7/11 commercial belt",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-P3"
+          },
+          {
+            "id": "D2.4",
+            "task": "Apply Rank Math meta + Local LocalBusiness schema on all 3",
+            "time": "15 min",
+            "priority": "P0"
+          },
+          {
+            "id": "D2.5",
+            "task": "Submit 3 URLs to Google Search Console for indexing",
+            "time": "5 min",
+            "priority": "P1"
+          }
+        ]
+      },
+      {
+        "day": "D3",
+        "date": "2026-08-20",
+        "label": "Pillars 4-6",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "D3.1",
+            "task": "Publish /local-seo-gyms-chandigarh/",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-P4"
+          },
+          {
+            "id": "D3.2",
+            "task": "Publish /local-seo-lawyers-chandigarh/ (Bar Council review first!)",
+            "why": "Compliance required",
+            "time": "30 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-P5"
+          },
+          {
+            "id": "D3.3",
+            "task": "Publish /local-seo-real-estate-zirakpur/",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-P6"
+          },
+          {
+            "id": "D3.4",
+            "task": "Apply schema + internal links between all 6 pillars (hub-and-spoke)",
+            "time": "30 min",
+            "priority": "P0"
+          }
+        ]
+      },
+      {
+        "day": "D4",
+        "date": "2026-08-21",
+        "label": "Blog #1",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "D4.1",
+            "task": "Publish /blog/digital-marketing-cost-chandigarh-2026/",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-B1"
+          },
+          {
+            "id": "D4.2",
+            "task": "Internal link to 2-3 pillars",
+            "time": "10 min",
+            "priority": "P1"
+          },
+          {
+            "id": "D4.3",
+            "task": "Submit to GSC + share on LinkedIn",
+            "time": "10 min",
+            "priority": "P2"
+          }
+        ]
+      },
+      {
+        "day": "D5",
+        "date": "2026-08-22",
+        "label": "Blog #2",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "D5.1",
+            "task": "Publish /blog/how-to-get-more-patients-chandigarh-clinic/",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-B2"
+          },
+          {
+            "id": "D5.2",
+            "task": "Internal link to doctors pillar",
+            "time": "10 min",
+            "priority": "P1"
+          },
+          {
+            "id": "D5.3",
+            "task": "Submit to GSC",
+            "time": "5 min",
+            "priority": "P2"
+          }
+        ]
+      },
+      {
+        "day": "D6",
+        "date": "2026-08-23",
+        "label": "Blog #3",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "D6.1",
+            "task": "Publish /blog/how-to-get-more-site-visits-tricity-real-estate/",
+            "time": "20 min",
+            "priority": "P0",
+            "linked_w1_id": "W1-B3"
+          },
+          {
+            "id": "D6.2",
+            "task": "Internal link to RE pillars",
+            "time": "10 min",
+            "priority": "P1"
+          }
+        ]
+      },
+      {
+        "day": "D7",
+        "date": "2026-08-24",
+        "label": "Citations + GMB",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "D7.1",
+            "task": "Submit to Justdial + Sulekha + IndiaMART",
+            "time": "105 min",
+            "priority": "P0"
+          },
+          {
+            "id": "D7.2",
+            "task": "Submit to Bing + Apple Maps + Practo + 99acres",
+            "time": "125 min",
+            "priority": "P0"
+          },
+          {
+            "id": "D7.3",
+            "task": "Submit to Yelp + Hotfrog",
+            "time": "60 min",
+            "priority": "P2"
+          },
+          {
+            "id": "D7.4",
+            "task": "Post 1 GBP update per city (4 posts)",
+            "time": "30 min",
+            "priority": "P0"
+          },
+          {
+            "id": "D7.5",
+            "task": "Get 5 Google reviews (friends/beta clients)",
+            "time": "ongoing",
+            "priority": "P0"
+          }
+        ]
+      }
+    ]
   }
 }

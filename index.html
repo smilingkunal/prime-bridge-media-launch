@@ -59,6 +59,116 @@
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
   }
 
+  .header-divider {
+    color: var(--fg-dim); font-weight: 300; margin: 0 6px;
+  }
+  .header-subtitle {
+    font-weight: 500; color: var(--fg-mute); font-size: 18px;
+  }
+
+  /* ===== 7-DAY TIMELINE ===== */
+  .tl-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 14px;
+  }
+  .tl-day {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 12px; padding: 0; overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+  .tl-day.today {
+    border-color: var(--brand-blue);
+    box-shadow: 0 0 0 3px var(--brand-blue-dim), var(--shadow-sm);
+  }
+  .tl-day.complete {
+    border-color: var(--success);
+    opacity: 0.85;
+  }
+  .tl-day-header {
+    padding: 14px 18px;
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 70%);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .tl-day.today .tl-day-header { background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%); color: #fff; }
+  .tl-day.complete .tl-day-header { background: linear-gradient(135deg, var(--success-light) 0%, var(--bg-elev) 70%); }
+  .tl-day-id {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    padding: 3px 8px; border-radius: 4px;
+    background: var(--bg); color: var(--brand-blue);
+  }
+  .tl-day.today .tl-day-id { background: rgba(255,255,255,0.25); color: #fff; }
+  .tl-day-label { font-size: 15px; font-weight: 700; }
+  .tl-day-date { font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute); }
+  .tl-day.today .tl-day-date { color: rgba(255,255,255,0.85); }
+  .tl-tasks { padding: 12px 18px; }
+  .tl-task {
+    display: flex; gap: 10px; padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 12px;
+  }
+  .tl-task:last-child { border-bottom: none; }
+  .tl-task.done { opacity: 0.5; }
+  .tl-task.done .task-label { text-decoration: line-through; }
+  .tl-task .task-content { flex: 1; }
+  .tl-task .task-id { font-family: var(--font-mono); font-size: 10px; color: var(--fg-dim); }
+  .tl-task .task-label { color: var(--fg); font-weight: 500; margin-top: 2px; }
+  .tl-task .task-meta {
+    display: flex; gap: 8px; margin-top: 4px;
+    font-family: var(--font-mono); font-size: 10px; color: var(--fg-mute);
+  }
+
+  /* ===== COMPLIANCE CHECKER ===== */
+  .compliance-card {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 8px;
+  }
+  .compliance-card.has-failures { border-left: 3px solid var(--warn); }
+  .compliance-card.all-pass { border-left: 3px solid var(--success); }
+  .compliance-card-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px;
+  }
+  .compliance-title { font-size: 13px; font-weight: 600; }
+  .compliance-badge {
+    font-family: var(--font-mono); font-size: 10px; padding: 3px 8px; border-radius: 4px;
+    font-weight: 700;
+  }
+  .compliance-badge.pass { background: var(--success-light); color: var(--success); }
+  .compliance-badge.partial { background: var(--warn-light); color: #b45309; }
+  .compliance-check-list {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 4px 12px; font-size: 11px;
+  }
+  .compliance-check {
+    display: flex; gap: 6px; align-items: flex-start;
+    padding: 3px 0; color: var(--fg-mute);
+  }
+  .compliance-check.passed { color: var(--success); }
+  .compliance-check.failed { color: var(--danger); }
+
+  /* ===== GSC SETUP ===== */
+  .gsc-setup {
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 70%);
+    border: 1px solid var(--brand-blue-light); border-left: 4px solid var(--brand-blue);
+    border-radius: 10px; padding: 18px 22px; margin-bottom: 16px;
+  }
+  .gsc-setup h3 {
+    color: var(--brand-blue); margin-bottom: 10px; font-size: 15px;
+  }
+  .gsc-setup ol {
+    padding-left: 20px; font-size: 13px; color: var(--fg);
+    line-height: 1.8;
+  }
+  .gsc-setup ol li { margin-bottom: 4px; }
+  .gsc-quick-link {
+    display: inline-block; margin-top: 12px; padding: 8px 14px;
+    background: var(--brand-blue); color: #fff;
+    border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px;
+  }
+  .gsc-quick-link:hover { background: var(--brand-blue-dark); }
+
   /* ===== GBP PERFORMANCE CHARTS ===== */
   .perf-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -565,7 +675,7 @@
     <div class="header-brand">
       <img src="assets/logo-transparent-500.png" alt="Prime Bridge Media" class="header-logo">
       <div class="header-text">
-        <h1><span class="brand-accent">PBM</span> — Launch Control Center</h1>
+        <h1>Prime Bridge Media <span class="header-divider">·</span> <span class="header-subtitle">Launch Control Center</span></h1>
         <div class="sub">Tricity + Zirakpur · Phase 1 · 7-day sprint</div>
       </div>
     </div>
@@ -591,6 +701,12 @@
     </button>
     <button class="tab" data-tab="gbp_perf" onclick="switchTab('gbp_perf')">
       <span>📊</span> GBP Performance <span class="badge" id="badge-perf">—</span>
+    </button>
+    <button class="tab" data-tab="timeline" onclick="switchTab('timeline')">
+      <span>📅</span> 7-Day Timeline <span class="badge" id="badge-tl">29</span>
+    </button>
+    <button class="tab" data-tab="gsc" onclick="switchTab('gsc')">
+      <span>📈</span> GSC Data <span class="badge" id="badge-gsc">pending</span>
     </button>
   </nav>
 
@@ -667,6 +783,30 @@
       </div>
       <div id="perf-content"><div class="loading">Loading…</div></div>
     </section>
+
+    <!-- TAB 6: 7-DAY TIMELINE -->
+    <section class="tab-content" id="tab-timeline">
+      <div class="tab-summary">
+        <div class="overall" id="tl-overall">0<small>/29</small></div>
+        <div class="info">
+          <h2>7-Day Timeline — Aug 18 → Aug 25, 2026</h2>
+          <p>Day-by-day schedule. Today is highlighted. Click any task to tick it; state persists locally.</p>
+        </div>
+      </div>
+      <div id="tl-content"><div class="loading">Loading…</div></div>
+    </section>
+
+    <!-- TAB 7: GSC DATA -->
+    <section class="tab-content" id="tab-gsc">
+      <div class="tab-summary">
+        <div class="overall" id="gsc-overall">—<small></small></div>
+        <div class="info">
+          <h2>Google Search Console — Ranking Tracking</h2>
+          <p>Live impressions, clicks, CTR, position for the 9 target URLs. Setup instructions below.</p>
+        </div>
+      </div>
+      <div id="gsc-content"><div class="loading">Loading…</div></div>
+    </section>
   </main>
 
   <footer>
@@ -694,8 +834,8 @@ console.log('PBM dashboard v5 — light theme with brand assets');
 
 <script>
 // =================== STATE ===================
-const STORAGE_KEY = 'pbm-launch-v6';
-let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null };
+const STORAGE_KEY = 'pbm-launch-v7';
+let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null, gsc: null };
 let STATE = loadState();
 
 function loadState() {
@@ -1286,6 +1426,219 @@ function renderGBPPerformance() {
   `;
 }
 
+
+// =================== RENDER 7-DAY TIMELINE ===================
+function renderTimeline() {
+  const d = DATA.wp_audit;
+  if (!d || !d.timeline) return;
+  const days = d.timeline.days;
+  const allTasks = days.flatMap(day => day.tasks.map(t => ({...t, dayId: day.id, dayLabel: day.label})));
+  const done = allTasks.filter(t => isDone(t.id)).length;
+  const total = allTasks.length;
+  document.getElementById('tl-overall').innerHTML = done + `<small>/${total}</small>`;
+  document.getElementById('badge-tl').textContent = `${done}/${total}`;
+
+  const today = new Date().toISOString().split('T')[0];
+  const html = days.map(day => {
+    const isToday = day.date === today;
+    const isComplete = day.tasks.every(t => isDone(t.id)) && day.tasks.length > 0;
+    const dayTasks = day.tasks.map(t => {
+      const tid = t.id;
+      const done = isDone(tid);
+      const linkedHint = t.linked_wp_id ? `🔗 ${t.linked_wp_id}` : (t.linked_w1_id ? `📝 ${t.linked_w1_id}` : '');
+      return `<div class="tl-task ${done ? 'done' : ''}">
+        <input type="checkbox" ${done ? 'checked' : ''} onchange="onToggle('${tid}', this.checked)" style="margin-top: 2px;">
+        <div class="task-content">
+          <div class="task-id">${tid} ${linkedHint}</div>
+          <div class="task-label">${t.task}</div>
+          <div class="task-meta">
+            <span>⏱ ${t.time}</span>
+            ${t.priority ? `<span class="priority ${t.priority}" style="font-size: 9px;">${t.priority}</span>` : ''}
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+    return `<div class="tl-day ${isToday ? 'today' : ''} ${isComplete ? 'complete' : ''}">
+      <div class="tl-day-header">
+        <div>
+          <span class="tl-day-id">${day.id}</span>
+          <span class="tl-day-label" style="margin-left: 8px;">${day.label}</span>
+        </div>
+        <span class="tl-day-date">${day.date}${isToday ? ' · TODAY' : ''}</span>
+      </div>
+      <div class="tl-tasks">${dayTasks}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('tl-content').innerHTML = `<div class="tl-grid">${html}</div>`;
+}
+
+// =================== RENDER COMPLIANCE CHECKER (part of Week 1) ===================
+function renderCompliance() {
+  const d = DATA.week1;
+  if (!d || !d.compliance_rules) return;
+  const perItem = d.compliance_rules.compliance_per_item || {};
+  const allItems = [...d.pillars, ...d.blogs];
+  let totalChecks = 0, passedChecks = 0, itemsWithFailures = 0;
+  const itemsHtml = allItems.map(item => {
+    const checks = perItem[item.id] || [];
+    const failed = checks.filter(c => !c.passed).length;
+    const passed = checks.filter(c => c.passed).length;
+    totalChecks += checks.length;
+    passedChecks += passed;
+    if (failed > 0) itemsWithFailures++;
+    const cardClass = failed === 0 ? 'all-pass' : 'has-failures';
+    const badgeClass = failed === 0 ? 'pass' : 'partial';
+    const badgeText = failed === 0 ? `${passed}/${checks.length} ✓` : `${passed}/${checks.length} ⚠`;
+    const checksHtml = checks.map(c => {
+      const cls = c.passed ? 'passed' : 'failed';
+      const icon = c.passed ? '✓' : '✗';
+      return `<div class="compliance-check ${cls}">
+          <span style="font-weight: 700; flex-shrink: 0;">${icon}</span>
+          <span><b style="color: var(--fg);">${c.rule}</b> · ${c.value}</span>
+        </div>`;
+    }).join('');
+    return `<div class="compliance-card ${cardClass}">
+      <div class="compliance-card-head">
+        <div class="compliance-title">${item.id} · ${item.title.slice(0, 70)}${item.title.length > 70 ? '...' : ''}</div>
+        <span class="compliance-badge ${badgeClass}">${badgeText}</span>
+      </div>
+      <div class="compliance-check-list">${checksHtml}</div>
+    </div>`;
+  }).join('');
+  const complianceHtml = `
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>✅ Pre-publish compliance — ${passedChecks}/${totalChecks} checks passed across 9 items</h3>
+          <div class="desc">${itemsWithFailures} items have ${itemsWithFailures === 1 ? 'a warning' : 'warnings'}. Auto-scanned: title/desc length, target KW, secondary KWs, internal links, slug, word count.</div>
+        </div>
+        <div class="right">
+          <span class="progress-text"><b>${passedChecks}</b>/${totalChecks}</span>
+          <span class="toggle">▼</span>
+        </div>
+      </div>
+      <div class="group-body">
+        <div style="padding: 14px 18px;">${itemsHtml}</div>
+      </div>
+    </div>
+  `;
+  // Inject into Week 1 tab (compliance section goes after Quick Publish Steps)
+  const w1Container = document.getElementById('w1-content');
+  if (w1Container) {
+    // Remove old compliance if exists, then add fresh
+    const oldComp = document.getElementById('compliance-block');
+    if (oldComp) oldComp.remove();
+    const div = document.createElement('div');
+    div.id = 'compliance-block';
+    div.innerHTML = complianceHtml;
+    w1Container.appendChild(div);
+  }
+}
+
+// =================== RENDER GSC DATA ===================
+function renderGSC() {
+  const d = DATA.gsc;
+  if (!d) return;
+  document.getElementById('badge-gsc').textContent = d.status === 'pending_setup' ? 'pending' : 'live';
+
+  const setupHtml = `
+    <div class="gsc-setup">
+      <h3>🔌 Connect Google Search Console</h3>
+      <p style="color: var(--fg-mute); font-size: 13px; margin-bottom: 10px;">Live GSC data requires OAuth setup with a Google Cloud service account. Until connected, use the GSC UI directly for rankings data.</p>
+      <ol>
+        ${d.setup_required.steps.map(s => `<li>${s.replace(/^\d+\.\s/, '')}</li>`).join('')}
+      </ol>
+      <a href="https://search.google.com/search-console/" target="_blank" class="gsc-quick-link">📊 Open Google Search Console →</a>
+    </div>
+  `;
+
+  // Pillar targets table
+  const targetsHtml = `
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>🎯 Tracked pages — 9 target URLs</h3>
+          <div class="desc">6 pillars + 3 blogs. Live data appears once GSC is connected.</div>
+        </div>
+        <div class="right"><span class="toggle">▼</span></div>
+      </div>
+      <div class="group-body">
+        <table>
+          <thead><tr><th>Slug</th><th>Target KW</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Pos.</th><th>Status</th></tr></thead>
+          <tbody>
+            ${d.pillar_targets.map(p => `<tr>
+              <td style="font-family: var(--font-mono); font-size: 11px;">${p.slug}</td>
+              <td>${p.target_kw}</td>
+              <td style="font-family: var(--font-mono); color: var(--fg-mute);">—</td>
+              <td style="font-family: var(--font-mono); color: var(--fg-mute);">—</td>
+              <td style="font-family: var(--font-mono); color: var(--fg-mute);">—</td>
+              <td style="font-family: var(--font-mono); color: var(--fg-mute);">—</td>
+              <td><span class="compliance-badge partial">${p.ranking_status}</span></td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  // Benchmarks
+  const benchHtml = `
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>📐 Ranking milestones</h3>
+          <div class="desc">What "good" looks like at 30 / 60 / 90 days post-publish.</div>
+        </div>
+        <div class="right"><span class="toggle">▼</span></div>
+      </div>
+      <div class="group-body" style="padding: 16px 20px;">
+        <div class="bench-grid">
+          ${Object.entries(d.target_benchmarks).map(([period, b]) => `
+            <div class="bench-card">
+              <div style="font-size: 13px; font-weight: 700; color: var(--brand-blue); margin-bottom: 8px; text-transform: uppercase;">${period.replace(/_/g, ' ')}</div>
+              <div style="font-size: 12px; color: var(--fg-mute); line-height: 1.6;">
+                <div>📊 <b>${b.impressions_min}+</b> impressions</div>
+                <div>🖱 <b>${b.clicks_min}+</b> clicks</div>
+                <div>📈 <b>${b.position_top10}</b> in top 10</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Niche rankings
+  const nicheHtml = `
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>🏙 Niche-by-niche targets</h3>
+          <div class="desc">Month 1 goals per niche. Live data populates from GSC.</div>
+        </div>
+        <div class="right"><span class="toggle">▼</span></div>
+      </div>
+      <div class="group-body" style="padding: 16px 20px;">
+        <div class="bench-grid">
+          ${Object.entries(d.rankings_by_niche).map(([niche, r]) => `
+            <div class="bench-card">
+              <div style="font-size: 14px; font-weight: 700; color: var(--brand-blue); margin-bottom: 8px;">${niche}</div>
+              <div style="font-size: 12px; color: var(--fg-mute); line-height: 1.6;">
+                <div>📈 Current top 10: <b>${r.current_top10}</b></div>
+                <div>📍 Current top 3 pack: <b>${r.current_top3_pack}</b></div>
+                <div>🎯 ${r.month_1_target}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('gsc-content').innerHTML = setupHtml + targetsHtml + benchHtml + nicheHtml;
+  document.getElementById('gsc-overall').innerHTML = '—<small>pending</small>';
+}
+
 // =================== RE-RENDER ALL ===================
 function renderAll() {
   renderWP();
@@ -1293,6 +1646,9 @@ function renderAll() {
   renderCitations();
   renderWeek1();
   renderGBPPerformance();
+  renderTimeline();
+  renderCompliance();
+  renderGSC();
   updateLastSaved();
 }
 
@@ -1305,18 +1661,20 @@ setInterval(tickClock, 1000); tickClock();
 // =================== BOOT ===================
 async function boot() {
   try {
-    const [wp, gbp, cit, w1, perf] = await Promise.all([
+    const [wp, gbp, cit, w1, perf, gsc] = await Promise.all([
       fetch('data/wp-audit.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gbp.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/citations.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/week1-content.json?v=' + Date.now()).then(r => r.json()),
-      fetch('data/gbp-performance.json?v=' + Date.now()).then(r => r.json())
+      fetch('data/gbp-performance.json?v=' + Date.now()).then(r => r.json()),
+      fetch('data/gsc-data.json?v=' + Date.now()).then(r => r.json())
     ]);
     DATA.wp_audit = wp;
     DATA.gbp = gbp;
     DATA.citations = cit;
     DATA.week1 = w1;
     DATA.gbp_perf = perf;
+    DATA.gsc = gsc;
     if (cit && cit.directories) {
       cit.directories.forEach(c => {
         if (STATE[`cit-status-${c.id}`]) c.status = STATE[`cit-status-${c.id}`];

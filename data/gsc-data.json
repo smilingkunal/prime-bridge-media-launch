@@ -1,0 +1,162 @@
+{
+  "version": "2026-08-18",
+  "tab_title": "GSC Data",
+  "tab_icon": "📈",
+  "last_updated": "2026-08-18T18:50:00+05:30",
+  "status": "pending_setup",
+  "setup_required": {
+    "title": "Connect Google Search Console",
+    "steps": [
+      "1. Verify primebridgemedia.com in GSC (DNS TXT or HTML file upload) — see WP-13 in audit tab",
+      "2. Go to GSC > Settings > Users and permissions > Add user (kunal@yourdomain.com)",
+      "3. Grant 'Full' permission (or 'Restricted' if you prefer)",
+      "4. Create a Google Cloud service account with Search Console API access",
+      "5. Download service account JSON key",
+      "6. Share the GSC property with the service account email (Viewer access)",
+      "7. Add credentials to Hermes config (env vars)",
+      "8. Refresh this tab — live data will appear"
+    ],
+    "alternative_quick_setup": "Use the GSC UI directly at https://search.google.com/search-console/ — Performance tab shows everything you need (impressions, clicks, CTR, position) without API setup"
+  },
+  "summary": {
+    "total_impressions": null,
+    "total_clicks": null,
+    "avg_ctr": null,
+    "avg_position": null,
+    "tracked_keywords": 0,
+    "top_3_pack_keywords": 0,
+    "last_sync": "never"
+  },
+  "pillar_targets": [
+    {
+      "slug": "/local-seo-doctors-chandigarh/",
+      "target_kw": "local SEO for doctors Chandigarh",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/local-seo-restaurants-chandigarh/",
+      "target_kw": "local SEO for restaurants Chandigarh",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/local-seo-salons-mohali/",
+      "target_kw": "local SEO for salons Mohali",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/local-seo-gyms-chandigarh/",
+      "target_kw": "local SEO for gyms Chandigarh",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/local-seo-lawyers-chandigarh/",
+      "target_kw": "local SEO for lawyers Chandigarh",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/local-seo-real-estate-zirakpur/",
+      "target_kw": "local SEO for real estate Zirakpur",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/blog/digital-marketing-cost-chandigarh-2026/",
+      "target_kw": "digital marketing cost Chandigarh",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/blog/how-to-get-more-patients-chandigarh-clinic/",
+      "target_kw": "how to get more patients Chandigarh",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    },
+    {
+      "slug": "/blog/how-to-get-more-site-visits-tricity-real-estate/",
+      "target_kw": "how to get more site visits Tricity real estate",
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "position": null,
+      "ranking_status": "pending"
+    }
+  ],
+  "target_benchmarks": {
+    "30_days_post_publish": {
+      "impressions_min": 50,
+      "clicks_min": 3,
+      "position_top10": "20% of targets"
+    },
+    "60_days_post_publish": {
+      "impressions_min": 200,
+      "clicks_min": 15,
+      "position_top10": "40% of targets"
+    },
+    "90_days_post_publish": {
+      "impressions_min": 500,
+      "clicks_min": 40,
+      "position_top10": "60% of targets"
+    }
+  },
+  "rankings_by_niche": {
+    "Doctors": {
+      "current_top10": 0,
+      "current_top3_pack": 0,
+      "month_1_target": "2 KWs top 10, 1 in 3-pack"
+    },
+    "Restaurants": {
+      "current_top10": 0,
+      "current_top3_pack": 0,
+      "month_1_target": "2 KWs top 10, 1 in 3-pack"
+    },
+    "Salons (Mohali)": {
+      "current_top10": 0,
+      "current_top3_pack": 0,
+      "month_1_target": "1 KW top 10, 1 in 3-pack"
+    },
+    "Gyms": {
+      "current_top10": 0,
+      "current_top3_pack": 0,
+      "month_1_target": "1 KW top 10"
+    },
+    "Lawyers": {
+      "current_top10": 0,
+      "current_top3_pack": 0,
+      "month_1_target": "1 KW top 10"
+    },
+    "Real Estate (Zirakpur)": {
+      "current_top10": 0,
+      "current_top3_pack": 0,
+      "month_1_target": "2 KWs top 10, 1 in 3-pack"
+    }
+  }
+}

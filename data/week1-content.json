@@ -108,7 +108,7 @@
       ],
       "words": 1400,
       "rank_math_title": "Local SEO for Gyms in Chandigarh | More Members",
-      "rank_math_desc": "Rank your gym in Google Maps 3-pack. More free trial sign-ups, more memberships, fewer wasted ad rupees. Free audit from PBM.",
+      "rank_math_desc": "Rank your gym in Google Maps 3-pack. More free trial sign-ups, more memberships, fewer wasted ad rupees. Free audit from Prime Bridge Media.",
       "draft_file": "Prime Bridge Media/SEO/Launch/Pillar - Local SEO for Gyms Chandigarh.md",
       "internal_links_to": [
         "Blog - Digital Marketing Cost Chandigarh 2026",
@@ -135,7 +135,7 @@
       ],
       "words": 1400,
       "rank_math_title": "Local SEO for Lawyers in Chandigarh | More Inquiries",
-      "rank_math_desc": "Rank your law firm in Google Maps 3-pack for Chandigarh searches. More consultation requests, more case inquiries. Free audit from PBM.",
+      "rank_math_desc": "Rank your law firm in Google Maps 3-pack for Chandigarh searches. More consultation requests, more case inquiries. Free audit from Prime Bridge Media.",
       "draft_file": "Prime Bridge Media/SEO/Launch/Pillar - Local SEO for Lawyers Chandigarh.md",
       "internal_links_to": [
         "Blog - Digital Marketing Cost Chandigarh 2026",
@@ -162,7 +162,7 @@
       ],
       "words": 1400,
       "rank_math_title": "Local SEO for Real Estate in Zirakpur | More Leads",
-      "rank_math_desc": "Rank your builder, project or agency in Google Maps 3-pack for Zirakpur searches. More site visits, more bookings. Free audit from PBM.",
+      "rank_math_desc": "Rank your builder, project or agency in Google Maps 3-pack for Zirakpur searches. More site visits, more bookings. Free audit from Prime Bridge Media.",
       "draft_file": "Prime Bridge Media/SEO/Launch/Pillar - Local SEO for Real Estate Zirakpur.md",
       "internal_links_to": [
         "Blog - More Site Visits Real Estate Tricity",
@@ -189,7 +189,7 @@
       ],
       "words": 1200,
       "rank_math_title": "Digital Marketing Cost in Chandigarh 2026 | Real Prices",
-      "rank_math_desc": "How much does digital marketing cost in Chandigarh in 2026? SEO, Google Ads, Meta Ads, WordPress — real prices, no fluff. PBM.",
+      "rank_math_desc": "How much does digital marketing cost in Chandigarh in 2026? SEO, Google Ads, Meta Ads, WordPress — real prices, no fluff. Prime Bridge Media.",
       "draft_file": "Prime Bridge Media/SEO/Launch/Blog - Digital Marketing Cost Chandigarh 2026.md",
       "internal_links_to": [
         "W1-P1",
@@ -214,7 +214,7 @@
       ],
       "words": 1200,
       "rank_math_title": "How to Get More Patients in Chandigarh | 7 Proven Tactics",
-      "rank_math_desc": "Want more patient appointments for your Chandigarh clinic? 7 tactics that actually work in 2026 — Google Maps, reviews, Meta ads, more. PBM.",
+      "rank_math_desc": "Want more patient appointments for your Chandigarh clinic? 7 tactics that actually work in 2026 — Google Maps, reviews, Meta ads, more. Prime Bridge Media.",
       "draft_file": "Prime Bridge Media/SEO/Launch/Blog - More Patients Clinic Chandigarh.md",
       "internal_links_to": [
         "W1-P1",
@@ -238,7 +238,7 @@
       ],
       "words": 1200,
       "rank_math_title": "More Site Visits for Real Estate in Tricity | Builder Playbook",
-      "rank_math_desc": "Get more qualified site visits for your Zirakpur, Mohali or Chandigarh real estate project. Local SEO, Meta + YouTube ads, drone walkthroughs. PBM.",
+      "rank_math_desc": "Get more qualified site visits for your Zirakpur, Mohali or Chandigarh real estate project. Local SEO, Meta + YouTube ads, drone walkthroughs. Prime Bridge Media.",
       "draft_file": "Prime Bridge Media/SEO/Launch/Blog - More Site Visits Real Estate Tricity.md",
       "internal_links_to": [
         "W1-P6",
@@ -272,7 +272,7 @@
     },
     {
       "id": "PUB-04",
-      "task": "After each blog publish: submit URL to GSC + share on linkedin/facebook with PBM handle",
+      "task": "After each blog publish: submit URL to GSC + share on linkedin/facebook with Prime Bridge Media handle",
       "done": false,
       "section": "week1"
     },
@@ -312,5 +312,364 @@
     "8. Featured image: from /assets/ folder (or skip)",
     "9. Preview > check on mobile + desktop",
     "10. Publish OR Save Draft (recommended first time)"
-  ]
+  ],
+  "compliance_rules": {
+    "title_char_limit": 60,
+    "desc_char_limit": 160,
+    "internal_links_min": 1,
+    "secondary_kws_min": 2,
+    "lawsensitive_niches": [
+      "Lawyers"
+    ],
+    "lawsensitive_keywords_blocked": [
+      "best lawyer",
+      "guaranteed win",
+      "100% success",
+      "guaranteed",
+      "win guaranteed"
+    ],
+    "realestate_niches": [
+      "Real Estate"
+    ],
+    "realestate_keywords_blocked": [
+      "guaranteed returns",
+      "assured returns",
+      "100% rental"
+    ],
+    "compliance_per_item": {
+      "W1-P1": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "59 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "142 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "local SEO for doctors Chandigarh",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/local-seo-doctors-chandigarh/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1400 words",
+          "passed": true
+        }
+      ],
+      "W1-P2": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "53 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "137 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "local SEO for restaurants Chandigarh",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/local-seo-restaurants-chandigarh/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1400 words",
+          "passed": true
+        }
+      ],
+      "W1-P3": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "46 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "134 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "local SEO for salons Mohali",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/local-seo-salons-mohali/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1400 words",
+          "passed": true
+        }
+      ],
+      "W1-P4": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "47 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "140 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "local SEO for gyms Chandigarh",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/local-seo-gyms-chandigarh/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1400 words",
+          "passed": true
+        }
+      ],
+      "W1-P5": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "52 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "150 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "local SEO for lawyers Chandigarh",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/local-seo-lawyers-chandigarh/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1400 words",
+          "passed": true
+        }
+      ],
+      "W1-P6": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "50 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "150 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "local SEO for real estate Zirakpur",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/local-seo-real-estate-zirakpur/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1400 words",
+          "passed": true
+        }
+      ],
+      "W1-B1": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "55 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "141 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "digital marketing cost Chandigarh",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "3 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/blog/digital-marketing-cost-chandigarh-2026/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1200 words",
+          "passed": true
+        }
+      ],
+      "W1-B2": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "57 chars",
+          "passed": true
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "155 chars",
+          "passed": true
+        },
+        {
+          "rule": "Target KW set",
+          "value": "how to get more patients Chandigarh",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "2 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/blog/how-to-get-more-patients-chandigarh-clinic/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1200 words",
+          "passed": true
+        }
+      ],
+      "W1-B3": [
+        {
+          "rule": "Title ≤ 60 chars",
+          "value": "62 chars",
+          "passed": false
+        },
+        {
+          "rule": "Description ≤ 160 chars",
+          "value": "162 chars",
+          "passed": false
+        },
+        {
+          "rule": "Target KW set",
+          "value": "how to get more site visits Tricity real estate",
+          "passed": true
+        },
+        {
+          "rule": "≥ 2 secondary KWs",
+          "value": "3 KWs",
+          "passed": true
+        },
+        {
+          "rule": "≥ 1 internal link planned",
+          "value": "3 links",
+          "passed": true
+        },
+        {
+          "rule": "Slug valid",
+          "value": "/blog/how-to-get-more-site-visits-tricity-real-estate/",
+          "passed": true
+        },
+        {
+          "rule": "Word count ≥ 800",
+          "value": "1200 words",
+          "passed": true
+        }
+      ]
+    }
+  }
 }

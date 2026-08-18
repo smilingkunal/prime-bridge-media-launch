@@ -1,6 +1,6 @@
 # Prime Bridge Media — Launch Control Center
 
-> Live tracker for the PBM Phase 1 launch. **3 tabs** — WP Audit & Changes, GBP Profiles, Citations.
+> Live tracker for the Prime Bridge Media Phase 1 launch. **3 tabs** — WP Audit & Changes, GBP Profiles, Citations.
 > Hosted on GitHub Pages: **https://smilingkunal.github.io/prime-bridge-media-launch/**
 
 ## What's inside
