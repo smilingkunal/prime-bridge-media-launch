@@ -4,257 +4,304 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PBM Launch Control Center</title>
-<meta name="description" content="Prime Bridge Media — Week 1 launch control center. WP audit, GBP profiles, citations.">
-<meta name="theme-color" content="#0a0e14">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2300d97e'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23000' font-family='monospace' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Prime Bridge Media — Week 1 launch control center. WP audit, GBP profiles, citations, content drafts.">
+<meta name="theme-color" content="#0040B0">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0e14;
-    --bg-elev: #0f141b;
-    --bg-row: #11171f;
-    --bg-row-hover: #161e28;
-    --bg-tab-active: #1a2330;
-    --border: #1c2530;
-    --border-strong: #2a3540;
-    --fg: #d6dde6;
-    --fg-mute: #6b7785;
-    --fg-dim: #4a5560;
-    --accent: #00d97e;
-    --accent-dim: #00d97e33;
-    --warn: #ffb454;
-    --warn-dim: #ffb45433;
-    --danger: #ff4d6d;
-    --danger-dim: #ff4d6d33;
-    --info: #4ea1ff;
-    --info-dim: #4ea1ff33;
-    --purple: #c084fc;
-    --purple-dim: #c084fc33;
-    --mono: ui-monospace, 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
-    --sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    /* Brand palette — extracted from Prime Bridge Media logo */
+    --brand-blue: #004CB1;
+    --brand-blue-dark: #003380;
+    --brand-blue-light: #e6efff;
+    --brand-blue-lighter: #f4f7ff;
+    --brand-blue-dim: rgba(0, 76, 177, 0.12);
+    --brand-blue-glow: rgba(0, 76, 177, 0.08);
+    --accent: #004CB1;
+    --accent-hover: #003380;
+    --accent-light: #e6efff;
+    --warn: #f59e0b;
+    --warn-light: #fef3c7;
+    --warn-dim: rgba(245, 158, 11, 0.12);
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --danger-dim: rgba(220, 38, 38, 0.12);
+    --success: #059669;
+    --success-light: #d1fae5;
+    --success-dim: rgba(5, 150, 105, 0.12);
+    --info: #0ea5e9;
+    --info-light: #e0f2fe;
+    --info-dim: rgba(14, 165, 233, 0.12);
+    --purple: #7c3aed;
+    --purple-light: #ede9fe;
+    --purple-dim: rgba(124, 58, 237, 0.12);
+    /* Light theme surfaces */
+    --bg: #fafbfc;
+    --bg-elev: #ffffff;
+    --bg-row: #f7f9fc;
+    --bg-row-hover: #f0f4fa;
+    --bg-tab-active: #ffffff;
+    --border: #e5e9f0;
+    --border-strong: #d1d8e3;
+    --fg: #1a2233;
+    --fg-mute: #5a6478;
+    --fg-dim: #8a93a4;
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 1px rgba(15, 23, 42, 0.03);
+    --shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.08), 0 4px 10px rgba(15, 23, 42, 0.05);
+    --shadow-glow: 0 0 0 3px var(--brand-blue-dim);
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 14px; }
+  html { font-size: 14px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   body {
-    background: var(--bg); color: var(--fg); font-family: var(--sans);
-    line-height: 1.5; -webkit-font-smoothing: antialiased; min-height: 100vh;
+    background: var(--bg); color: var(--fg);
+    font-family: var(--font-sans); line-height: 1.55;
+    background-image:
+      radial-gradient(at 0% 0%, var(--brand-blue-glow) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(0, 76, 177, 0.04) 0px, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
-  .wrap { max-width: 1400px; margin: 0 auto; padding: 20px 24px 80px; }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
 
-  /* Header */
+  /* ===== HEADER ===== */
   header {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    border-bottom: 1px solid var(--border-strong);
-    padding-bottom: 16px; margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px; margin-bottom: 24px;
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 12px; box-shadow: var(--shadow-sm);
     gap: 24px; flex-wrap: wrap;
+    background-image: linear-gradient(135deg, var(--brand-blue-lighter) 0%, transparent 60%);
   }
-  .title-block h1 {
-    font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
-    color: var(--fg); font-family: var(--mono);
+  .header-brand { display: flex; align-items: center; gap: 16px; }
+  .header-logo {
+    height: 56px; width: auto; display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 76, 177, 0.08));
   }
-  .title-block h1 .accent { color: var(--accent); }
-  .title-block .sub { color: var(--fg-mute); font-size: 13px; margin-top: 4px; font-family: var(--mono); }
-  .meta-block { text-align: right; font-family: var(--mono); font-size: 12px; color: var(--fg-mute); }
-  .meta-block .clock { color: var(--accent); font-size: 16px; font-weight: 600; }
-  .meta-block .row { margin-top: 3px; }
-  .meta-block .row span { color: var(--fg); }
+  .header-text h1 {
+    font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--fg);
+    line-height: 1.2;
+  }
+  .header-text h1 .brand-accent { color: var(--brand-blue); }
+  .header-text .sub { color: var(--fg-mute); font-size: 12px; margin-top: 2px; font-family: var(--font-mono); }
+  .header-meta { text-align: right; font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute); }
+  .header-meta .clock { color: var(--brand-blue); font-size: 18px; font-weight: 600; font-family: var(--font-sans); }
+  .header-meta .row { margin-top: 4px; }
+  .header-meta .row span { color: var(--fg); font-weight: 500; }
 
-  /* Tabs */
+  /* ===== TABS ===== */
   .tabs {
     display: flex; gap: 4px; margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-strong);
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 10px; padding: 6px;
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
   }
   .tab {
     background: transparent; border: none; color: var(--fg-mute);
-    padding: 12px 18px; font-family: var(--mono); font-size: 13px; font-weight: 600;
-    cursor: pointer; border-bottom: 2px solid transparent;
-    transition: all 0.15s; display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+    cursor: pointer; border-radius: 7px;
+    transition: all 0.15s ease; display: flex; align-items: center; gap: 8px;
+    white-space: nowrap;
   }
   .tab:hover { color: var(--fg); background: var(--bg-row); }
   .tab.active {
-    color: var(--fg); border-bottom-color: var(--accent);
-    background: var(--bg-tab-active);
+    color: #fff; background: var(--brand-blue);
+    box-shadow: 0 2px 8px rgba(0, 76, 177, 0.25);
   }
   .tab .badge {
-    background: var(--bg); color: var(--fg-mute);
-    padding: 2px 6px; border-radius: 3px; font-size: 10px; border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.08); color: inherit;
+    padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 600;
   }
-  .tab.active .badge { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
+  .tab.active .badge { background: rgba(255, 255, 255, 0.2); color: #fff; }
   .tab-content { display: none; }
-  .tab-content.active { display: block; animation: fadeIn 0.2s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .tab-content.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* Summary header per tab */
+  /* ===== TAB SUMMARY (top card per tab) ===== */
   .tab-summary {
     background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: 4px; padding: 14px 18px; margin-bottom: 20px;
-    display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 20px;
+    display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+    box-shadow: var(--shadow-sm);
+    background-image: linear-gradient(135deg, var(--brand-blue-lighter) 0%, transparent 70%);
   }
   .tab-summary .overall {
-    font-family: var(--mono); font-size: 32px; font-weight: 700; color: var(--accent);
-    line-height: 1;
+    font-family: var(--font-sans); font-size: 40px; font-weight: 700; color: var(--brand-blue);
+    line-height: 1; letter-spacing: -0.02em;
   }
-  .tab-summary .overall small { font-size: 16px; color: var(--fg-dim); font-weight: 400; }
+  .tab-summary .overall small { font-size: 18px; color: var(--fg-dim); font-weight: 500; }
   .tab-summary .info { flex: 1; min-width: 200px; }
-  .tab-summary .info h2 { font-size: 14px; font-weight: 600; font-family: var(--mono); margin-bottom: 4px; }
-  .tab-summary .info p { color: var(--fg-mute); font-size: 12px; }
-  .tab-summary .stats { display: flex; gap: 16px; font-family: var(--mono); font-size: 12px; }
-  .tab-summary .stat { color: var(--fg-mute); }
-  .tab-summary .stat b { color: var(--fg); font-weight: 600; }
+  .tab-summary .info h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .tab-summary .info p { color: var(--fg-mute); font-size: 13px; }
+  .tab-summary .stats { display: flex; gap: 24px; }
+  .tab-summary .stat { font-family: var(--font-mono); font-size: 12px; color: var(--fg-mute); }
+  .tab-summary .stat b { color: var(--fg); font-weight: 600; font-size: 14px; display: block; }
 
-  /* Group sections */
+  /* ===== GROUPS (collapsible cards) ===== */
   .group {
     background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: 4px; margin-bottom: 14px; overflow: hidden;
+    border-radius: 10px; margin-bottom: 12px; overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
   .group-head {
-    padding: 12px 18px; background: var(--bg-row);
-    border-bottom: 1px solid var(--border);
+    padding: 14px 20px; background: var(--bg-row);
     cursor: pointer; user-select: none;
     display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: background 0.15s;
   }
   .group-head:hover { background: var(--bg-row-hover); }
   .group-head .left { display: flex; align-items: center; gap: 12px; }
-  .group-head h3 { font-size: 14px; font-weight: 600; font-family: var(--mono); }
-  .group-head .desc { font-size: 12px; color: var(--fg-mute); margin-top: 3px; font-family: var(--sans); }
+  .group-head h3 { font-size: 15px; font-weight: 600; }
+  .group-head .desc { font-size: 12px; color: var(--fg-mute); margin-top: 4px; max-width: 700px; }
   .group-head .right { display: flex; align-items: center; gap: 14px; }
-  .group-head .progress-text { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); }
-  .group-head .progress-text b { color: var(--accent); }
-  .group-head .toggle { color: var(--fg-dim); font-family: var(--mono); transition: transform 0.2s; }
+  .group-head .progress-text { font-family: var(--font-mono); font-size: 12px; color: var(--fg-mute); }
+  .group-head .progress-text b { color: var(--brand-blue); }
+  .group-head .toggle { color: var(--fg-dim); font-family: var(--font-mono); transition: transform 0.2s; }
   .group.collapsed .toggle { transform: rotate(-90deg); }
   .group.collapsed .group-body { display: none; }
+  .group-body { border-top: 1px solid var(--border); }
 
+  /* ===== TABLES ===== */
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th {
-    text-align: left; padding: 8px 18px; font-weight: 500; color: var(--fg-mute);
-    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
-    border-bottom: 1px solid var(--border); background: var(--bg);
+    text-align: left; padding: 10px 16px; font-weight: 600; color: var(--fg-mute);
+    font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    background: var(--bg-row);
   }
-  td { padding: 10px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--bg-row); }
 
+  /* ===== CHECKBOXES (custom, brand-styled) ===== */
   input[type=checkbox] {
     appearance: none; -webkit-appearance: none;
-    width: 16px; height: 16px; border: 1.5px solid var(--fg-dim); border-radius: 3px;
-    background: var(--bg); cursor: pointer; position: relative; vertical-align: middle;
-    transition: all 0.15s;
+    width: 18px; height: 18px; border: 2px solid var(--border-strong); border-radius: 4px;
+    background: var(--bg-elev); cursor: pointer; position: relative; vertical-align: middle;
+    transition: all 0.15s ease;
   }
-  input[type=checkbox]:hover { border-color: var(--accent); }
-  input[type=checkbox]:checked { background: var(--accent); border-color: var(--accent); }
+  input[type=checkbox]:hover { border-color: var(--brand-blue); }
+  input[type=checkbox]:checked {
+    background: var(--brand-blue); border-color: var(--brand-blue);
+    box-shadow: 0 2px 4px rgba(0, 76, 177, 0.2);
+  }
   input[type=checkbox]:checked::after {
     content: ''; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px;
-    border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(45deg);
+    border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
   }
 
-  .checkbox-cell { width: 32px; padding: 10px 8px 10px 18px; }
-  .id-cell { font-family: var(--mono); color: var(--fg-mute); font-size: 12px; width: 70px; }
+  .checkbox-cell { width: 36px; padding: 12px 8px 12px 18px; }
+  .id-cell { font-family: var(--font-mono); color: var(--fg-mute); font-size: 11px; width: 60px; font-weight: 500; }
   .task-cell { font-size: 13px; color: var(--fg); }
   .task-cell.done { color: var(--fg-dim); text-decoration: line-through; }
   .priority-cell { width: 50px; }
   .priority {
-    display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 600;
-    padding: 2px 6px; border-radius: 3px; letter-spacing: 0.05em;
+    display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; letter-spacing: 0.05em;
   }
-  .priority.P0 { background: var(--danger-dim); color: var(--danger); }
-  .priority.P1 { background: var(--warn-dim); color: var(--warn); }
-  .priority.P2 { background: var(--info-dim); color: var(--info); }
-  .time-cell { font-family: var(--mono); color: var(--fg-mute); font-size: 12px; width: 70px; }
-  .notes-cell { font-size: 12px; color: var(--fg-mute); width: 40%; }
+  .priority.P0 { background: var(--danger-light); color: var(--danger); }
+  .priority.P1 { background: var(--warn-light); color: #b45309; }
+  .priority.P2 { background: var(--info-light); color: #0369a1; }
+  .time-cell { font-family: var(--font-mono); color: var(--fg-mute); font-size: 12px; width: 70px; }
+  .notes-cell { font-size: 12px; color: var(--fg-mute); }
   .why-cell { font-size: 12px; color: var(--info); font-style: italic; }
-  .how-cell { font-size: 12px; color: var(--fg-mute); font-family: var(--mono); }
+  .how-cell { font-size: 12px; color: var(--fg-mute); }
 
-  /* GBP-specific */
+  /* ===== GBP LISTINGS ===== */
   .listing-card {
     background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: 4px; margin-bottom: 14px; overflow: hidden;
+    border-radius: 12px; margin-bottom: 14px; overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
   .listing-head {
-    padding: 14px 18px; background: var(--bg-row);
+    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 60%);
     border-bottom: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
   }
-  .listing-head .title { font-size: 15px; font-weight: 600; font-family: var(--mono); }
-  .listing-head .badge {
-    font-family: var(--mono); font-size: 10px; padding: 3px 8px;
-    border-radius: 3px; letter-spacing: 0.05em;
+  .listing-head .title { font-size: 16px; font-weight: 700; }
+  .listing-head .title .city { color: var(--brand-blue); }
+  .badge {
+    font-family: var(--font-mono); font-size: 10px; padding: 4px 10px;
+    border-radius: 4px; letter-spacing: 0.05em; font-weight: 600;
   }
-  .badge.setup-incomplete { background: var(--warn-dim); color: var(--warn); }
-  .badge.setup-complete { background: var(--accent-dim); color: var(--accent); }
+  .badge.setup-incomplete { background: var(--warn-light); color: #b45309; }
+  .badge.setup-complete { background: var(--success-light); color: var(--success); }
   .setup-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1px; background: var(--border); padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px; background: var(--border);
   }
   .setup-item {
     background: var(--bg-elev); padding: 10px 14px;
     display: flex; align-items: center; gap: 10px; font-size: 12px;
   }
   .setup-item .icon { font-size: 14px; }
-  .setup-item.done { color: var(--accent); }
+  .setup-item.done { color: var(--success); font-weight: 500; }
   .setup-item.pending { color: var(--fg-mute); }
-
   .posts-section {
-    padding: 14px 18px; border-top: 1px solid var(--border);
-    background: var(--bg);
+    padding: 16px 20px; border-top: 1px solid var(--border);
   }
   .posts-section h4 {
-    font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
-    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;
+    font-family: var(--font-sans); font-size: 12px; color: var(--fg-mute);
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; font-weight: 600;
   }
   .post-card {
-    background: var(--bg-elev); border: 1px solid var(--border);
+    background: var(--bg-row); border: 1px solid var(--border);
     border-left: 3px solid var(--warn);
-    border-radius: 3px; padding: 10px 14px; margin-bottom: 8px;
+    border-radius: 6px; padding: 12px 16px; margin-bottom: 8px;
+    transition: all 0.15s;
   }
-  .post-card.published { border-left-color: var(--accent); }
+  .post-card:hover { box-shadow: var(--shadow-sm); }
+  .post-card.published { border-left-color: var(--success); opacity: 0.7; }
   .post-card .post-title { font-size: 13px; font-weight: 600; color: var(--fg); margin-bottom: 6px; }
   .post-card .post-body { font-size: 12px; color: var(--fg-mute); line-height: 1.5; }
   .post-card .post-meta {
     margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);
-    font-size: 11px; color: var(--fg-dim); font-family: var(--mono);
+    font-size: 11px; color: var(--fg-dim); font-family: var(--font-mono);
     display: flex; gap: 14px; flex-wrap: wrap;
   }
-  .post-card .post-actions {
-    margin-top: 8px; display: flex; gap: 8px;
-  }
-  .btn-mini {
-    background: var(--bg); border: 1px solid var(--border);
-    color: var(--fg-mute); padding: 4px 10px; border-radius: 3px;
-    font-family: var(--mono); font-size: 11px; cursor: pointer;
-    transition: all 0.15s;
-  }
-  .btn-mini:hover { color: var(--accent); border-color: var(--accent); }
-  .btn-mini.primary { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
 
-  /* Citations-specific */
+  /* ===== CITATIONS ===== */
   .cit-card {
     background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: 4px; margin-bottom: 12px; overflow: hidden;
+    border-radius: 10px; margin-bottom: 10px; overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.15s;
   }
+  .cit-card:hover { box-shadow: var(--shadow); }
   .cit-head {
-    padding: 12px 18px; background: var(--bg-row);
+    padding: 12px 18px;
     display: flex; justify-content: space-between; align-items: center;
     cursor: pointer; user-select: none;
   }
-  .cit-head:hover { background: var(--bg-row-hover); }
+  .cit-head:hover { background: var(--bg-row); }
   .cit-head .left { display: flex; align-items: center; gap: 12px; }
-  .cit-head .name { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+  .cit-head .name { font-family: var(--font-sans); font-size: 14px; font-weight: 600; }
   .cit-head .da {
-    font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
-    background: var(--bg); padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border);
+    font-family: var(--font-mono); font-size: 10px; color: var(--fg-mute);
+    background: var(--bg-row); padding: 3px 8px; border-radius: 4px; font-weight: 600;
   }
   .cit-head .status-tag {
-    font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 3px;
-    letter-spacing: 0.05em; text-transform: uppercase;
+    font-family: var(--font-mono); font-size: 10px; padding: 4px 9px; border-radius: 4px;
+    letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;
   }
-  .status-not_started { background: var(--bg); color: var(--fg-dim); border: 1px solid var(--border); }
-  .status-submitted { background: var(--info-dim); color: var(--info); }
-  .status-live { background: var(--accent-dim); color: var(--accent); }
-  .status-rejected { background: var(--danger-dim); color: var(--danger); }
-  .cit-body { padding: 14px 18px; border-top: 1px solid var(--border); display: none; }
+  .status-not_started { background: var(--bg-row); color: var(--fg-mute); border: 1px solid var(--border); }
+  .status-submitted { background: var(--info-light); color: #0369a1; }
+  .status-live { background: var(--success-light); color: var(--success); }
+  .status-rejected { background: var(--danger-light); color: var(--danger); }
+  .cit-body { padding: 16px 20px; border-top: 1px solid var(--border); display: none; background: var(--bg-row); }
   .cit-card.expanded .cit-body { display: block; }
   .cit-body h5 {
-    font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
-    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; margin-top: 12px;
+    font-family: var(--font-sans); font-size: 11px; color: var(--fg-mute);
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; margin-top: 14px; font-weight: 600;
   }
   .cit-body h5:first-child { margin-top: 0; }
   .cit-body ol, .cit-body ul { padding-left: 20px; font-size: 12px; color: var(--fg-mute); }
@@ -262,86 +309,82 @@
   .cit-body .field {
     font-size: 12px; color: var(--fg-mute); margin-bottom: 4px;
   }
-  .cit-body .field b { color: var(--fg); font-family: var(--mono); }
+  .cit-body .field b { color: var(--fg); font-family: var(--font-mono); }
 
-  /* NAP banner (citations + gbp share) */
+  /* ===== NAP BANNER ===== */
   .nap-banner {
-    background: var(--bg-elev); border: 1px solid var(--accent);
-    border-radius: 4px; padding: 12px 18px; margin-bottom: 16px;
-    font-family: var(--mono); font-size: 12px;
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 100%);
+    border: 1px solid var(--brand-blue);
+    border-left: 4px solid var(--brand-blue);
+    border-radius: 8px; padding: 14px 20px; margin-bottom: 16px;
+    font-family: var(--font-mono); font-size: 12px;
   }
-  .nap-banner .label { color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+  .nap-banner .label { color: var(--brand-blue); font-weight: 700; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
   .nap-banner .value { color: var(--fg); }
   .nap-banner .value span { color: var(--fg-mute); }
 
-  footer {
-    margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border);
-    color: var(--fg-dim); font-family: var(--mono); font-size: 11px;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  /* ===== BUTTONS ===== */
+  .btn-mini {
+    background: var(--bg-elev); border: 1px solid var(--border-strong);
+    color: var(--fg-mute); padding: 5px 10px; border-radius: 5px;
+    font-family: var(--font-mono); font-size: 11px; cursor: pointer;
+    transition: all 0.15s;
   }
-  footer a { color: var(--fg-mute); text-decoration: none; }
-  footer a:hover { color: var(--accent); }
+  .btn-mini:hover { color: var(--brand-blue); border-color: var(--brand-blue); background: var(--brand-blue-light); }
+  .btn-mini.primary { background: var(--brand-blue); color: #fff; border-color: var(--brand-blue); font-weight: 600; }
+  .btn-mini.primary:hover { background: var(--brand-blue-dark); border-color: var(--brand-blue-dark); color: #fff; }
 
-  .toast {
-    position: fixed; bottom: 20px; right: 20px;
-    background: var(--accent); color: var(--bg);
-    padding: 10px 18px; border-radius: 4px; font-family: var(--mono); font-size: 13px; font-weight: 600;
-    opacity: 0; transform: translateY(20px); transition: all 0.3s; pointer-events: none;
-  }
-  .toast.show { opacity: 1; transform: translateY(0); }
-
-  /* Loading state */
-  .loading { padding: 60px; text-align: center; color: var(--fg-mute); font-family: var(--mono); }
-
-  /* Content preview pane (Week 1 tab) */
+  /* ===== CONTENT PREVIEW (Week 1) ===== */
   .content-preview {
-    margin-top: 12px; background: var(--bg); border: 1px solid var(--accent-dim);
-    border-radius: 4px; overflow: hidden;
+    margin-top: 12px; background: var(--bg-elev);
+    border: 2px solid var(--brand-blue-light);
+    border-radius: 8px; overflow: hidden;
+    box-shadow: var(--shadow);
   }
   .content-preview-head {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 10px 16px; background: var(--bg-elev);
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 80%);
     border-bottom: 1px solid var(--border);
     position: sticky; top: 0; z-index: 5;
   }
   .content-preview-body {
     padding: 20px 28px; max-height: 600px; overflow-y: auto;
     font-size: 14px; line-height: 1.7; color: var(--fg);
-    background: #0d1219;
+    background: var(--bg-elev);
   }
   .content-preview-body h1 {
-    font-size: 22px; color: var(--accent); margin-bottom: 14px; padding-bottom: 10px;
+    font-size: 22px; color: var(--brand-blue); margin-bottom: 14px; padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
   }
   .content-preview-body h2 {
     font-size: 17px; color: var(--fg); margin-top: 22px; margin-bottom: 10px;
-    font-family: var(--mono);
+    font-weight: 700;
   }
   .content-preview-body h3 {
-    font-size: 14px; color: var(--info); margin-top: 16px; margin-bottom: 8px;
-    font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em;
+    font-size: 13px; color: var(--brand-blue); margin-top: 16px; margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;
   }
   .content-preview-body p { margin-bottom: 12px; }
   .content-preview-body ul, .content-preview-body ol { padding-left: 22px; margin-bottom: 12px; }
   .content-preview-body li { margin-bottom: 4px; color: var(--fg-mute); }
-  .content-preview-body strong { color: var(--accent); font-weight: 600; }
-  .content-preview-body em { color: var(--warn); }
+  .content-preview-body strong { color: var(--fg); font-weight: 700; }
+  .content-preview-body em { color: var(--fg-mute); font-style: italic; }
   .content-preview-body code {
-    font-family: var(--mono); font-size: 12px; background: var(--bg-elev);
-    padding: 1px 6px; border-radius: 3px; color: var(--info);
-    border: 1px solid var(--border);
+    font-family: var(--font-mono); font-size: 12px; background: var(--brand-blue-light);
+    padding: 1px 6px; border-radius: 3px; color: var(--brand-blue-dark);
   }
   .content-preview-body blockquote {
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--brand-blue);
     padding: 8px 16px; margin: 12px 0;
-    background: var(--bg-elev); color: var(--fg-mute);
+    background: var(--brand-blue-lighter); color: var(--fg-mute);
     font-style: italic;
   }
   .content-preview-body a {
-    color: var(--info); text-decoration: underline;
+    color: var(--brand-blue); text-decoration: underline;
     text-decoration-color: var(--border-strong);
   }
-  .content-preview-body a:hover { text-decoration-color: var(--info); }
+  .content-preview-body a:hover { text-decoration-color: var(--brand-blue); }
   .content-preview-body table {
     border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 12px;
   }
@@ -354,25 +397,49 @@
   }
 
   .btn-view-draft {
-    background: var(--accent-dim); border: 1px solid var(--accent);
-    color: var(--accent); padding: 4px 12px; border-radius: 3px;
-    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    background: var(--brand-blue); border: 1px solid var(--brand-blue);
+    color: #fff; padding: 6px 14px; border-radius: 5px;
+    font-family: var(--font-sans); font-size: 11px; font-weight: 600;
     cursor: pointer; transition: all 0.15s;
   }
-  .btn-view-draft:hover { background: var(--accent); color: var(--bg); }
+  .btn-view-draft:hover { background: var(--brand-blue-dark); border-color: var(--brand-blue-dark); }
+
+  footer {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
+    color: var(--fg-dim); font-family: var(--font-mono); font-size: 11px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--fg-mute); text-decoration: none; }
+  footer a:hover { color: var(--brand-blue); }
+
+  .toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--brand-blue); color: #fff;
+    padding: 12px 20px; border-radius: 8px;
+    font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    opacity: 0; transform: translateY(20px); transition: all 0.3s; pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  .loading { padding: 60px; text-align: center; color: var(--fg-mute); font-family: var(--font-mono); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <div class="title-block">
-      <h1><span class="accent">PBM</span> — Launch Control Center</h1>
-      <div class="sub">Tricity + Zirakpur · Phase 1 · 7-day sprint</div>
+    <div class="header-brand">
+      <img src="assets/logo-transparent-500.png" alt="Prime Bridge Media" class="header-logo">
+      <div class="header-text">
+        <h1><span class="brand-accent">PBM</span> — Launch Control Center</h1>
+        <div class="sub">Tricity + Zirakpur · Phase 1 · 7-day sprint</div>
+      </div>
     </div>
-    <div class="meta-block">
+    <div class="header-meta">
       <div class="clock" id="clock">--:--:--</div>
-      <div class="row">Sprint: <span>Aug 18 → Aug 25</span></div>
+      <div class="row">Sprint: <span>Aug 18 → Aug 25, 2026</span></div>
       <div class="row">Saved: <span id="last-saved">never</span></div>
     </div>
   </header>
@@ -401,6 +468,7 @@
           <h2>WordPress Readiness — primebridgemedia.com</h2>
           <p>Live audit from 2026-08-18. Group: blockers → critical → should-do → verification → brand assets. Tick when complete; persisted in browser localStorage.</p>
         </div>
+        <div class="stats" id="wp-stats"></div>
       </div>
       <div id="wp-groups"><div class="loading">Loading…</div></div>
     </section>
@@ -417,7 +485,7 @@
       <div class="nap-banner">
         <div class="label">📌 CANONICAL NAP — paste everywhere, exactly</div>
         <div class="value">
-          Prime Bridge Media · Sector 17, Chandigarh 160017 · <span id="nap-phone">+91-XXXXXXXXXX</span> · contact@primebridgemedia.com · primebridgemedia.com
+          <strong>Prime Bridge Media</strong> · Sector 17, Chandigarh 160017 · <span id="nap-phone">+91 8295659206</span> · <span id="nap-email">contact@primebridgemedia.com</span> · primebridgemedia.com
         </div>
       </div>
       <div id="gbp-listings"><div class="loading">Loading…</div></div>
@@ -435,7 +503,7 @@
       <div class="nap-banner">
         <div class="label">📌 CANONICAL NAP — paste everywhere, exactly</div>
         <div class="value">
-          Prime Bridge Media · Sector 17, Chandigarh 160017 · <span id="nap-phone-2">+91-XXXXXXXXXX</span> · contact@primebridgemedia.com · primebridgemedia.com
+          <strong>Prime Bridge Media</strong> · Sector 17, Chandigarh 160017 · <span id="nap-phone-2">+91 8295659206</span> · <span id="nap-email-2">contact@primebridgemedia.com</span> · primebridgemedia.com
         </div>
       </div>
       <div id="cit-list"><div class="loading">Loading…</div></div>
@@ -458,7 +526,7 @@
     <div>Prime Bridge Media · Phase 1 Launch · Generated by Hermes Agent</div>
     <div>
       <a href="https://github.com/smilingkunal/prime-bridge-media-launch">View on GitHub</a>
-      · v3 (4-tab + Week1 Content)
+      · v5 (Light theme + brand assets)
     </div>
   </footer>
 </div>
@@ -466,9 +534,13 @@
 <div class="toast" id="toast">✓ Saved</div>
 
 <script>
+console.log('PBM dashboard v5 — light theme with brand assets');
+</script>
+
+<script>
 // =================== STATE ===================
-const STORAGE_KEY = 'pbm-launch-v3';
-let DATA = { wp_audit: null, gbp: null, citations: null };
+const STORAGE_KEY = 'pbm-launch-v5';
+let DATA = { wp_audit: null, gbp: null, citations: null, week1: null };
 let STATE = loadState();
 
 function loadState() {
@@ -492,13 +564,118 @@ function markSaved() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
 }
 
-// =================== TABS ===================
+function onToggle(id, checked) {
+  STATE[id] = checked;
+  markSaved();
+  showToast(checked ? '✓ Done' : '↺ Undone');
+  renderAll();
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1500);
+}
+
 function switchTab(tabId) {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
   document.querySelectorAll('.tab-content').forEach(t => t.classList.toggle('active', t.id === `tab-${tabId}`));
 }
+function toggleGroup(id) {
+  document.querySelector(`.group[data-group="${id}"]`).classList.toggle('collapsed');
+}
 
-// =================== RENDER WP ===================
+// =================== MARKDOWN RENDERER ===================
+function renderMarkdown(md) {
+  if (!md) return '';
+  let html = md;
+  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  html = html.replace(/^---+$/gm, '<hr>');
+  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, m => '<ul>' + m + '</ul>');
+  html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/^\|(.+)\|$/gm, (m, inner) => {
+    const cells = inner.split('|').map(c => c.trim());
+    return '<tr>' + cells.map(c => '<td>' + c + '</td>').join('') + '</tr>';
+  });
+  html = html.replace(/(<tr>.*<\/tr>\n?)+/g, m => '<table>' + m + '</table>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/`(.+?)`/g, '<code>$1</code>');
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  const blocks = html.split(/\n\n+/);
+  html = blocks.map(b => {
+    b = b.trim();
+    if (!b) return '';
+    if (b.startsWith('<')) return b;
+    return '<p>' + b.replace(/\n/g, '<br>') + '</p>';
+  }).join('\n');
+  return html;
+}
+
+async function loadContent(filename) {
+  try {
+    const r = await fetch(`data/${filename}?v=${Date.now()}`);
+    return await r.json();
+  } catch (e) { return null; }
+}
+
+async function showContent(itemId) {
+  const d = DATA.week1;
+  if (!d) return;
+  const all = [...d.pillars, ...d.blogs];
+  const item = all.find(i => i.id === itemId);
+  if (!item) return;
+  const pane = document.getElementById(`content-pane-${itemId}`);
+  if (!pane) return;
+  if (pane.dataset.loaded === '1') {
+    pane.innerHTML = '';
+    pane.dataset.loaded = '0';
+    const btn = document.getElementById(`btn-content-${itemId}`);
+    if (btn) btn.textContent = '📄 View full draft';
+    return;
+  }
+  pane.innerHTML = '<div style="padding: 20px; color: var(--fg-mute); font-family: var(--font-mono); font-size: 12px;">Loading draft…</div>';
+  const data = await loadContent(item.content_json);
+  if (!data) {
+    pane.innerHTML = '<div style="padding: 20px; color: var(--danger); font-family: var(--font-mono); font-size: 12px;">Failed to load content. Refresh page.</div>';
+    return;
+  }
+  const rendered = renderMarkdown(data.markdown);
+  pane.innerHTML = `
+    <div class="content-preview">
+      <div class="content-preview-head">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--brand-blue); font-weight: 600;">${item.id}</span>
+          <span style="margin-left: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute);">${data.word_count} words · ${data.char_count} chars</span>
+        </div>
+        <div>
+          <button onclick="copyContent('${item.content_json}')" class="btn-mini">📋 Copy markdown</button>
+        </div>
+      </div>
+      <div class="content-preview-body">${rendered}</div>
+    </div>
+  `;
+  pane.dataset.loaded = '1';
+  const btn = document.getElementById(`btn-content-${itemId}`);
+  if (btn) btn.textContent = '📄 Hide draft';
+}
+
+async function copyContent(filename) {
+  const data = await loadContent(filename);
+  if (!data) return;
+  try {
+    await navigator.clipboard.writeText(data.markdown);
+    showToast('✓ Markdown copied');
+  } catch (e) {
+    showToast('⚠ Clipboard blocked');
+  }
+}
+
+// =================== RENDER WP AUDIT ===================
 function renderWP() {
   const d = DATA.wp_audit;
   if (!d) return;
@@ -508,6 +685,13 @@ function renderWP() {
   const pct = total ? Math.round(done / total * 100) : 0;
   document.getElementById('wp-overall').innerHTML = pct + '<small>%</small>';
   document.getElementById('badge-wp').textContent = `${done}/${total}`;
+
+  const stats = allItems.filter(i => i.priority === 'P0');
+  const p0done = stats.filter(i => isDone(i.id)).length;
+  document.getElementById('wp-stats').innerHTML = `
+    <div class="stat"><b>${d.groups.filter(g => g.items.every(i => isDone(i.id)) && g.items.length > 0).length}/${d.groups.length}</b>groups done</div>
+    <div class="stat"><b>${p0done}/${stats.length}</b>P0 blockers done</div>
+  `;
 
   const html = d.groups.map(g => {
     const gDone = g.items.filter(i => isDone(i.id)).length;
@@ -544,33 +728,24 @@ function renderWP() {
   }).join('');
   document.getElementById('wp-groups').innerHTML = html;
 }
+</script>
 
-function onToggle(id, checked) {
-  STATE[id] = checked;
-  markSaved();
-  showToast(checked ? '✓ Done' : '↺ Undone');
-  renderAll();
-}
-function toggleGroup(id) {
-  document.querySelector(`.group[data-group="${id}"]`).classList.toggle('collapsed');
-}
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 1500);
-}
 
+<script>
 // =================== RENDER GBP ===================
 function renderGBP() {
   const d = DATA.gbp;
   if (!d) return;
-  // Phone in NAP banner
-  if (d.canonical_nap && d.canonical_nap.phone) {
-    document.getElementById('nap-phone').textContent = d.canonical_nap.phone;
-    document.getElementById('nap-phone-2').textContent = d.canonical_nap.phone;
+  if (d.canonical_nap) {
+    if (d.canonical_nap.phone) {
+      document.getElementById('nap-phone').textContent = d.canonical_nap.phone;
+      document.getElementById('nap-phone-2').textContent = d.canonical_nap.phone;
+    }
+    if (d.canonical_nap.email) {
+      document.getElementById('nap-email').textContent = d.canonical_nap.email;
+      document.getElementById('nap-email-2').textContent = d.canonical_nap.email;
+    }
   }
-  // Counters
   let totalSetup = 0, doneSetup = 0, totalPosts = 0, donePosts = 0;
   d.listings.forEach(l => {
     Object.values(l.setup).forEach(v => {
@@ -589,16 +764,11 @@ function renderGBP() {
     const setupItems = Object.entries(l.setup).filter(([k, v]) => typeof v === 'boolean');
     const sDone = setupItems.filter(([k, v]) => v).length;
     const sTotal = setupItems.length;
-    const allPostsPublished = l.posts_drafted.length > 0 && l.posts_published.length === l.posts_drafted.length;
     const setupClass = sDone === sTotal ? 'setup-complete' : 'setup-incomplete';
-
     const setupGrid = setupItems.map(([key, val]) => {
       const label = key.replace(/_/g, ' ');
       const icon = val ? '✓' : '○';
-      return `<div class="setup-item ${val ? 'done' : 'pending'}">
-        <span class="icon">${icon}</span>
-        <span>${label}</span>
-      </div>`;
+      return `<div class="setup-item ${val ? 'done' : 'pending'}"><span class="icon">${icon}</span><span>${label}</span></div>`;
     }).join('');
 
     const postsHtml = l.posts_drafted.map((p, idx) => {
@@ -611,8 +781,8 @@ function renderGBP() {
         </div>
         <div class="post-body">${p.body}</div>
         <div class="post-meta">
-          <span>CTA: ${p.cta} → ${p.cta_url}</span>
-          <span>Photo: ${p.photo_suggestion}</span>
+          <span>CTA: ${p.cta} → <a href="${p.cta_url}" target="_blank" style="color: var(--brand-blue);">${p.cta_url.replace('https://primebridgemedia.com', '')}</a></span>
+          <span>📸 ${p.photo_suggestion}</span>
         </div>
       </div>`;
     }).join('');
@@ -624,29 +794,29 @@ function renderGBP() {
       </ul>
     </div>`;
 
-    const linksHtml = `
-      <div class="posts-section" style="border-top: 1px solid var(--border);">
+    const linksHtml = l.links ? `
+      <div class="posts-section">
         <h4>🔗 Quick links (click to open)</h4>
         <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
-          <a href="${l.links.google_business_dashboard}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--accent); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">📍 GBP Dashboard</a>
-          <a href="${l.links.google_business_manage}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--accent); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">⚙️ Manage Listing</a>
-          <a href="${l.links.google_search_url}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--accent); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">🔍 View on Maps</a>
-          <a href="${l.links.place_id_lookup}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">🆔 Find Place ID</a>
-          <a href="${l.links.support_help}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">❓ GBP Help</a>
+          <a href="${l.links.google_business_dashboard}" target="_blank" class="btn-mini">📍 GBP Dashboard</a>
+          <a href="${l.links.google_business_manage}" target="_blank" class="btn-mini">⚙️ Manage Listing</a>
+          <a href="${l.links.google_search_url}" target="_blank" class="btn-mini">🔍 View on Maps</a>
+          <a href="${l.links.place_id_lookup}" target="_blank" class="btn-mini">🆔 Find Place ID</a>
+          <a href="${l.links.support_help}" target="_blank" class="btn-mini">❓ GBP Help</a>
         </div>
         <h4 style="margin-top: 14px;">📣 Share pillar page</h4>
         <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-          <a href="${l.social_share.linkedin}" target="_blank" style="background: #0a66c2; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">LinkedIn</a>
-          <a href="${l.social_share.facebook}" target="_blank" style="background: #1877f2; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">Facebook</a>
-          <a href="${l.social_share.twitter}" target="_blank" style="background: #000; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">X / Twitter</a>
-          <a href="${l.social_share.whatsapp}" target="_blank" style="background: #25d366; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">WhatsApp</a>
+          <a href="${l.social_share.linkedin}" target="_blank" class="btn-mini" style="background: #0a66c2; color: #fff; border-color: #0a66c2;">LinkedIn</a>
+          <a href="${l.social_share.facebook}" target="_blank" class="btn-mini" style="background: #1877f2; color: #fff; border-color: #1877f2;">Facebook</a>
+          <a href="${l.social_share.twitter}" target="_blank" class="btn-mini" style="background: #000; color: #fff; border-color: #000;">X / Twitter</a>
+          <a href="${l.social_share.whatsapp}" target="_blank" class="btn-mini" style="background: #25d366; color: #fff; border-color: #25d366;">WhatsApp</a>
         </div>
       </div>
-    `;
+    ` : '';
 
     return `<div class="listing-card">
       <div class="listing-head">
-        <div class="title">${l.label}</div>
+        <div class="title">Prime Bridge Media — <span class="city">${l.city}</span></div>
         <span class="badge ${setupClass}">Setup ${sDone}/${sTotal} · Photos ${l.setup.photos_count}/${l.setup.photos_target}</span>
       </div>
       <div class="setup-grid">${setupGrid}</div>
@@ -665,12 +835,12 @@ function renderGBP() {
 function renderCitations() {
   const d = DATA.citations;
   if (!d) return;
-  if (d.canonical_nap && d.canonical_nap.phone) {
-    document.getElementById('nap-phone-2').textContent = d.canonical_nap.phone;
+  if (d.canonical_nap) {
+    if (d.canonical_nap.phone) document.getElementById('nap-phone-2').textContent = d.canonical_nap.phone;
+    if (d.canonical_nap.email) document.getElementById('nap-email-2').textContent = d.canonical_nap.email;
   }
   const total = d.directories.length;
   const live = d.directories.filter(c => c.status === 'live').length;
-  const submitted = d.directories.filter(c => c.status === 'submitted').length;
   const pct = total ? Math.round(live / total * 100) : 0;
   document.getElementById('cit-overall').innerHTML = pct + '<small>%</small>';
   document.getElementById('badge-cit').textContent = `${live}/${total} live`;
@@ -687,8 +857,8 @@ function renderCitations() {
         </div>
         <div>
           <span class="status-tag ${statusClass}">${statusLabel}</span>
-          <span style="color: var(--fg-dim); margin-left: 12px; font-family: var(--mono); font-size: 11px;">${c.time_estimate}</span>
-          <a href="${c.submit_url}" target="_blank" style="margin-left: 12px; color: var(--accent); font-family: var(--mono); font-size: 11px; text-decoration: none;">🔗 Open form</a>
+          <a href="${c.submit_url}" target="_blank" style="margin-left: 12px; color: var(--brand-blue); font-family: var(--font-mono); font-size: 11px; text-decoration: none; font-weight: 600;">🔗 Open form</a>
+          <span style="color: var(--fg-dim); margin-left: 12px; font-family: var(--font-mono); font-size: 11px;">${c.time_estimate}</span>
         </div>
       </div>
       <div class="cit-body">
@@ -722,127 +892,10 @@ function setCitStatus(id, status) {
   showToast('✓ Status updated');
 }
 
-// =================== MARKDOWN RENDERER (minimal, no library) ===================
-function renderMarkdown(md) {
-  if (!md) return '';
-  let html = md;
-  // Escape HTML first (very basic)
-  // Don't escape — markdown is our trusted content
-  // Process block-level elements
-  // Blockquote
-  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-  // H2
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  // H3
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  // H1
-  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-  // Horizontal rule
-  html = html.replace(/^---+$/gm, '<hr>');
-  // Unordered list
-  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>\n?)+/g, m => '<ul>' + m + '</ul>');
-  // Ordered list
-  html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-  // Tables (basic)
-  html = html.replace(/^\|(.+)\|$/gm, (m, inner) => {
-    const cells = inner.split('|').map(c => c.trim());
-    return '<tr>' + cells.map(c => '<td>' + c + '</td>').join('') + '</tr>';
-  });
-  html = html.replace(/(<tr>.*<\/tr>\n?)+/g, m => '<table>' + m + '</table>');
-  // Bold
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Italic
-  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  // Inline code
-  html = html.replace(/`(.+?)`/g, '<code>$1</code>');
-  // Links [text](url)
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
-  // Auto-link URLs (basic)
-  // Paragraphs: split on blank lines, wrap remaining lines
-  const blocks = html.split(/\n\n+/);
-  html = blocks.map(b => {
-    b = b.trim();
-    if (!b) return '';
-    if (b.startsWith('<')) return b; // already a block element
-    return '<p>' + b.replace(/\n/g, '<br>') + '</p>';
-  }).join('\n');
-  return html;
-}
-
-// =================== CONTENT LOADER ===================
-async function loadContent(filename) {
-  try {
-    const r = await fetch(`data/${filename}?v=${Date.now()}`);
-    return await r.json();
-  } catch (e) {
-    return null;
-  }
-}
-
-async function showContent(itemId) {
-  const d = DATA.week1;
-  if (!d) return;
-  const all = [...d.pillars, ...d.blogs];
-  const item = all.find(i => i.id === itemId);
-  if (!item) return;
-  // Find content pane
-  const pane = document.getElementById(`content-pane-${itemId}`);
-  if (!pane) return;
-  // If already open, close it
-  if (pane.dataset.loaded === '1') {
-    pane.innerHTML = '';
-    pane.dataset.loaded = '0';
-    const btn = document.getElementById(`btn-content-${itemId}`);
-    if (btn) btn.textContent = 'View full draft ▼';
-    return;
-  }
-  // Loading state
-  pane.innerHTML = '<div style="padding: 20px; color: var(--fg-mute); font-family: var(--mono); font-size: 12px;">Loading draft…</div>';
-  const data = await loadContent(item.content_json);
-  if (!data) {
-    pane.innerHTML = '<div style="padding: 20px; color: var(--danger); font-family: var(--mono); font-size: 12px;">Failed to load content. Refresh page.</div>';
-    return;
-  }
-  // Render markdown
-  const rendered = renderMarkdown(data.markdown);
-  pane.innerHTML = `
-    <div class="content-preview">
-      <div class="content-preview-head">
-        <div>
-          <span style="font-family: var(--mono); font-size: 11px; color: var(--accent);">${item.id}</span>
-          <span style="margin-left: 12px; font-family: var(--mono); font-size: 11px; color: var(--fg-mute);">${data.word_count} words · ${data.char_count} chars</span>
-        </div>
-        <div>
-          <a href="${data.source_file.replace(/ /g, '%20').replace(/Prime%20Bridge%20Media/g, 'Prime%20Bridge%20Media')}" target="_blank" style="color: var(--accent); font-family: var(--mono); font-size: 11px; text-decoration: none; margin-right: 12px;">📂 Open in Obsidian</a>
-          <button onclick="copyContent('${item.content_json}')" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 4px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; cursor: pointer;">📋 Copy markdown</button>
-        </div>
-      </div>
-      <div class="content-preview-body">${rendered}</div>
-    </div>
-  `;
-  pane.dataset.loaded = '1';
-  const btn = document.getElementById(`btn-content-${itemId}`);
-  if (btn) btn.textContent = 'Hide draft ▲';
-}
-
-async function copyContent(filename) {
-  const data = await loadContent(filename);
-  if (!data) return;
-  try {
-    await navigator.clipboard.writeText(data.markdown);
-    showToast('✓ Markdown copied');
-  } catch (e) {
-    // Fallback: select element
-    showToast('⚠ Clipboard blocked — use Obsidian link');
-  }
-}
-
-// =================== RENDER WEEK 1 CONTENT ===================
+// =================== RENDER WEEK 1 ===================
 function renderWeek1() {
   const d = DATA.week1;
   if (!d) return;
-  // Counters
   const allItems = [...d.pillars, ...d.blogs];
   const published = allItems.filter(i => isDone(`w1-${i.id}`)).length;
   const total = allItems.length;
@@ -855,38 +908,37 @@ function renderWeek1() {
     const pub = isDone(pid);
     const hasCompliance = item.compliance_check && item.compliance_check !== 'None needed (food service).' && item.compliance_check !== 'None needed.';
     const complianceHtml = hasCompliance
-      ? `<div style="margin-top: 8px; padding: 8px 10px; background: var(--warn-dim); border-left: 3px solid var(--warn); border-radius: 3px; font-size: 12px; color: var(--warn);">
+      ? `<div style="margin-top: 8px; padding: 8px 10px; background: var(--warn-light); border-left: 3px solid var(--warn); border-radius: 4px; font-size: 12px; color: #b45309;">
           ⚠ ${item.compliance_check}
         </div>` : '';
     const linkToLinks = (item.internal_links_to || []).map(l =>
-      `<span class="post-meta" style="display:inline-block; margin-right:8px;">→ ${l.startsWith('/') ? l : (l.startsWith('Blog') || l.startsWith('W1-') ? `<code>${l}</code>` : `<code>${l}</code>`)}</span>`
+      `<span style="display:inline-block; margin-right:8px; font-size: 11px; color: var(--fg-mute);">→ <code style="background: var(--brand-blue-light); color: var(--brand-blue-dark); padding: 1px 5px; border-radius: 3px; font-size: 11px;">${l}</code></span>`
     ).join('');
     const kwBadges = (item.secondary_kws || []).map(kw =>
-      `<span style="display:inline-block; background: var(--bg); border: 1px solid var(--border); padding: 2px 6px; border-radius: 3px; font-family: var(--mono); font-size: 10px; color: var(--fg-mute); margin: 2px;">${kw}</span>`
+      `<span style="display:inline-block; background: var(--bg-row); border: 1px solid var(--border); padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); font-size: 10px; color: var(--fg-mute); margin: 2px;">${kw}</span>`
     ).join('');
-    return `<div class="post-card ${pub ? 'published' : ''}" style="margin-bottom: 14px;">
+    return `<div class="post-card ${pub ? 'published' : ''}" style="margin-bottom: 14px; border-left-color: ${pub ? 'var(--success)' : 'var(--brand-blue)'};">
       <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-        <input type="checkbox" ${pub ? 'checked' : ''} onchange="onToggle('${pid}', this.checked)" style="width:18px; height:18px;">
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--fg-mute);">${item.id}</span>
+        <input type="checkbox" ${pub ? 'checked' : ''} onchange="onToggle('${pid}', this.checked)">
+        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute); font-weight: 500;">${item.id}</span>
         <span class="priority ${item.publish_target.includes('Day 2') ? 'P0' : item.publish_target.includes('Day 3') ? 'P0' : 'P1'}">${item.publish_target}</span>
-        <span style="margin-left:auto; font-family: var(--mono); font-size: 11px; color: var(--fg-mute);">${item.words} words</span>
+        <span style="margin-left:auto; font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute);">${item.words} words</span>
       </div>
       <div class="post-title" style="font-size: 14px; font-weight: 600; color: ${pub ? 'var(--fg-dim)' : 'var(--fg)'}; text-decoration: ${pub ? 'line-through' : 'none'};">${item.title}</div>
-      <div style="margin-top: 6px; font-family: var(--mono); font-size: 11px; color: var(--accent);">
+      <div style="margin-top: 6px; font-family: var(--font-mono); font-size: 11px; color: var(--brand-blue); font-weight: 600;">
         🎯 ${item.target_kw}
       </div>
       <div style="margin-top: 6px;">${kwBadges}</div>
       <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 12px; color: var(--fg-mute);">
-        <div style="font-family: var(--mono);"><b style="color: var(--fg);">Title:</b> ${item.rank_math_title}</div>
-        <div style="font-family: var(--mono); margin-top: 4px;"><b style="color: var(--fg);">Desc:</b> ${item.rank_math_desc}</div>
-        <div style="font-family: var(--mono); margin-top: 4px;"><b style="color: var(--fg);">Slug:</b> ${item.slug}</div>
-        <div style="margin-top: 4px;"><b style="color: var(--fg);">Draft:</b> <code style="font-size: 11px;">${item.draft_file}</code></div>
+        <div style="font-family: var(--font-mono);"><b style="color: var(--fg);">Title:</b> ${item.rank_math_title}</div>
+        <div style="font-family: var(--font-mono); margin-top: 4px;"><b style="color: var(--fg);">Desc:</b> ${item.rank_math_desc}</div>
+        <div style="font-family: var(--font-mono); margin-top: 4px;"><b style="color: var(--fg);">Slug:</b> <a href="${item.slug.replace(/^\//, 'https://primebridgemedia.com/')}" target="_blank" style="color: var(--brand-blue);">primebridgemedia.com${item.slug}</a></div>
+        <div style="margin-top: 4px;"><b style="color: var(--fg);">Draft:</b> <code style="font-size: 11px; background: var(--brand-blue-light); color: var(--brand-blue-dark); padding: 1px 5px; border-radius: 3px;">${item.draft_file.split('/').pop()}</code></div>
         <div style="margin-top: 6px;"><b style="color: var(--fg);">Internal links:</b> ${linkToLinks || '<span style="font-style:italic;">none</span>'}</div>
       </div>
       ${complianceHtml}
       <div style="margin-top: 12px; display: flex; gap: 8px;">
-        <button id="btn-content-${item.id}" class="btn-view-draft" onclick="showContent('${item.id}')">📄 View full draft ▼</button>
-        <a href="${item.slug.replace(/^\//, 'https://primebridgemedia.com/')}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 4px 12px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">🔗 Live URL (will work after publish)</a>
+        <button id="btn-content-${item.id}" class="btn-view-draft" onclick="showContent('${item.id}')">📄 View full draft</button>
       </div>
       <div id="content-pane-${item.id}" data-loaded="0" style="margin-top: 12px;"></div>
     </div>`;
@@ -950,7 +1002,7 @@ function renderWeek1() {
         <div class="right"><span class="toggle">▼</span></div>
       </div>
       <div class="group-body">
-        <ol style="padding: 14px 28px; font-size: 13px; color: var(--fg-mute); font-family: var(--mono);">
+        <ol style="padding: 16px 28px; font-size: 13px; color: var(--fg-mute); font-family: var(--font-mono); line-height: 1.8;">
           ${d.quick_publish_steps.map(s => `<li style="margin-bottom: 4px;">${s}</li>`).join('')}
         </ol>
       </div>
@@ -986,7 +1038,6 @@ async function boot() {
     DATA.gbp = gbp;
     DATA.citations = cit;
     DATA.week1 = w1;
-    // Apply saved statuses for citations
     if (cit && cit.directories) {
       cit.directories.forEach(c => {
         if (STATE[`cit-status-${c.id}`]) c.status = STATE[`cit-status-${c.id}`];
@@ -994,12 +1045,11 @@ async function boot() {
     }
     renderAll();
   } catch (e) {
-    document.body.innerHTML = '<div style="padding:40px;font-family:monospace;color:#ff4d6d">Failed to load dashboard data: ' + e.message + '</div>';
+    document.body.innerHTML = '<div style="padding:40px;font-family:monospace;color:var(--danger)">Failed to load dashboard data: ' + e.message + '</div>';
   }
 }
 boot();
 
-// Re-render citation statuses when localStorage is updated
 setInterval(() => {
   if (DATA.citations) {
     let needsUpdate = false;
@@ -1011,5 +1061,6 @@ setInterval(() => {
   }
 }, 2000);
 </script>
+
 </body>
 </html>
