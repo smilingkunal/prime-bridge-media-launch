@@ -1,8 +1,8 @@
 {
   "version": "2026-08-18",
   "tab_title": "Homepage SEO",
-  "tab_icon": "🏠",
-  "last_updated": "2026-08-18T19:15:00+05:30",
+  "tab_icon": "\ud83c\udfe0",
+  "last_updated": "2026-08-18T21:57:00+05:30",
   "summary": {
     "primary_kw": "digital marketing agency Chandigarh",
     "title_chars": 53,
@@ -17,7 +17,7 @@
   },
   "tiers": {
     "tier_1": {
-      "label": "Tier 1 — Headline KW (Focus Keyword)",
+      "label": "Tier 1 \u2014 Headline KW (Focus Keyword)",
       "kws": [
         {
           "kw": "digital marketing agency Chandigarh",
@@ -28,7 +28,7 @@
       ]
     },
     "tier_2": {
-      "label": "Tier 2 — H2 variations",
+      "label": "Tier 2 \u2014 H2 variations",
       "kws": [
         {
           "kw": "best SEO company in Chandigarh",
@@ -78,7 +78,7 @@
       ]
     },
     "tier_3": {
-      "label": "Tier 3 — Niche anchors (link to pillars)",
+      "label": "Tier 3 \u2014 Niche anchors (link to pillars)",
       "kws": [
         {
           "kw": "local SEO for doctors Chandigarh",
@@ -107,7 +107,7 @@
       ]
     },
     "tier_4": {
-      "label": "Tier 4 — Long-tail + FAQ",
+      "label": "Tier 4 \u2014 Long-tail + FAQ",
       "kws": [
         "how to choose a digital marketing agency in Chandigarh",
         "what does a digital marketing agency do",
@@ -123,7 +123,7 @@
   "hero_copy": {
     "h1": "Your customers are searching. We're making sure they find you.",
     "h2": "Digital marketing agency in Chandigarh for the businesses Tricity actually lives on",
-    "opening_para": "Your customers are searching. Right now. For the service you sell, in the city you serve. The question is whether they find you — or your competitor who understood digital marketing in Chandigarh earlier. Prime Bridge Media is the digital marketing agency in Chandigarh-Tricity for the businesses that actually live here: doctors, restaurants, salons, gyms, lawyers and real estate builders. We do four things, and we do them well: Local SEO that puts you in the Google Maps 3-pack, YouTube Ads that put you in front of Tricity viewers, Meta Ads (Facebook + Instagram) that bring you leads you can track, and WordPress websites that load fast and convert visitors into customers. No lock-in. No fluff. Just measurable lift in calls, direction requests, bookings and revenue.",
+    "opening_para": "Your customers are searching. Right now. For the service you sell, in the city you serve. The question is whether they find you \u2014 or your competitor who understood digital marketing in Chandigarh earlier. Prime Bridge Media is the digital marketing agency in Chandigarh-Tricity for the businesses that actually live here: doctors, restaurants, salons, gyms, lawyers and real estate builders. We do four things, and we do them well: Local SEO that puts you in the Google Maps 3-pack, YouTube Ads that put you in front of Tricity viewers, Meta Ads (Facebook + Instagram) that bring you leads you can track, and WordPress websites that load fast and convert visitors into customers. No lock-in. No fluff. Just measurable lift in calls, direction requests, bookings and revenue.",
     "primary_cta": "Get a free 15-minute audit",
     "cta_url": "/contact/"
   },
@@ -181,84 +181,233 @@
   ],
   "build_checklist": [
     {
-      "id": "HP-01",
-      "task": "Set Rank Math Focus Keyphrase = 'digital marketing agency Chandigarh'",
-      "section": "rank_math"
+      "id": "HP-PRE-1",
+      "phase": "prerequisites",
+      "task": "Install Rank Math SEO",
+      "why": "Required for proper meta tags, schema, and sitemap \u2014 we need this before setting any homepage meta",
+      "time_min": 5,
+      "status": "todo",
+      "category": "plugin"
     },
     {
-      "id": "HP-02",
-      "task": "Set Rank Math Title = 'Digital Marketing Agency in Chandigarh | Prime Bridge Media'",
-      "section": "rank_math"
+      "id": "HP-PRE-2",
+      "phase": "prerequisites",
+      "task": "Upload PBM logo as favicon (250x250)",
+      "why": "Currently shows PixelPierNYC icon in browser tabs",
+      "time_min": 1,
+      "status": "todo",
+      "category": "asset"
     },
     {
-      "id": "HP-03",
-      "task": "Set Rank Math Description (159-char version)",
-      "section": "rank_math"
+      "id": "HP-PRE-3",
+      "phase": "prerequisites",
+      "task": "Create 'Case Studies' category in WP",
+      "why": "So the Selected Work carousel pulls real case studies later",
+      "time_min": 1,
+      "status": "todo",
+      "category": "taxonomy"
     },
     {
-      "id": "HP-04",
-      "task": "Paste Tier 2 secondary KWs into Rank Math Additional Keywords field",
-      "section": "rank_math"
+      "id": "HP-PRE-4",
+      "phase": "prerequisites",
+      "task": "Backup current Elementor data (page 63 _elementor_data)",
+      "why": "Safety net \u2014 restore to this exact state if edits go wrong",
+      "time_min": 1,
+      "status": "todo",
+      "category": "backup"
     },
     {
-      "id": "HP-05",
-      "task": "Set H1 to 'Your customers are searching. We're making sure they find you.'",
-      "section": "hero"
+      "id": "HP-S1",
+      "phase": "phase1_site_settings",
+      "task": "Update site title (blogname) \u2192 'Prime Bridge Media'",
+      "why": "WP title bar + browser tab + sitemap <title>",
+      "time_min": 1,
+      "status": "todo",
+      "category": "settings"
     },
     {
-      "id": "HP-06",
-      "task": "Set H2 to 'Digital marketing agency in Chandigarh for the businesses Tricity actually lives on'",
-      "section": "hero"
+      "id": "HP-S2",
+      "phase": "phase1_site_settings",
+      "task": "Update tagline (blogdescription) \u2192 'Digital Marketing Agency in Chandigarh-Tricity'",
+      "why": "Shows in WP tagline + many templates use it as fallback meta desc",
+      "time_min": 1,
+      "status": "todo",
+      "category": "settings"
     },
     {
-      "id": "HP-07",
-      "task": "Paste the 100-word opening paragraph (contains Tier 1 KW + all 6 niches + 4 services)",
-      "section": "hero"
+      "id": "HP-H1",
+      "phase": "phase1_hero",
+      "task": "Replace H1 before_text \u2192 'Your customers are searching.<br>We're making sure we '",
+      "why": "Curiosity hook matching our keyword strategy",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-08",
-      "task": "Add CTA button 'Get a free 15-minute audit' → /contact/",
-      "section": "hero"
+      "id": "HP-H2",
+      "phase": "phase1_hero",
+      "task": "Replace rotating_text \u2192 ['find them.', 'rank you.', 'get leads.', 'make sales.']",
+      "why": "Outcome-focused rotating words replace design/strategy/etc.",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-09",
-      "task": "Build the 4-service cards section with links to /local-seo-chandigarh/ etc.",
-      "section": "structure"
+      "id": "HP-H3",
+      "phase": "phase1_hero",
+      "task": "Replace subheading with niche list + 4 services",
+      "why": "Immediately tells Google + visitor what we do and for whom",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-10",
-      "task": "Build the 6-niche cards section with anchor text → 6 pillar pages",
-      "section": "structure"
+      "id": "HP-H4",
+      "phase": "phase1_hero",
+      "task": "Remove Vimeo reel CTA button",
+      "why": "We don't have a reel \u2014 link is dead",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-11",
-      "task": "Build the 4-city service area section with Tier 2 geo KWs",
-      "section": "structure"
+      "id": "HP-H5",
+      "phase": "phase1_hero",
+      "task": "Add new 'Get a free audit' button \u2192 /contact",
+      "why": "Top-of-page conversion CTA",
+      "time_min": 2,
+      "status": "todo",
+      "category": "element_add"
     },
     {
-      "id": "HP-12",
-      "task": "Build FAQ section with 5-6 Tier 4 question KWs + FAQ schema",
-      "section": "structure"
+      "id": "HP-SW1",
+      "phase": "phase1_selected_work",
+      "task": "Update heading 'Selected Work' \u2192 'Tricity businesses we've helped rank'",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-13",
-      "task": "Paste MarketingAgency schema (JSON-LD) into Rank Math Custom Schema",
-      "section": "schema"
+      "id": "HP-SW2",
+      "phase": "phase1_selected_work",
+      "task": "Update button text + link 'See all case studies' \u2192 /case-studies",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-14",
-      "task": "Upload 1200x630 OG image (use logo-transparent-1200x630.png from assets/)",
-      "section": "og"
+      "id": "HP-WW1",
+      "phase": "phase1_what_we_do",
+      "task": "Replace big paragraph with full-stack agency copy",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-15",
-      "task": "Submit URL to Google Search Console for indexing",
-      "section": "post_publish"
+      "id": "HP-WW2",
+      "phase": "phase1_what_we_do",
+      "task": "Update button 'About ' \u2192 'About us' \u2192 /about",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
     },
     {
-      "id": "HP-16",
-      "task": "Add homepage URL to all 4 GMB listings (Website field) for backlink",
-      "section": "post_publish"
+      "id": "HP-C1",
+      "phase": "phase1_capabilities",
+      "task": "Card 1: 'Award-Winning Design' \u2192 'Local SEO' with new body copy",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-C2",
+      "phase": "phase1_capabilities",
+      "task": "Card 2: 'Brand Strategy' \u2192 'YouTube Ads' with new body copy",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-C3",
+      "phase": "phase1_capabilities",
+      "task": "Card 3: 'Proven Marketing' \u2192 'Meta Ads' with new body copy",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-C4",
+      "phase": "phase1_capabilities",
+      "task": "Card 4: 'Future-Proof Development' \u2192 'WordPress Web Design' with new body copy",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-ST1",
+      "phase": "phase1_stats",
+      "task": "Remove long 'Dive into our studio's core...' heading",
+      "time_min": 1,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-ST2",
+      "phase": "phase1_stats",
+      "task": "Update 3 stat cards to client-relevant metrics ('Page 1 ranking in 90 days', '10x avg ROI', '\u20b93Cr+ ad spend managed')",
+      "time_min": 2,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-R1",
+      "phase": "phase1_reviews",
+      "task": "Replace all testimonials with placeholder examples marked '(Example \u2014 replace with real)'",
+      "time_min": 3,
+      "status": "todo",
+      "category": "copy"
+    },
+    {
+      "id": "HP-T1",
+      "phase": "phase1_team",
+      "task": "Hide/remove the Team section (Passionate People)",
+      "time_min": 1,
+      "status": "todo",
+      "category": "hide"
+    },
+    {
+      "id": "HP-FC1",
+      "phase": "phase1_footer_cta",
+      "task": "Add full-width 'Get a free audit' CTA banner before footer",
+      "time_min": 5,
+      "status": "todo",
+      "category": "element_add"
+    },
+    {
+      "id": "HP-N1",
+      "phase": "phase1_nav",
+      "task": "Update nav menu: Home / Services dropdown / About / Contact / Get a free audit CTA",
+      "time_min": 3,
+      "status": "todo",
+      "category": "menu"
+    },
+    {
+      "id": "HP-V1",
+      "phase": "phase1_verify",
+      "task": "Verify homepage loads correctly + all sections visible + meta tags set",
+      "time_min": 3,
+      "status": "todo",
+      "category": "verify"
+    },
+    {
+      "id": "HP-V2",
+      "phase": "phase1_verify",
+      "task": "Check responsive (mobile + tablet) for all new copy",
+      "time_min": 2,
+      "status": "todo",
+      "category": "verify"
     }
-  ]
+  ],
+  "phase1_plan_url": "Prime Bridge Media/SEO/Launch/2026-08-18 - Homepage Final Plan.md",
+  "total_items": 27
 }
