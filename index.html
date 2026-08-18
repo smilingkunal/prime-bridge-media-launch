@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Bridge Media — Week 1 Launch</title>
+<meta name="description" content="Live tracker for PBM Phase 1 — 7-day launch sprint, Tricity + Zirakpur.">
+<meta name="theme-color" content="#0a0e14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2300d97e'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23000' font-family='monospace' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg-elev: #0f141b;
+    --bg-row: #11171f;
+    --bg-row-hover: #161e28;
+    --border: #1c2530;
+    --border-strong: #2a3540;
+    --fg: #d6dde6;
+    --fg-mute: #6b7785;
+    --fg-dim: #4a5560;
+    --accent: #00d97e;
+    --accent-dim: #00d97e33;
+    --warn: #ffb454;
+    --warn-dim: #ffb45433;
+    --danger: #ff4d6d;
+    --danger-dim: #ff4d6d33;
+    --info: #4ea1ff;
+    --info-dim: #4ea1ff33;
+    --mono: ui-monospace, 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 14px; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
+
+  /* Header */
+  header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 18px; margin-bottom: 24px;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .title-block h1 {
+    font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--fg); font-family: var(--mono);
+  }
+  .title-block h1 .accent { color: var(--accent); }
+  .title-block .sub {
+    color: var(--fg-mute); font-size: 13px; margin-top: 4px; font-family: var(--mono);
+  }
+  .title-block .tag {
+    display: inline-block; margin-top: 10px; padding: 3px 9px;
+    background: var(--accent-dim); color: var(--accent);
+    border-radius: 3px; font-family: var(--mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .meta-block {
+    text-align: right; font-family: var(--mono); font-size: 12px; color: var(--fg-mute);
+  }
+  .meta-block .clock { color: var(--accent); font-size: 16px; font-weight: 600; }
+  .meta-block .row { margin-top: 3px; }
+  .meta-block .row span { color: var(--fg); }
+
+  /* KPI grid */
+  .kpis {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 10px; margin-bottom: 28px;
+  }
+  @media (max-width: 900px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 500px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 4px; padding: 12px 14px; position: relative; overflow: hidden;
+  }
+  .kpi::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--fg-dim); transition: background 0.3s;
+  }
+  .kpi.complete::before { background: var(--accent); }
+  .kpi.partial::before { background: var(--warn); }
+  .kpi .label { font-size: 11px; color: var(--fg-mute); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--mono); }
+  .kpi .value { font-size: 28px; font-weight: 600; margin-top: 4px; font-family: var(--mono); color: var(--fg); }
+  .kpi .value .denom { color: var(--fg-dim); font-size: 18px; font-weight: 400; }
+  .kpi .bar { margin-top: 8px; height: 3px; background: var(--bg-row); border-radius: 2px; overflow: hidden; }
+  .kpi .bar .fill { height: 100%; background: var(--accent); transition: width 0.6s ease; }
+  .kpi .pct { font-size: 11px; color: var(--fg-mute); margin-top: 4px; font-family: var(--mono); }
+
+  /* Progress ring summary */
+  .summary {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 4px; padding: 16px 20px; margin-bottom: 28px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .summary .ring {
+    position: relative; width: 80px; height: 80px; flex-shrink: 0;
+  }
+  .summary .ring svg { transform: rotate(-90deg); }
+  .summary .ring .pct {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--accent);
+  }
+  .summary .text { flex: 1; min-width: 200px; }
+  .summary .text h2 { font-size: 15px; font-weight: 600; margin-bottom: 4px; font-family: var(--mono); }
+  .summary .text p { color: var(--fg-mute); font-size: 13px; }
+  .summary .stats { display: flex; gap: 24px; font-family: var(--mono); font-size: 12px; }
+  .summary .stats .stat { color: var(--fg-mute); }
+  .summary .stats .stat b { color: var(--fg); font-weight: 600; }
+
+  /* Day sections */
+  .day {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 4px; margin-bottom: 14px; overflow: hidden;
+  }
+  .day-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 18px; background: var(--bg-row); cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    user-select: none;
+  }
+  .day-head:hover { background: var(--bg-row-hover); }
+  .day-head .left { display: flex; align-items: center; gap: 14px; }
+  .day-head .id {
+    font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
+    background: var(--bg); padding: 3px 8px; border-radius: 3px; border: 1px solid var(--border);
+  }
+  .day-head .label { font-size: 15px; font-weight: 600; font-family: var(--mono); }
+  .day-head .right { display: flex; align-items: center; gap: 14px; }
+  .day-head .progress-text { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); }
+  .day-head .progress-text b { color: var(--accent); }
+  .day-head .toggle { color: var(--fg-dim); font-family: var(--mono); transition: transform 0.2s; }
+  .day.collapsed .toggle { transform: rotate(-90deg); }
+  .day.collapsed .day-body { display: none; }
+  .day-head .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fg-dim); }
+  .day-head .status-dot.in_progress { background: var(--warn); box-shadow: 0 0 8px var(--warn-dim); }
+  .day-head .status-dot.complete { background: var(--accent); box-shadow: 0 0 8px var(--accent-dim); }
+
+  .day-body { padding: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 8px 18px; font-weight: 500; color: var(--fg-mute);
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border); background: var(--bg);
+  }
+  td { padding: 10px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-row); }
+  .checkbox-cell { width: 32px; padding: 10px 8px 10px 18px; }
+  .task-cell { font-size: 13px; color: var(--fg); }
+  .task-cell.done { color: var(--fg-dim); text-decoration: line-through; }
+  .id-cell { font-family: var(--mono); color: var(--fg-mute); font-size: 12px; width: 60px; }
+  .priority-cell { width: 50px; }
+  .priority {
+    display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 600;
+    padding: 2px 6px; border-radius: 3px; letter-spacing: 0.05em;
+  }
+  .priority.P0 { background: var(--danger-dim); color: var(--danger); }
+  .priority.P1 { background: var(--warn-dim); color: var(--warn); }
+  .priority.P2 { background: var(--info-dim); color: var(--info); }
+  .owner-cell { font-family: var(--mono); color: var(--fg-mute); font-size: 12px; width: 80px; }
+  .notes-cell { font-size: 12px; color: var(--fg-mute); width: 40%; }
+  .notes-cell .note { font-style: italic; }
+  input[type=checkbox] {
+    appearance: none; -webkit-appearance: none;
+    width: 16px; height: 16px; border: 1.5px solid var(--fg-dim); border-radius: 3px;
+    background: var(--bg); cursor: pointer; position: relative; vertical-align: middle;
+    transition: all 0.15s;
+  }
+  input[type=checkbox]:hover { border-color: var(--accent); }
+  input[type=checkbox]:checked { background: var(--accent); border-color: var(--accent); }
+  input[type=checkbox]:checked::after {
+    content: ''; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px;
+    border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(45deg);
+  }
+
+  /* Bottom sections (risks + pre-publish) */
+  .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+  @media (max-width: 800px) { .bottom-grid { grid-template-columns: 1fr; } }
+  .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .panel-head {
+    padding: 12px 18px; background: var(--bg-row);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .panel-body { padding: 0; }
+  .panel-body table th, .panel-body table td { padding: 8px 18px; }
+  .severity {
+    display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 600;
+    padding: 2px 6px; border-radius: 3px; text-transform: uppercase;
+  }
+  .severity.high { background: var(--danger-dim); color: var(--danger); }
+  .severity.medium { background: var(--warn-dim); color: var(--warn); }
+  .severity.low { background: var(--info-dim); color: var(--info); }
+
+  footer {
+    margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border);
+    color: var(--fg-dim); font-family: var(--mono); font-size: 11px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--fg-mute); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* Toast on save */
+  .toast {
+    position: fixed; bottom: 20px; right: 20px;
+    background: var(--accent); color: var(--bg);
+    padding: 10px 18px; border-radius: 4px; font-family: var(--mono); font-size: 13px; font-weight: 600;
+    opacity: 0; transform: translateY(20px); transition: all 0.3s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="title-block">
+      <h1><span class="accent">PBM</span> — Week 1 Launch Tracker</h1>
+      <div class="sub">Tricity + Zirakpur · Phase 1 · 7-day sprint</div>
+      <div class="tag" id="phase-tag">Sprint active</div>
+    </div>
+    <div class="meta-block">
+      <div class="clock" id="clock">--:--:--</div>
+      <div class="row">Sprint: <span id="sprint-range">—</span></div>
+      <div class="row">Updated: <span id="updated">—</span></div>
+    </div>
+  </header>
+
+  <section class="summary">
+    <div class="ring">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" stroke="#1c2530" stroke-width="6" fill="none"/>
+        <circle id="ring-fill" cx="40" cy="40" r="34" stroke="#00d97e" stroke-width="6" fill="none"
+                stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"/>
+      </svg>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="text">
+      <h2>Overall Progress</h2>
+      <p id="progress-text">0 of 0 items complete</p>
+    </div>
+    <div class="stats">
+      <div class="stat">Days complete: <b id="days-done">0/7</b></div>
+      <div class="stat">P0 items: <b id="p0-done">0/0</b></div>
+      <div class="stat">Open risks: <b id="risks-open">0</b></div>
+    </div>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <div id="days"></div>
+
+  <div class="bottom-grid">
+    <div class="panel">
+      <div class="panel-head">⚠ Risks</div>
+      <div class="panel-body">
+        <table>
+          <thead><tr><th>ID</th><th>Risk</th><th>Severity</th><th>Status</th></tr></thead>
+          <tbody id="risks-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">✓ Pre-Publish Checklist</div>
+      <div class="panel-body">
+        <table>
+          <thead><tr><th></th><th>Item</th><th></th></tr></thead>
+          <tbody id="checklist-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Prime Bridge Media · Phase 1 Launch · Generated by Hermes Agent</div>
+    <div>
+      <a href="https://github.com/kunaldahiya/prime-bridge-media-launch">View on GitHub</a>
+      · Last sync: <span id="last-saved">never</span>
+    </div>
+  </footer>
+</div>
+
+<div class="toast" id="toast">✓ Saved</div>
+
+<script>
+// =================== STATE ===================
+let STATE = { data: null, state: {} };
+const STORAGE_KEY = 'pbm-launch-state-v1';
+
+function loadState() {
+  try {
+    const s = localStorage.getItem(STORAGE_KEY);
+    return s ? JSON.parse(s) : {};
+  } catch (e) { return {}; }
+}
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE.state));
+    showToast('✓ Saved locally');
+  } catch (e) {}
+}
+function isDone(itemId) { return !!STATE.state[itemId]; }
+
+// =================== RENDER ===================
+function render() {
+  const d = STATE.data;
+  document.getElementById('sprint-range').textContent = `${d.meta.start_date} → ${d.meta.end_date}`;
+  document.getElementById('updated').textContent = new Date(d.meta.last_updated).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+  // KPIs
+  const kpisEl = document.getElementById('kpis');
+  kpisEl.innerHTML = d.kpis.map(k => {
+    const pct = k.target ? Math.round(k.current / k.target * 100) : 0;
+    const cls = k.current >= k.target ? 'complete' : (k.current > 0 ? 'partial' : '');
+    return `<div class="kpi ${cls}">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.current}<span class="denom">${k.unit}</span></div>
+      <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
+      <div class="pct">${pct}% of target</div>
+    </div>`;
+  }).join('');
+
+  // Days
+  const daysEl = document.getElementById('days');
+  daysEl.innerHTML = d.days.map(day => {
+    const done = day.items.filter(i => isDone(i.id)).length;
+    const total = day.items.length;
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const statusClass = day.status;
+    const allDone = done === total && total > 0;
+    return `<div class="day" data-day="${day.id}">
+      <div class="day-head" onclick="toggleDay('${day.id}')">
+        <div class="left">
+          <span class="status-dot ${statusClass}"></span>
+          <span class="id">${day.id}</span>
+          <span class="label">${day.label}</span>
+        </div>
+        <div class="right">
+          <span class="progress-text"><b>${done}</b>/${total} (${pct}%)</span>
+          <span class="toggle">▼</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead><tr><th></th><th>ID</th><th>Task</th><th>Pri</th><th>Owner</th><th>Notes</th></tr></thead>
+          <tbody>
+            ${day.items.map(item => `<tr>
+              <td class="checkbox-cell"><input type="checkbox" data-id="${item.id}" ${isDone(item.id) ? 'checked' : ''} onchange="toggleItem('${item.id}', this.checked)"></td>
+              <td class="id-cell">${item.id}</td>
+              <td class="task-cell ${isDone(item.id) ? 'done' : ''}">${item.task}</td>
+              <td class="priority-cell"><span class="priority ${item.priority}">${item.priority}</span></td>
+              <td class="owner-cell">${item.owner}</td>
+              <td class="notes-cell">${item.notes ? `<span class="note">${item.notes}</span>` : ''}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Risks
+  document.getElementById('risks-body').innerHTML = d.risks.map(r => `<tr>
+    <td class="id-cell">${r.id}</td>
+    <td class="task-cell">${r.text}</td>
+    <td><span class="severity ${r.severity}">${r.severity}</span></td>
+    <td class="owner-cell">${r.status}</td>
+  </tr>`).join('');
+
+  // Pre-publish checklist
+  document.getElementById('checklist-body').innerHTML = d.checklist_pre_publish.map(c => `<tr>
+    <td class="checkbox-cell"><input type="checkbox" data-id="${c.id}" ${isDone(c.id) ? 'checked' : ''} onchange="toggleItem('${c.id}', this.checked)"></td>
+    <td class="task-cell ${isDone(c.id) ? 'done' : ''}">${c.text}</td>
+    <td class="id-cell">${isDone(c.id) ? '✓' : ''}</td>
+  </tr>`).join('');
+
+  // Overall
+  const allItems = [...d.days.flatMap(d => d.items), ...d.checklist_pre_publish];
+  const totalDone = allItems.filter(i => isDone(i.id)).length;
+  const totalAll = allItems.length;
+  const overallPct = totalAll ? Math.round(totalDone / totalAll * 100) : 0;
+  document.getElementById('overall-pct').textContent = overallPct + '%';
+  const ringFill = document.getElementById('ring-fill');
+  const circumference = 213.6;
+  ringFill.setAttribute('stroke-dashoffset', circumference - (overallPct / 100 * circumference));
+  document.getElementById('progress-text').textContent = `${totalDone} of ${totalAll} items complete · ${d.days.filter(day => day.items.every(i => isDone(i.id)) && day.items.length > 0).length} of 7 days shipped`;
+  document.getElementById('days-done').textContent = `${d.days.filter(day => day.items.every(i => isDone(i.id)) && day.items.length > 0).length}/7`;
+  document.getElementById('p0-done').textContent = `${d.days.flatMap(d => d.items).filter(i => i.priority === 'P0' && isDone(i.id)).length}/${d.days.flatMap(d => d.items).filter(i => i.priority === 'P0').length}`;
+  document.getElementById('risks-open').textContent = d.risks.filter(r => r.status === 'open').length;
+}
+
+// =================== INTERACTIONS ===================
+function toggleItem(id, checked) {
+  STATE.state[id] = checked;
+  saveState();
+  render();
+}
+function toggleDay(id) {
+  document.querySelector(`.day[data-day="${id}"]`).classList.toggle('collapsed');
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+// Clock
+function tickClock() {
+  document.getElementById('clock').textContent = new Date().toLocaleTimeString('en-IN', { hour12: false });
+}
+setInterval(tickClock, 1000); tickClock();
+
+// =================== BOOT ===================
+fetch('data.json?v=' + Date.now())
+  .then(r => r.json())
+  .then(d => {
+    STATE.data = d;
+    STATE.state = loadState();
+    render();
+    document.getElementById('last-saved').textContent = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+  })
+  .catch(e => {
+    document.body.innerHTML = '<div style="padding:40px;font-family:monospace;color:#ff4d6d">Failed to load data.json: ' + e.message + '</div>';
+  });
+
+// Save indicator
+setInterval(() => {
+  const el = document.getElementById('last-saved');
+  if (el.textContent !== 'never') {
+    const last = new Date(el.textContent.replace(/(\d+)\/(\d+)\/(\d+),/, '$3-$1-$2'));
+    const diff = Math.floor((Date.now() - last.getTime()) / 60000);
+    el.textContent = diff < 1 ? 'just now' : `${diff}m ago`;
+  }
+}, 60000);
+</script>
+</body>
+</html>
