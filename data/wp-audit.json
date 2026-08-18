@@ -63,7 +63,7 @@
         {"id": "WP-16", "task": "Logo (PNG, transparent bg, 250x250px min)", "why": "Favicon + GMB + every directory listing", "how": "Figma / Canva / designer. Transparent background, square.", "time": "30 min", "priority": "P0", "done": false, "section": "wp_audit"},
         {"id": "WP-17", "task": "OG / Cover image (PNG/JPG, 1200x630px)", "why": "Social sharing preview on FB / LinkedIn / Twitter", "how": "Canva template Blog Banner > 1200x630 > brand colours", "time": "20 min", "priority": "P1", "done": false, "section": "wp_audit"},
         {"id": "WP-18", "task": "10+ business photos (real, not stock)", "why": "GMB listings + Trust section on website", "how": "Phone camera > office desk, you working, screen shots, dashboard screenshots, whiteboard", "time": "30 min", "priority": "P0", "done": false, "section": "wp_audit"},
-        {"id": "WP-19", "task": "Real phone number (E.164: +91XXXXXXXXXX)", "why": "NAP consistency across 4 GMBs + 10 citations + every pillar page", "how": "Pick a number that stays live for 12+ months. Same number EVERYWHERE.", "time": "5 min", "priority": "P0", "done": false, "section": "wp_audit"}
+        {"id": "WP-19", "task": "Real phone number set: +91 8295659206 (contact@primebridgemedia.com)", "why": "NAP consistency across 4 GMBs + 10 citations + every pillar page. DONE — phone + email provided 2026-08-18.", "how": "Use +91 8295659206 and contact@primebridgemedia.com everywhere. Same values EVERYWHERE.", "time": "DONE", "priority": "P0", "done": true, "section": "wp_audit"}
       ]
     }
   ]
