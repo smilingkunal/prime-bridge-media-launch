@@ -292,6 +292,74 @@
 
   /* Loading state */
   .loading { padding: 60px; text-align: center; color: var(--fg-mute); font-family: var(--mono); }
+
+  /* Content preview pane (Week 1 tab) */
+  .content-preview {
+    margin-top: 12px; background: var(--bg); border: 1px solid var(--accent-dim);
+    border-radius: 4px; overflow: hidden;
+  }
+  .content-preview-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 16px; background: var(--bg-elev);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 5;
+  }
+  .content-preview-body {
+    padding: 20px 28px; max-height: 600px; overflow-y: auto;
+    font-size: 14px; line-height: 1.7; color: var(--fg);
+    background: #0d1219;
+  }
+  .content-preview-body h1 {
+    font-size: 22px; color: var(--accent); margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .content-preview-body h2 {
+    font-size: 17px; color: var(--fg); margin-top: 22px; margin-bottom: 10px;
+    font-family: var(--mono);
+  }
+  .content-preview-body h3 {
+    font-size: 14px; color: var(--info); margin-top: 16px; margin-bottom: 8px;
+    font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .content-preview-body p { margin-bottom: 12px; }
+  .content-preview-body ul, .content-preview-body ol { padding-left: 22px; margin-bottom: 12px; }
+  .content-preview-body li { margin-bottom: 4px; color: var(--fg-mute); }
+  .content-preview-body strong { color: var(--accent); font-weight: 600; }
+  .content-preview-body em { color: var(--warn); }
+  .content-preview-body code {
+    font-family: var(--mono); font-size: 12px; background: var(--bg-elev);
+    padding: 1px 6px; border-radius: 3px; color: var(--info);
+    border: 1px solid var(--border);
+  }
+  .content-preview-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 8px 16px; margin: 12px 0;
+    background: var(--bg-elev); color: var(--fg-mute);
+    font-style: italic;
+  }
+  .content-preview-body a {
+    color: var(--info); text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+  }
+  .content-preview-body a:hover { text-decoration-color: var(--info); }
+  .content-preview-body table {
+    border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 12px;
+  }
+  .content-preview-body td {
+    padding: 6px 10px; border: 1px solid var(--border); color: var(--fg-mute);
+  }
+  .content-preview-body hr {
+    border: none; border-top: 1px solid var(--border);
+    margin: 20px 0;
+  }
+
+  .btn-view-draft {
+    background: var(--accent-dim); border: 1px solid var(--accent);
+    color: var(--accent); padding: 4px 12px; border-radius: 3px;
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .btn-view-draft:hover { background: var(--accent); color: var(--bg); }
 </style>
 </head>
 <body>
@@ -556,6 +624,26 @@ function renderGBP() {
       </ul>
     </div>`;
 
+    const linksHtml = `
+      <div class="posts-section" style="border-top: 1px solid var(--border);">
+        <h4>🔗 Quick links (click to open)</h4>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
+          <a href="${l.links.google_business_dashboard}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--accent); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">📍 GBP Dashboard</a>
+          <a href="${l.links.google_business_manage}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--accent); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">⚙️ Manage Listing</a>
+          <a href="${l.links.google_search_url}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--accent); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">🔍 View on Maps</a>
+          <a href="${l.links.place_id_lookup}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">🆔 Find Place ID</a>
+          <a href="${l.links.support_help}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">❓ GBP Help</a>
+        </div>
+        <h4 style="margin-top: 14px;">📣 Share pillar page</h4>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <a href="${l.social_share.linkedin}" target="_blank" style="background: #0a66c2; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">LinkedIn</a>
+          <a href="${l.social_share.facebook}" target="_blank" style="background: #1877f2; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">Facebook</a>
+          <a href="${l.social_share.twitter}" target="_blank" style="background: #000; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">X / Twitter</a>
+          <a href="${l.social_share.whatsapp}" target="_blank" style="background: #25d366; color: #fff; padding: 5px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">WhatsApp</a>
+        </div>
+      </div>
+    `;
+
     return `<div class="listing-card">
       <div class="listing-head">
         <div class="title">${l.label}</div>
@@ -567,6 +655,7 @@ function renderGBP() {
         ${postsHtml}
       </div>
       ${reviewsHtml}
+      ${linksHtml}
     </div>`;
   }).join('');
   document.getElementById('gbp-listings').innerHTML = html;
@@ -599,6 +688,7 @@ function renderCitations() {
         <div>
           <span class="status-tag ${statusClass}">${statusLabel}</span>
           <span style="color: var(--fg-dim); margin-left: 12px; font-family: var(--mono); font-size: 11px;">${c.time_estimate}</span>
+          <a href="${c.submit_url}" target="_blank" style="margin-left: 12px; color: var(--accent); font-family: var(--mono); font-size: 11px; text-decoration: none;">🔗 Open form</a>
         </div>
       </div>
       <div class="cit-body">
@@ -630,6 +720,122 @@ function setCitStatus(id, status) {
   markSaved();
   renderCitations();
   showToast('✓ Status updated');
+}
+
+// =================== MARKDOWN RENDERER (minimal, no library) ===================
+function renderMarkdown(md) {
+  if (!md) return '';
+  let html = md;
+  // Escape HTML first (very basic)
+  // Don't escape — markdown is our trusted content
+  // Process block-level elements
+  // Blockquote
+  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+  // H2
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  // H3
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  // H1
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // Horizontal rule
+  html = html.replace(/^---+$/gm, '<hr>');
+  // Unordered list
+  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, m => '<ul>' + m + '</ul>');
+  // Ordered list
+  html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+  // Tables (basic)
+  html = html.replace(/^\|(.+)\|$/gm, (m, inner) => {
+    const cells = inner.split('|').map(c => c.trim());
+    return '<tr>' + cells.map(c => '<td>' + c + '</td>').join('') + '</tr>';
+  });
+  html = html.replace(/(<tr>.*<\/tr>\n?)+/g, m => '<table>' + m + '</table>');
+  // Bold
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Italic
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Inline code
+  html = html.replace(/`(.+?)`/g, '<code>$1</code>');
+  // Links [text](url)
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  // Auto-link URLs (basic)
+  // Paragraphs: split on blank lines, wrap remaining lines
+  const blocks = html.split(/\n\n+/);
+  html = blocks.map(b => {
+    b = b.trim();
+    if (!b) return '';
+    if (b.startsWith('<')) return b; // already a block element
+    return '<p>' + b.replace(/\n/g, '<br>') + '</p>';
+  }).join('\n');
+  return html;
+}
+
+// =================== CONTENT LOADER ===================
+async function loadContent(filename) {
+  try {
+    const r = await fetch(`data/${filename}?v=${Date.now()}`);
+    return await r.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function showContent(itemId) {
+  const d = DATA.week1;
+  if (!d) return;
+  const all = [...d.pillars, ...d.blogs];
+  const item = all.find(i => i.id === itemId);
+  if (!item) return;
+  // Find content pane
+  const pane = document.getElementById(`content-pane-${itemId}`);
+  if (!pane) return;
+  // If already open, close it
+  if (pane.dataset.loaded === '1') {
+    pane.innerHTML = '';
+    pane.dataset.loaded = '0';
+    const btn = document.getElementById(`btn-content-${itemId}`);
+    if (btn) btn.textContent = 'View full draft ▼';
+    return;
+  }
+  // Loading state
+  pane.innerHTML = '<div style="padding: 20px; color: var(--fg-mute); font-family: var(--mono); font-size: 12px;">Loading draft…</div>';
+  const data = await loadContent(item.content_json);
+  if (!data) {
+    pane.innerHTML = '<div style="padding: 20px; color: var(--danger); font-family: var(--mono); font-size: 12px;">Failed to load content. Refresh page.</div>';
+    return;
+  }
+  // Render markdown
+  const rendered = renderMarkdown(data.markdown);
+  pane.innerHTML = `
+    <div class="content-preview">
+      <div class="content-preview-head">
+        <div>
+          <span style="font-family: var(--mono); font-size: 11px; color: var(--accent);">${item.id}</span>
+          <span style="margin-left: 12px; font-family: var(--mono); font-size: 11px; color: var(--fg-mute);">${data.word_count} words · ${data.char_count} chars</span>
+        </div>
+        <div>
+          <a href="${data.source_file.replace(/ /g, '%20').replace(/Prime%20Bridge%20Media/g, 'Prime%20Bridge%20Media')}" target="_blank" style="color: var(--accent); font-family: var(--mono); font-size: 11px; text-decoration: none; margin-right: 12px;">📂 Open in Obsidian</a>
+          <button onclick="copyContent('${item.content_json}')" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 4px 10px; border-radius: 3px; font-family: var(--mono); font-size: 11px; cursor: pointer;">📋 Copy markdown</button>
+        </div>
+      </div>
+      <div class="content-preview-body">${rendered}</div>
+    </div>
+  `;
+  pane.dataset.loaded = '1';
+  const btn = document.getElementById(`btn-content-${itemId}`);
+  if (btn) btn.textContent = 'Hide draft ▲';
+}
+
+async function copyContent(filename) {
+  const data = await loadContent(filename);
+  if (!data) return;
+  try {
+    await navigator.clipboard.writeText(data.markdown);
+    showToast('✓ Markdown copied');
+  } catch (e) {
+    // Fallback: select element
+    showToast('⚠ Clipboard blocked — use Obsidian link');
+  }
 }
 
 // =================== RENDER WEEK 1 CONTENT ===================
@@ -678,6 +884,11 @@ function renderWeek1() {
         <div style="margin-top: 6px;"><b style="color: var(--fg);">Internal links:</b> ${linkToLinks || '<span style="font-style:italic;">none</span>'}</div>
       </div>
       ${complianceHtml}
+      <div style="margin-top: 12px; display: flex; gap: 8px;">
+        <button id="btn-content-${item.id}" class="btn-view-draft" onclick="showContent('${item.id}')">📄 View full draft ▼</button>
+        <a href="${item.slug.replace(/^\//, 'https://primebridgemedia.com/')}" target="_blank" style="background: var(--bg); border: 1px solid var(--border); color: var(--fg-mute); padding: 4px 12px; border-radius: 3px; font-family: var(--mono); font-size: 11px; text-decoration: none;">🔗 Live URL (will work after publish)</a>
+      </div>
+      <div id="content-pane-${item.id}" data-loaded="0" style="margin-top: 12px;"></div>
     </div>`;
   }
 

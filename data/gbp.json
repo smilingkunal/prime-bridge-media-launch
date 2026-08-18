@@ -23,8 +23,30 @@
       "city": "Chandigarh",
       "label": "Prime Bridge Media — Chandigarh (HQ)",
       "primary_category": "Marketing agency",
-      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
-      "areas_served": ["Chandigarh", "Mohali", "Panchkula", "Zirakpur"],
+      "secondary_categories": [
+        "Internet marketing service",
+        "Website designer",
+        "Advertising agency"
+      ],
+      "areas_served": [
+        "Chandigarh",
+        "Mohali",
+        "Panchkula",
+        "Zirakpur"
+      ],
+      "links": {
+        "google_business_create": "https://business.google.com/create",
+        "google_business_manage": "https://business.google.com/manage",
+        "google_business_dashboard": "https://business.google.com/dashboard",
+        "google_search_url": "https://www.google.com/maps/search/Prime+Bridge+Media+Chandigarh",
+        "place_id_lookup": "https://developers.google.com/maps/documentation/places/web-service/place-id-finder",
+        "support_help": "https://support.google.com/business/answer/4596773"
+      },
+      "social_posts_targets": {
+        "linkedin_share": "https://www.linkedin.com/sharing/share-offsite/?url=https://primebridgemedia.com/local-seo-doctors-chandigarh/",
+        "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://primebridgemedia.com/local-seo-doctors-chandigarh/",
+        "twitter_share": "https://twitter.com/intent/tweet?text=Local%20SEO%20for%20Doctors%20in%20Chandigarh&url=https://primebridgemedia.com/local-seo-doctors-chandigarh/"
+      },
       "setup": {
         "claimed": false,
         "verified": false,
@@ -74,17 +96,38 @@
         "count": 0,
         "target": 10,
         "average_rating": null,
-        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+        "next_actions": [
+          "Ask 5 friends/clients for reviews",
+          "Add review link to email signature",
+          "Add QR code on invoices"
+        ]
       },
-      "issues": []
+      "issues": [],
+      "social_share": {
+        "linkedin": "https://www.linkedin.com/sharing/share-offsite/?url=https://primebridgemedia.com/local-seo-doctors-chandigarh/",
+        "facebook": "https://www.facebook.com/sharer/sharer.php?u=https://primebridgemedia.com/local-seo-doctors-chandigarh/",
+        "twitter": "https://twitter.com/intent/tweet?text=Local%20SEO%20services%20in%20Chandigarh&url=https://primebridgemedia.com/local-seo-doctors-chandigarh/",
+        "whatsapp": "https://wa.me/918295659206?text=Hi%20PBM%2C%20I%27d%20like%20a%20free%20audit"
+      }
     },
     {
       "id": "gbp-mohali",
       "city": "Mohali",
       "label": "Prime Bridge Media — Mohali",
       "primary_category": "Marketing agency",
-      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
-      "areas_served": ["Mohali", "Phase 7", "Phase 8", "Phase 11", "Aerocity", "Kharar"],
+      "secondary_categories": [
+        "Internet marketing service",
+        "Website designer",
+        "Advertising agency"
+      ],
+      "areas_served": [
+        "Mohali",
+        "Phase 7",
+        "Phase 8",
+        "Phase 11",
+        "Aerocity",
+        "Kharar"
+      ],
       "setup": {
         "claimed": false,
         "verified": false,
@@ -134,17 +177,48 @@
         "count": 0,
         "target": 10,
         "average_rating": null,
-        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+        "next_actions": [
+          "Ask 5 friends/clients for reviews",
+          "Add review link to email signature",
+          "Add QR code on invoices"
+        ]
       },
-      "issues": []
+      "issues": [],
+      "links": {
+        "google_business_create": "https://business.google.com/create",
+        "google_business_manage": "https://business.google.com/manage",
+        "google_business_dashboard": "https://business.google.com/dashboard",
+        "google_search_url": "https://www.google.com/maps/search/Prime+Bridge+Media+Mohali",
+        "place_id_lookup": "https://developers.google.com/maps/documentation/places/web-service/place-id-finder",
+        "support_help": "https://support.google.com/business/answer/4596773"
+      },
+      "social_share": {
+        "linkedin": "https://www.linkedin.com/sharing/share-offsite/?url=https://primebridgemedia.com/local-seo-salons-mohali/",
+        "facebook": "https://www.facebook.com/sharer/sharer.php?u=https://primebridgemedia.com/local-seo-salons-mohali/",
+        "twitter": "https://twitter.com/intent/tweet?text=Local%20SEO%20services%20in%20Mohali&url=https://primebridgemedia.com/local-seo-salons-mohali/",
+        "whatsapp": "https://wa.me/918295659206?text=Hi%20PBM%2C%20I%27d%20like%20a%20free%20audit"
+      }
     },
     {
       "id": "gbp-pkl",
       "city": "Panchkula",
       "label": "Prime Bridge Media — Panchkula",
       "primary_category": "Marketing agency",
-      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
-      "areas_served": ["Panchkula", "Sector 5", "Sector 9", "Sector 12", "Sector 20", "Peer Muchalla", "Pinjore", "Mansa Devi"],
+      "secondary_categories": [
+        "Internet marketing service",
+        "Website designer",
+        "Advertising agency"
+      ],
+      "areas_served": [
+        "Panchkula",
+        "Sector 5",
+        "Sector 9",
+        "Sector 12",
+        "Sector 20",
+        "Peer Muchalla",
+        "Pinjore",
+        "Mansa Devi"
+      ],
       "setup": {
         "claimed": false,
         "verified": false,
@@ -194,17 +268,46 @@
         "count": 0,
         "target": 10,
         "average_rating": null,
-        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+        "next_actions": [
+          "Ask 5 friends/clients for reviews",
+          "Add review link to email signature",
+          "Add QR code on invoices"
+        ]
       },
-      "issues": []
+      "issues": [],
+      "links": {
+        "google_business_create": "https://business.google.com/create",
+        "google_business_manage": "https://business.google.com/manage",
+        "google_business_dashboard": "https://business.google.com/dashboard",
+        "google_search_url": "https://www.google.com/maps/search/Prime+Bridge+Media+Panchkula",
+        "place_id_lookup": "https://developers.google.com/maps/documentation/places/web-service/place-id-finder",
+        "support_help": "https://support.google.com/business/answer/4596773"
+      },
+      "social_share": {
+        "linkedin": "https://www.linkedin.com/sharing/share-offsite/?url=https://primebridgemedia.com/local-seo-panchkula/",
+        "facebook": "https://www.facebook.com/sharer/sharer.php?u=https://primebridgemedia.com/local-seo-panchkula/",
+        "twitter": "https://twitter.com/intent/tweet?text=Local%20SEO%20services%20in%20Panchkula&url=https://primebridgemedia.com/local-seo-panchkula/",
+        "whatsapp": "https://wa.me/918295659206?text=Hi%20PBM%2C%20I%27d%20like%20a%20free%20audit"
+      }
     },
     {
       "id": "gbp-zkp",
       "city": "Zirakpur",
       "label": "Prime Bridge Media — Zirakpur",
       "primary_category": "Marketing agency",
-      "secondary_categories": ["Internet marketing service", "Website designer", "Advertising agency"],
-      "areas_served": ["Zirakpur", "VIP Road", "Ambala Highway", "Peer Muchalla", "Baltana", "Dhakoli"],
+      "secondary_categories": [
+        "Internet marketing service",
+        "Website designer",
+        "Advertising agency"
+      ],
+      "areas_served": [
+        "Zirakpur",
+        "VIP Road",
+        "Ambala Highway",
+        "Peer Muchalla",
+        "Baltana",
+        "Dhakoli"
+      ],
       "setup": {
         "claimed": false,
         "verified": false,
@@ -254,21 +357,89 @@
         "count": 0,
         "target": 10,
         "average_rating": null,
-        "next_actions": ["Ask 5 friends/clients for reviews", "Add review link to email signature", "Add QR code on invoices"]
+        "next_actions": [
+          "Ask 5 friends/clients for reviews",
+          "Add review link to email signature",
+          "Add QR code on invoices"
+        ]
       },
-      "issues": []
+      "issues": [],
+      "links": {
+        "google_business_create": "https://business.google.com/create",
+        "google_business_manage": "https://business.google.com/manage",
+        "google_business_dashboard": "https://business.google.com/dashboard",
+        "google_search_url": "https://www.google.com/maps/search/Prime+Bridge+Media+Zirakpur",
+        "place_id_lookup": "https://developers.google.com/maps/documentation/places/web-service/place-id-finder",
+        "support_help": "https://support.google.com/business/answer/4596773"
+      },
+      "social_share": {
+        "linkedin": "https://www.linkedin.com/sharing/share-offsite/?url=https://primebridgemedia.com/local-seo-real-estate-zirakpur/",
+        "facebook": "https://www.facebook.com/sharer/sharer.php?u=https://primebridgemedia.com/local-seo-real-estate-zirakpur/",
+        "twitter": "https://twitter.com/intent/tweet?text=Local%20SEO%20services%20in%20Zirakpur&url=https://primebridgemedia.com/local-seo-real-estate-zirakpur/",
+        "whatsapp": "https://wa.me/918295659206?text=Hi%20PBM%2C%20I%27d%20like%20a%20free%20audit"
+      }
     }
   ],
   "global_checklist": [
-    {"id": "GBP-01", "task": "Use canonical NAP block from Citation Submission Tracker", "done": false, "section": "gbp"},
-    {"id": "GBP-02", "task": "Verify each listing by phone/SMS/postcard as required", "done": false, "section": "gbp"},
-    {"id": "GBP-03", "task": "Upload logo + cover photo to each listing", "done": false, "section": "gbp"},
-    {"id": "GBP-04", "task": "Upload 10+ business photos per listing (mix of office + clients + work)", "done": false, "section": "gbp"},
-    {"id": "GBP-05", "task": "Post Week 1 posts (3 per listing = 12 total)", "done": false, "section": "gbp"},
-    {"id": "GBP-06", "task": "Set up review-generation flow (QR code + WhatsApp)", "done": false, "section": "gbp"},
-    {"id": "GBP-07", "task": "Get 5 Google reviews across the 4 listings", "done": false, "section": "gbp"},
-    {"id": "GBP-08", "task": "Respond to every review within 24 hours", "done": false, "section": "gbp"},
-    {"id": "GBP-09", "task": "Set up Q&A section with 3-5 common questions per listing", "done": false, "section": "gbp"},
-    {"id": "GBP-10", "task": "Add each listing URL to NAP audit + start tracking", "done": false, "section": "gbp"}
+    {
+      "id": "GBP-01",
+      "task": "Use canonical NAP block from Citation Submission Tracker",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-02",
+      "task": "Verify each listing by phone/SMS/postcard as required",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-03",
+      "task": "Upload logo + cover photo to each listing",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-04",
+      "task": "Upload 10+ business photos per listing (mix of office + clients + work)",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-05",
+      "task": "Post Week 1 posts (3 per listing = 12 total)",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-06",
+      "task": "Set up review-generation flow (QR code + WhatsApp)",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-07",
+      "task": "Get 5 Google reviews across the 4 listings",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-08",
+      "task": "Respond to every review within 24 hours",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-09",
+      "task": "Set up Q&A section with 3-5 common questions per listing",
+      "done": false,
+      "section": "gbp"
+    },
+    {
+      "id": "GBP-10",
+      "task": "Add each listing URL to NAP audit + start tracking",
+      "done": false,
+      "section": "gbp"
+    }
   ]
 }

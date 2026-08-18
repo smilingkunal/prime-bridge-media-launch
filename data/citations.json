@@ -50,7 +50,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "45 min"
+      "time_estimate": "45 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-02",
@@ -82,7 +90,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "30 min"
+      "time_estimate": "30 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-03",
@@ -118,7 +134,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "60 min"
+      "time_estimate": "60 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-04",
@@ -146,7 +170,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "90 min (3 listings)"
+      "time_estimate": "90 min (3 listings)",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-05",
@@ -177,7 +209,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "30 min"
+      "time_estimate": "30 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-06",
@@ -207,7 +247,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "15 min"
+      "time_estimate": "15 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-07",
@@ -238,7 +286,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "20 min"
+      "time_estimate": "20 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-08",
@@ -268,7 +324,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "45 min"
+      "time_estimate": "45 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-09",
@@ -298,7 +362,15 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "45 min"
+      "time_estimate": "45 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     },
     {
       "id": "cit-10",
@@ -327,18 +399,76 @@
       "date_submitted": null,
       "date_live": null,
       "listing_url": null,
-      "time_estimate": "30 min"
+      "time_estimate": "30 min",
+      "related_dashboard_tabs": [
+        "gbp",
+        "week1"
+      ],
+      "related_obsidian_notes": [
+        "Prime Bridge Media/SEO/Launch/Citation Submission Tracker.md",
+        "Prime Bridge Media/SEO/Launch/Citation Outreach Templates.md"
+      ]
     }
   ],
   "global_checklist": [
-    {"id": "CIT-01", "task": "Confirm canonical NAP block finalised (phone + address locked)", "done": false, "section": "citations"},
-    {"id": "CIT-02", "task": "Logo + cover photo ready in /assets folder", "done": false, "section": "citations"},
-    {"id": "CIT-03", "task": "Microsoft + Apple IDs created and tested", "done": false, "section": "citations"},
-    {"id": "CIT-04", "task": "Day 7 submission session completed (~3 hours)", "done": false, "section": "citations"},
-    {"id": "CIT-05", "task": "All 10 submissions done within 24 hours", "done": false, "section": "citations"},
-    {"id": "CIT-06", "task": "Verification calls/SMS answered within 24h of receipt", "done": false, "section": "citations"},
-    {"id": "CIT-07", "task": "NAP audit run on Day 14 — verify all 10 listings show same NAP", "done": false, "section": "citations"},
-    {"id": "CIT-08", "task": "Add 2 more directories: TradeIndia + Foursquare (Phase 2, days 14-30)", "done": false, "section": "citations"},
-    {"id": "CIT-09", "task": "Add 5+ niche-specific directories per top niche (Phase 2)", "done": false, "section": "citations"}
-  ]
+    {
+      "id": "CIT-01",
+      "task": "Confirm canonical NAP block finalised (phone + address locked)",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-02",
+      "task": "Logo + cover photo ready in /assets folder",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-03",
+      "task": "Microsoft + Apple IDs created and tested",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-04",
+      "task": "Day 7 submission session completed (~3 hours)",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-05",
+      "task": "All 10 submissions done within 24 hours",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-06",
+      "task": "Verification calls/SMS answered within 24h of receipt",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-07",
+      "task": "NAP audit run on Day 14 — verify all 10 listings show same NAP",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-08",
+      "task": "Add 2 more directories: TradeIndia + Foursquare (Phase 2, days 14-30)",
+      "done": false,
+      "section": "citations"
+    },
+    {
+      "id": "CIT-09",
+      "task": "Add 5+ niche-specific directories per top niche (Phase 2)",
+      "done": false,
+      "section": "citations"
+    }
+  ],
+  "cross_references": {
+    "obsidian_launch_pack": "Prime Bridge Media/SEO/Launch/00 - Week 1 Content Pack.md",
+    "obsidian_audit": "Prime Bridge Media/SEO/Launch/2026-08-18 - WP Site Audit - primebridgemedia.com.md",
+    "wp_homepage_meta": "Prime Bridge Media/SEO/Launch/Meta - Homepage kunaldahiya.me.md"
+  }
 }

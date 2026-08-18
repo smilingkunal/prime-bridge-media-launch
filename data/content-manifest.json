@@ -1,0 +1,44 @@
+{
+  "version": "2026-08-18",
+  "last_updated": "2026-08-18T18:10:00+05:30",
+  "files": [
+    {
+      "id": "W1-P1",
+      "filename": "pillar-doctors.json"
+    },
+    {
+      "id": "W1-P2",
+      "filename": "pillar-restaurants.json"
+    },
+    {
+      "id": "W1-P3",
+      "filename": "pillar-salons.json"
+    },
+    {
+      "id": "W1-P4",
+      "filename": "pillar-gyms.json"
+    },
+    {
+      "id": "W1-P5",
+      "filename": "pillar-lawyers.json"
+    },
+    {
+      "id": "W1-P6",
+      "filename": "pillar-realestate.json"
+    },
+    {
+      "id": "W1-B1",
+      "filename": "blog-cost.json"
+    },
+    {
+      "id": "W1-B2",
+      "filename": "blog-patients.json"
+    },
+    {
+      "id": "W1-B3",
+      "filename": "blog-sitevisits.json"
+    }
+  ],
+  "total_drafts": 9,
+  "total_words": 11137
+}
