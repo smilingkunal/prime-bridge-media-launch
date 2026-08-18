@@ -58,6 +58,138 @@
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
   }
+
+  /* ===== GBP PERFORMANCE CHARTS ===== */
+  .perf-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px; margin-bottom: 16px;
+  }
+  .perf-card {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+    position: relative; overflow: hidden;
+  }
+  .perf-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--brand-blue);
+  }
+  .perf-card.top::before { background: linear-gradient(90deg, #059669, #10b981); }
+  .perf-card.mid::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .perf-card.low::before { background: linear-gradient(90deg, #dc2626, #ef4444); }
+  .perf-city {
+    font-size: 14px; font-weight: 700; color: var(--brand-blue);
+    margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .perf-rank {
+    background: var(--bg-row); color: var(--fg-mute);
+    padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 600;
+    font-family: var(--font-mono);
+  }
+  .perf-stat-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0; font-size: 12px;
+  }
+  .perf-stat-row .label { color: var(--fg-mute); }
+  .perf-stat-row .value { font-weight: 600; color: var(--fg); font-family: var(--font-mono); }
+  .perf-bar {
+    margin-top: 4px; height: 6px; background: var(--bg-row);
+    border-radius: 3px; overflow: hidden; margin-bottom: 10px;
+  }
+  .perf-bar .fill {
+    height: 100%; background: var(--brand-blue);
+    transition: width 0.6s ease;
+    border-radius: 3px;
+  }
+  .perf-bar.full .fill { background: var(--success); }
+  .perf-bar.partial .fill { background: var(--warn); }
+
+  .health-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 600; font-family: var(--font-mono);
+  }
+  .health-badge.good { background: var(--success-light); color: var(--success); }
+  .health-badge.warn { background: var(--warn-light); color: #b45309; }
+  .health-badge.poor { background: var(--danger-light); color: var(--danger); }
+
+  /* Schedule table */
+  .schedule-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--bg-elev); border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  }
+  .schedule-table th {
+    background: var(--bg-row);
+    padding: 10px 14px; font-weight: 600; text-align: left;
+    color: var(--fg-mute); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+  }
+  .schedule-table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table tr:hover td { background: var(--bg-row); }
+  .schedule-day {
+    background: var(--brand-blue); color: #fff;
+    padding: 3px 10px; border-radius: 4px;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  }
+
+  /* Benchmark grid */
+  .bench-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; margin-top: 12px;
+  }
+  .bench-card {
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 70%);
+    border: 1px solid var(--brand-blue-light);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .bench-card .num {
+    font-size: 28px; font-weight: 700; color: var(--brand-blue);
+    font-family: var(--font-mono); line-height: 1;
+  }
+  .bench-card .desc {
+    font-size: 12px; color: var(--fg-mute); margin-top: 6px; line-height: 1.4;
+  }
+
+  /* ===== FOOTER (branded) ===== */
+  footer {
+    margin-top: 40px;
+    padding: 20px 24px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    background-image: linear-gradient(135deg, var(--brand-blue-lighter) 0%, transparent 60%);
+  }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo {
+    height: 40px; width: auto;
+    background: white; padding: 4px 8px; border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 76, 177, 0.1);
+  }
+  .footer-title {
+    font-size: 14px; font-weight: 700; color: var(--fg);
+  }
+  .footer-tagline {
+    font-size: 11px; color: var(--fg-mute); margin-top: 2px;
+    font-family: var(--font-mono);
+  }
+  .footer-meta {
+    font-size: 10px; color: var(--fg-dim); margin-top: 3px;
+    font-family: var(--font-mono);
+  }
+  .footer-links {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--fg-dim);
+    text-align: right;
+  }
+  .footer-links a { color: var(--fg-mute); text-decoration: none; }
+  .footer-links a:hover { color: var(--brand-blue); }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 14px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   body {
@@ -457,6 +589,9 @@
     <button class="tab" data-tab="week1" onclick="switchTab('week1')">
       <span>📝</span> Week 1 Content <span class="badge" id="badge-w1">9 drafts</span>
     </button>
+    <button class="tab" data-tab="gbp_perf" onclick="switchTab('gbp_perf')">
+      <span>📊</span> GBP Performance <span class="badge" id="badge-perf">—</span>
+    </button>
   </nav>
 
   <main>
@@ -520,13 +655,33 @@
       </div>
       <div id="w1-content"><div class="loading">Loading…</div></div>
     </section>
+
+    <!-- TAB 5: GBP PERFORMANCE -->
+    <section class="tab-content" id="tab-gbp_perf">
+      <div class="tab-summary">
+        <div class="overall" id="perf-overall">0<small>/100</small></div>
+        <div class="info">
+          <h2>GBP Performance — Across 4 Cities</h2>
+          <p>Setup completion, posts, reviews, health scores. Benchmarked against industry standards.</p>
+        </div>
+      </div>
+      <div id="perf-content"><div class="loading">Loading…</div></div>
+    </section>
   </main>
 
   <footer>
-    <div>Prime Bridge Media · Phase 1 Launch · Generated by Hermes Agent</div>
-    <div>
+    <div class="footer-brand">
+      <img src="assets/logo-white-250.png" alt="Prime Bridge Media" class="footer-logo">
+      <div>
+        <div class="footer-title">Prime Bridge Media</div>
+        <div class="footer-tagline">Digital Marketing Agency in Chandigarh-Tricity · Local SEO, YouTube Ads, Meta Ads, WordPress</div>
+        <div class="footer-meta">Sector 17, Chandigarh 160017 · +91 8295659206 · contact@primebridgemedia.com</div>
+      </div>
+    </div>
+    <div class="footer-links">
       <a href="https://github.com/smilingkunal/prime-bridge-media-launch">View on GitHub</a>
-      · v5 (Light theme + brand assets)
+      · <a href="https://primebridgemedia.com" target="_blank">primebridgemedia.com</a>
+      · v5
     </div>
   </footer>
 </div>
@@ -539,8 +694,8 @@ console.log('PBM dashboard v5 — light theme with brand assets');
 
 <script>
 // =================== STATE ===================
-const STORAGE_KEY = 'pbm-launch-v5';
-let DATA = { wp_audit: null, gbp: null, citations: null, week1: null };
+const STORAGE_KEY = 'pbm-launch-v6';
+let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null };
 let STATE = loadState();
 
 function loadState() {
@@ -1010,12 +1165,134 @@ function renderWeek1() {
   `;
 }
 
+// =================== RENDER GBP PERFORMANCE ===================
+function renderGBPPerformance() {
+  const d = DATA.gbp_perf;
+  if (!d) return;
+  const avgHealth = Math.round(d.cities.reduce((s, c) => s + c.health_score, 0) / d.cities.length);
+  document.getElementById('perf-overall').innerHTML = avgHealth + '<small>/100</small>';
+  document.getElementById('badge-perf').textContent = `${avgHealth}/100 health`;
+
+  // Per-city cards
+  const citiesHtml = d.cities.map((c, i) => {
+    const rank = i + 1;
+    const tier = c.health_score >= 70 ? 'top' : c.health_score >= 40 ? 'mid' : 'low';
+    const healthClass = c.health_score >= 70 ? 'good' : c.health_score >= 40 ? 'warn' : 'poor';
+    const setupCls = c.setup_pct === 100 ? 'full' : c.setup_pct > 0 ? 'partial' : '';
+    const photosCls = c.photos_done >= c.photos_target ? 'full' : c.photos_done > 0 ? 'partial' : '';
+    const reviewsCls = c.reviews_count >= c.reviews_target ? 'full' : c.reviews_count > 0 ? 'partial' : '';
+    return `<div class="perf-card ${tier}">
+      <div class="perf-city">${c.city}<span class="perf-rank">#${rank}</span></div>
+      <div class="perf-stat-row">
+        <span class="label">⚙️ Profile setup</span>
+        <span class="value">${c.setup_done}/${c.setup_total} (${c.setup_pct}%)</span>
+      </div>
+      <div class="perf-bar ${setupCls}"><div class="fill" style="width: ${c.setup_pct}%"></div></div>
+      <div class="perf-stat-row">
+        <span class="label">📸 Photos</span>
+        <span class="value">${c.photos_done}/${c.photos_target}</span>
+      </div>
+      <div class="perf-bar ${photosCls}"><div class="fill" style="width: ${Math.round(c.photos_done/c.photos_target*100)}%"></div></div>
+      <div class="perf-stat-row">
+        <span class="label">📝 Posts drafted</span>
+        <span class="value">${c.posts_drafted}</span>
+      </div>
+      <div class="perf-bar"><div class="fill" style="width: ${Math.min(c.posts_drafted*10, 100)}%"></div></div>
+      <div class="perf-stat-row">
+        <span class="label">⭐ Reviews</span>
+        <span class="value">${c.reviews_count}/${c.reviews_target}</span>
+      </div>
+      <div class="perf-bar ${reviewsCls}"><div class="fill" style="width: ${Math.round(c.reviews_count/c.reviews_target*100)}%"></div></div>
+      <div style="margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); text-align: center;">
+        <span class="health-badge ${healthClass}">Health: ${c.health_score}/100</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Weekly schedule
+  const scheduleHtml = d.weekly_post_schedule.map(s => `<tr>
+    <td><span class="schedule-day">${s.day}</span></td>
+    <td style="font-weight: 600;">${s.city}</td>
+    <td style="color: var(--fg-mute);">${s.post_topic}</td>
+    <td style="font-family: var(--font-mono); font-size: 12px; color: var(--fg-mute);">${s.scheduled_time}</td>
+  </tr>`).join('');
+
+  // Benchmarks
+  const b = d.competitive_benchmarks;
+  const benchHtml = `<div class="bench-grid">
+    <div class="bench-card">
+      <div class="num">${b.reviews_to_rank_in_3_pack}+</div>
+      <div class="desc">reviews typically needed to rank in Google Maps 3-pack for competitive niches</div>
+    </div>
+    <div class="bench-card">
+      <div class="num">${b.photos_minimum_for_engagement}+</div>
+      <div class="desc">photos minimum per listing for meaningful engagement (CTR lift 35%)</div>
+    </div>
+    <div class="bench-card">
+      <div class="num">${b.posts_per_week_recommended}×/wk</div>
+      <div class="desc">posts per week minimum to maintain ranking signal and freshness</div>
+    </div>
+    <div class="bench-card">
+      <div class="num">≤${b.response_time_to_review_hours}h</div>
+      <div class="desc">max response time to a new review to maintain trust signals</div>
+    </div>
+  </div>`;
+
+  document.getElementById('perf-content').innerHTML = `
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>🏙️ City-by-city comparison (${d.cities.length} listings)</h3>
+          <div class="desc">Sorted by health score. Top tier (green), middle tier (amber), needs attention (red).</div>
+        </div>
+        <div class="right">
+          <span class="progress-text"><b>${d.summary.fully_setup}/${d.cities.length}</b> fully setup</span>
+          <span class="toggle">▼</span>
+        </div>
+      </div>
+      <div class="group-body">
+        <div class="perf-grid">${citiesHtml}</div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>📅 Weekly posting schedule</h3>
+          <div class="desc">3 posts per listing per week = 12 posts total. Rotate cities to keep content fresh.</div>
+        </div>
+        <div class="right"><span class="toggle">▼</span></div>
+      </div>
+      <div class="group-body" style="padding: 16px;">
+        <table class="schedule-table">
+          <thead><tr><th>Day</th><th>City</th><th>Topic angle</th><th>Scheduled time</th></tr></thead>
+          <tbody>${scheduleHtml}</tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>📐 Industry benchmarks</h3>
+          <div class="desc">What "good" looks like for local services GBP in India.</div>
+        </div>
+        <div class="right"><span class="toggle">▼</span></div>
+      </div>
+      <div class="group-body">
+        ${benchHtml}
+      </div>
+    </div>
+  `;
+}
+
 // =================== RE-RENDER ALL ===================
 function renderAll() {
   renderWP();
   renderGBP();
   renderCitations();
   renderWeek1();
+  renderGBPPerformance();
   updateLastSaved();
 }
 
@@ -1028,16 +1305,18 @@ setInterval(tickClock, 1000); tickClock();
 // =================== BOOT ===================
 async function boot() {
   try {
-    const [wp, gbp, cit, w1] = await Promise.all([
+    const [wp, gbp, cit, w1, perf] = await Promise.all([
       fetch('data/wp-audit.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gbp.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/citations.json?v=' + Date.now()).then(r => r.json()),
-      fetch('data/week1-content.json?v=' + Date.now()).then(r => r.json())
+      fetch('data/week1-content.json?v=' + Date.now()).then(r => r.json()),
+      fetch('data/gbp-performance.json?v=' + Date.now()).then(r => r.json())
     ]);
     DATA.wp_audit = wp;
     DATA.gbp = gbp;
     DATA.citations = cit;
     DATA.week1 = w1;
+    DATA.gbp_perf = perf;
     if (cit && cit.directories) {
       cit.directories.forEach(c => {
         if (STATE[`cit-status-${c.id}`]) c.status = STATE[`cit-status-${c.id}`];

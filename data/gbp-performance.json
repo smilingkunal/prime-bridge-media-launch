@@ -1,0 +1,109 @@
+{
+  "tab_title": "GBP Performance",
+  "tab_icon": "📊",
+  "version": "2026-08-18",
+  "last_updated": "2026-08-18T18:45:00+05:30",
+  "summary": {
+    "total_listings": 4,
+    "fully_setup": 0,
+    "total_posts_drafted": 12,
+    "total_reviews_target": 40,
+    "avg_setup_pct": 0
+  },
+  "cities": [
+    {
+      "city": "Chandigarh",
+      "label": "Prime Bridge Media — Chandigarh (HQ)",
+      "setup_done": 0,
+      "setup_total": 10,
+      "setup_pct": 0,
+      "photos_done": 0,
+      "photos_target": 15,
+      "posts_drafted": 3,
+      "reviews_count": 0,
+      "reviews_target": 10,
+      "health_score": 0,
+      "issues": []
+    },
+    {
+      "city": "Mohali",
+      "label": "Prime Bridge Media — Mohali",
+      "setup_done": 0,
+      "setup_total": 10,
+      "setup_pct": 0,
+      "photos_done": 0,
+      "photos_target": 15,
+      "posts_drafted": 3,
+      "reviews_count": 0,
+      "reviews_target": 10,
+      "health_score": 0,
+      "issues": []
+    },
+    {
+      "city": "Panchkula",
+      "label": "Prime Bridge Media — Panchkula",
+      "setup_done": 0,
+      "setup_total": 10,
+      "setup_pct": 0,
+      "photos_done": 0,
+      "photos_target": 15,
+      "posts_drafted": 3,
+      "reviews_count": 0,
+      "reviews_target": 10,
+      "health_score": 0,
+      "issues": []
+    },
+    {
+      "city": "Zirakpur",
+      "label": "Prime Bridge Media — Zirakpur",
+      "setup_done": 0,
+      "setup_total": 10,
+      "setup_pct": 0,
+      "photos_done": 0,
+      "photos_target": 15,
+      "posts_drafted": 3,
+      "reviews_count": 0,
+      "reviews_target": 10,
+      "health_score": 0,
+      "issues": []
+    }
+  ],
+  "weekly_post_schedule": [
+    {
+      "day": "Mon",
+      "city": "Chandigarh",
+      "post_topic": "Audit offer",
+      "scheduled_time": "10:00 IST"
+    },
+    {
+      "day": "Tue",
+      "city": "Mohali",
+      "post_topic": "Phase-specific content",
+      "scheduled_time": "10:00 IST"
+    },
+    {
+      "day": "Wed",
+      "city": "Panchkula",
+      "post_topic": "Haryaya-Chandigarh mix",
+      "scheduled_time": "10:00 IST"
+    },
+    {
+      "day": "Thu",
+      "city": "Zirakpur",
+      "post_topic": "VIP Road builder angle",
+      "scheduled_time": "10:00 IST"
+    },
+    {
+      "day": "Fri",
+      "city": "Rotating",
+      "post_topic": "Best-of roundup + new offer",
+      "scheduled_time": "10:00 IST"
+    }
+  ],
+  "competitive_benchmarks": {
+    "reviews_to_rank_in_3_pack": 25,
+    "photos_minimum_for_engagement": 12,
+    "posts_per_week_recommended": 3,
+    "response_time_to_review_hours": 24
+  }
+}
