@@ -66,6 +66,72 @@
     font-weight: 500; color: var(--fg-mute); font-size: 18px;
   }
 
+  /* ===== HOMEPAGE SEO ===== */
+  .hp-tier {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hp-tier-label {
+    font-size: 14px; font-weight: 700; color: var(--fg);
+    margin-bottom: 12px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hp-tier-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+  .hp-kw-card {
+    background: var(--bg-row); padding: 10px 14px; border-radius: 6px;
+    border-left: 3px solid var(--brand-blue);
+    font-size: 12px;
+  }
+  .hp-kw-card .kw-text {
+    font-weight: 600; color: var(--fg); margin-bottom: 4px; line-height: 1.3;
+  }
+  .hp-kw-card .kw-meta {
+    font-family: var(--font-mono); font-size: 10px; color: var(--fg-mute);
+    display: flex; gap: 8px;
+  }
+  .hp-kw-card .kw-meta .vol { color: var(--accent, var(--brand-blue)); }
+  .hp-kw-card .kw-meta .kd { color: var(--warn); }
+
+  .hp-kw-card.tier-1 { border-left-color: var(--brand-blue); border-left-width: 4px; background: var(--brand-blue-lighter); }
+  .hp-kw-card.tier-3 { border-left-color: var(--success); }
+
+  .hp-hero-preview {
+    background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--bg-elev) 100%);
+    border: 1px solid var(--brand-blue-light);
+    border-radius: 12px; padding: 24px 28px; margin-bottom: 16px;
+  }
+  .hp-hero-preview .h1-display {
+    font-size: 28px; font-weight: 700; color: var(--fg);
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .hp-hero-preview .h2-display {
+    font-size: 18px; color: var(--brand-blue); font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .hp-hero-preview .body-display {
+    font-size: 13px; color: var(--fg-mute); line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .hp-cta-button {
+    display: inline-block; padding: 12px 24px;
+    background: var(--brand-blue); color: #fff;
+    border-radius: 6px; font-weight: 600; font-size: 14px;
+    text-decoration: none;
+  }
+
+  .hp-meta-display {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 8px;
+    font-family: var(--font-mono); font-size: 12px;
+  }
+  .hp-meta-display .label { color: var(--fg-mute); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .hp-meta-display .value { color: var(--fg); }
+  .hp-meta-display .length { color: var(--success); font-weight: 600; float: right; }
+
   /* ===== 7-DAY TIMELINE ===== */
   .tl-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -708,6 +774,9 @@
     <button class="tab" data-tab="gsc" onclick="switchTab('gsc')">
       <span>📈</span> GSC Data <span class="badge" id="badge-gsc">pending</span>
     </button>
+    <button class="tab" data-tab="homepage" onclick="switchTab('homepage')">
+      <span>🏠</span> Homepage SEO <span class="badge" id="badge-hp">0/16</span>
+    </button>
   </nav>
 
   <main>
@@ -807,6 +876,18 @@
       </div>
       <div id="gsc-content"><div class="loading">Loading…</div></div>
     </section>
+
+    <!-- TAB 8: HOMEPAGE SEO -->
+    <section class="tab-content" id="tab-homepage">
+      <div class="tab-summary">
+        <div class="overall" id="hp-overall">53<small>/60</small></div>
+        <div class="info">
+          <h2>Homepage SEO — Prime Bridge Media</h2>
+          <p>Keyword strategy + meta + hero + section structure + 16-item build checklist for primebridgemedia.com homepage.</p>
+        </div>
+      </div>
+      <div id="hp-content"><div class="loading">Loading…</div></div>
+    </section>
   </main>
 
   <footer>
@@ -834,8 +915,8 @@ console.log('PBM dashboard v5 — light theme with brand assets');
 
 <script>
 // =================== STATE ===================
-const STORAGE_KEY = 'pbm-launch-v7';
-let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null, gsc: null };
+const STORAGE_KEY = 'pbm-launch-v8';
+let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null, gsc: null, homepage: null };
 let STATE = loadState();
 
 function loadState() {
@@ -1639,6 +1720,117 @@ function renderGSC() {
   document.getElementById('gsc-overall').innerHTML = '—<small>pending</small>';
 }
 
+
+// =================== RENDER HOMEPAGE SEO ===================
+function renderHomepage() {
+  const d = DATA.homepage;
+  if (!d) return;
+  const done = d.build_checklist.filter(c => isDone(c.id)).length;
+  const total = d.build_checklist.length;
+  document.getElementById('hp-overall').innerHTML = `${d.summary.title_chars}<small>/${60} title</small>`;
+  document.getElementById('badge-hp').textContent = `${done}/${total} build`;
+
+  const tierHtml = (tier, cls, badgeText) => {
+    return `<div class="hp-tier">
+      <div class="hp-tier-label">${tier.label} <span class="compliance-badge pass" style="font-size: 10px; padding: 2px 6px;">${tier.kws.length} KWs</span></div>
+      <div class="hp-tier-grid">
+        ${tier.kws.map(k => {
+          const kObj = (typeof k === 'string') ? {kw: k} : k;
+          const vol = kObj.volume ? `<span class="vol">${kObj.volume}</span>` : '';
+          const kd = kObj.kd ? `<span class="kd">KD: ${kObj.kd}</span>` : '';
+          const pillar = kObj.pillar ? `<span style="color: var(--success);">→ ${kObj.pillar.split('/').filter(s=>s).slice(-2)[0]}/</span>` : '';
+          return `<div class="hp-kw-card ${cls}">
+            <div class="kw-text">${kObj.kw}</div>
+            <div class="kw-meta">${vol} ${kd} ${pillar}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  };
+
+  const heroHtml = `
+    <div class="hp-hero-preview">
+      <div style="font-size: 11px; color: var(--brand-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Hero Preview</div>
+      <div class="h1-display">${d.hero_copy.h1}</div>
+      <div class="h2-display">${d.hero_copy.h2}</div>
+      <div class="body-display">${d.hero_copy.opening_para}</div>
+      <a href="${d.hero_copy.cta_url}" class="hp-cta-button">${d.hero_copy.primary_cta} →</a>
+    </div>
+  `;
+
+  const metaHtml = `
+    <div class="hp-tier">
+      <div class="hp-tier-label">📋 Rank Math Meta</div>
+      <div class="hp-meta-display">
+        <div class="label">Title<span class="length">${d.summary.title_chars}/60</span></div>
+        <div class="value">${d.rank_math_meta.title}</div>
+      </div>
+      <div class="hp-meta-display">
+        <div class="label">Description<span class="length">${d.summary.desc_chars}/160</span></div>
+        <div class="value">${d.rank_math_meta.description}</div>
+      </div>
+      <div class="hp-meta-display">
+        <div class="label">Focus Keyphrase</div>
+        <div class="value" style="color: var(--brand-blue); font-weight: 600;">${d.rank_math_meta.focus_keyphrase}</div>
+      </div>
+    </div>
+  `;
+
+  const structureHtml = `
+    <div class="hp-tier">
+      <div class="hp-tier-label">🏗 Homepage section structure (10 sections)</div>
+      <table style="width: 100%; font-size: 12px;">
+        <thead><tr style="background: var(--bg-row);"><th style="text-align: left; padding: 8px;">Section</th><th style="text-align: left; padding: 8px;">H2 / H1</th><th style="text-align: left; padding: 8px;">KW density</th></tr></thead>
+        <tbody>
+          ${d.section_structure.map(s => `<tr>
+            <td style="padding: 8px; font-weight: 600;">${s.section}</td>
+            <td style="padding: 8px; font-family: var(--font-mono); font-size: 11px;">${s[s.section.toLowerCase().includes('hero') || s.section === 'Hero' ? 'h1' : 'h2']}</td>
+            <td style="padding: 8px; color: var(--fg-mute); font-size: 11px;">${s.kw_density}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  const checklistHtml = `
+    <div class="group">
+      <div class="group-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <div>
+          <h3>🔨 Homepage build checklist (${done}/${total})</h3>
+          <div class="desc">Tick each item as you build it. Persists in localStorage.</div>
+        </div>
+        <div class="right">
+          <span class="progress-text"><b>${done}</b>/${total}</span>
+          <span class="toggle">▼</span>
+        </div>
+      </div>
+      <div class="group-body">
+        <table>
+          <tbody>
+            ${d.build_checklist.map(c => `<tr>
+              <td class="checkbox-cell"><input type="checkbox" ${isDone(c.id) ? 'checked' : ''} onchange="onToggle('${c.id}', this.checked)"></td>
+              <td class="id-cell">${c.id}</td>
+              <td class="task-cell ${isDone(c.id) ? 'done' : ''}">${c.task}</td>
+              <td class="time-cell" style="color: var(--fg-mute);">${c.section.replace(/_/g, ' ')}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('hp-content').innerHTML = `
+    ${heroHtml}
+    ${metaHtml}
+    ${tierHtml(d.tiers.tier_1, 'tier-1', 'Focus KW')}
+    ${tierHtml(d.tiers.tier_2, '', 'H2 variations')}
+    ${tierHtml(d.tiers.tier_3, 'tier-3', 'Niche anchors')}
+    ${tierHtml(d.tiers.tier_4, '', 'FAQ + long-tail')}
+    ${structureHtml}
+    ${checklistHtml}
+  `;
+}
+
 // =================== RE-RENDER ALL ===================
 function renderAll() {
   renderWP();
@@ -1649,6 +1841,7 @@ function renderAll() {
   renderTimeline();
   renderCompliance();
   renderGSC();
+  renderHomepage();
   updateLastSaved();
 }
 
@@ -1661,13 +1854,14 @@ setInterval(tickClock, 1000); tickClock();
 // =================== BOOT ===================
 async function boot() {
   try {
-    const [wp, gbp, cit, w1, perf, gsc] = await Promise.all([
+    const [wp, gbp, cit, w1, perf, gsc, hp] = await Promise.all([
       fetch('data/wp-audit.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gbp.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/citations.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/week1-content.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gbp-performance.json?v=' + Date.now()).then(r => r.json()),
-      fetch('data/gsc-data.json?v=' + Date.now()).then(r => r.json())
+      fetch('data/gsc-data.json?v=' + Date.now()).then(r => r.json()),
+      fetch('data/homepage-seo.json?v=' + Date.now()).then(r => r.json())
     ]);
     DATA.wp_audit = wp;
     DATA.gbp = gbp;
@@ -1675,6 +1869,7 @@ async function boot() {
     DATA.week1 = w1;
     DATA.gbp_perf = perf;
     DATA.gsc = gsc;
+    DATA.homepage = hp;
     if (cit && cit.directories) {
       cit.directories.forEach(c => {
         if (STATE[`cit-status-${c.id}`]) c.status = STATE[`cit-status-${c.id}`];
