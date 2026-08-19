@@ -1811,7 +1811,7 @@ function renderHomepage() {
               <td class="checkbox-cell"><input type="checkbox" ${isDone(c.id) ? 'checked' : ''} onchange="onToggle('${c.id}', this.checked)"></td>
               <td class="id-cell">${c.id}</td>
               <td class="task-cell ${isDone(c.id) ? 'done' : ''}">${c.task}</td>
-              <td class="time-cell" style="color: var(--fg-mute);">${c.section.replace(/_/g, ' ')}</td>
+              <td class="time-cell" style="color: var(--fg-mute);">${c.phase.replace(/_/g, ' ')}</td>
             </tr>`).join('')}
           </tbody>
         </table>
