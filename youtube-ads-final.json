@@ -1,0 +1,1188 @@
+[
+  {
+    "id": "pbm_svc_hero",
+    "elType": "section",
+    "settings": {
+      "_title": "Hero",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "100",
+        "right": "30",
+        "bottom": "100",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "gradient",
+      "background_color": "#004CB1",
+      "background_color_b": "#003380",
+      "background_gradient_angle": {
+        "unit": "deg",
+        "size": 135
+      }
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_hero_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "YouTube Ads Agency in Chandigarh-Tricity",
+          "header_size": "h1",
+          "align": "center",
+          "title_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 48
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.2
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_hero_subheading",
+        "elType": "widget",
+        "settings": {
+          "editor": "<p>Reach 2.5 million Tricity viewers on YouTube. Target by city + interest + intent. Pay only when they watch. Get leads at \u20b9100-500 each.</p>",
+          "align": "center",
+          "text_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 18
+          },
+          "typography_font_weight": "400",
+          "_margin": {
+            "unit": "px",
+            "top": "20",
+            "right": "0",
+            "bottom": "30",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "pbm_svc_hero_cta",
+        "elType": "widget",
+        "settings": {
+          "text": "Get a free strategy",
+          "selected_icon": {
+            "value": "fas fa-arrow-right",
+            "library": "fa-solid"
+          },
+          "icon_align": "right",
+          "icon_indent": {
+            "unit": "px",
+            "size": 12
+          },
+          "background_color": "#FFFFFF",
+          "button_text_color": "#004CB1",
+          "hover_color": "#FFFFFF",
+          "button_background_hover_color": "#FFB800",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 16
+          },
+          "typography_font_weight": "600",
+          "border_radius": {
+            "unit": "px",
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8",
+            "isLinked": true
+          },
+          "text_padding": {
+            "unit": "px",
+            "top": "16",
+            "right": "32",
+            "bottom": "16",
+            "left": "32",
+            "isLinked": false
+          },
+          "align": "center",
+          "link": {
+            "url": "/contact/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+          }
+        },
+        "elements": [],
+        "widgetType": "button"
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_intro",
+    "elType": "section",
+    "settings": {
+      "_title": "Introduction",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "30",
+        "bottom": "40",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#FFFFFF"
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_intro_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "Why YouTube Ads are Tricity's most underused growth channel",
+          "header_size": "h2",
+          "align": "left",
+          "title_color": "#1A1A1A",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 36
+          },
+          "typography_font_weight": "700"
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_intro_text",
+        "elType": "widget",
+        "settings": {
+          "editor": "<p>Every month, <strong>2.5 million people in Chandigarh-Mohali-Panchkula</strong> open YouTube. They watch for an average of 35 minutes per session. They're watching how-to videos, music, product reviews, local news \u2014 and importantly, your competitors' ads.</p><p>But here's the thing: <strong>almost no Tricity business is running YouTube ads</strong>. YouTube ads have a reputation for being 'expensive' (they're actually the cheapest CPM in India), 'hard to set up' (they're easier than Meta ads), and 'only for big brands' (they work brilliantly for \u20b930K/month budgets).</p><p>We run YouTube ads for local businesses in Tricity. Our clients get <strong>CPV of \u20b90.02-0.10</strong> and <strong>leads at \u20b9100-500 each</strong> \u2014 numbers that would make a Google Ads consultant cry.</p>",
+          "text_color": "#444444",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 17
+          },
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.7
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "20",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_stats",
+    "elType": "section",
+    "settings": {
+      "_title": "Stats / Social Proof",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "40",
+        "right": "30",
+        "bottom": "80",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#F7F8FA"
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_stats_row",
+        "elType": "column",
+        "settings": {
+          "content_width": {
+            "unit": "%",
+            "size": 100
+          }
+        },
+        "elements": [
+          {
+            "id": "pbm_svc_stats_1",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_stats_1_widget",
+                "elType": "widget",
+                "settings": {
+                  "title_text": "2.5M",
+                  "description_text": "Tricity viewers watching YouTube every month",
+                  "title_color": "#004CB1",
+                  "description_color": "#666666",
+                  "title_typography_typography": "custom",
+                  "title_typography_font_size": {
+                    "unit": "px",
+                    "size": 48
+                  },
+                  "title_typography_font_weight": "700",
+                  "align": "center"
+                },
+                "elements": [],
+                "widgetType": "counter"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_stats_2",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_stats_2_widget",
+                "elType": "widget",
+                "settings": {
+                  "title_text": "\u20b90.02",
+                  "description_text": "average cost per view (CPV) on TrueView",
+                  "title_color": "#004CB1",
+                  "description_color": "#666666",
+                  "title_typography_typography": "custom",
+                  "title_typography_font_size": {
+                    "unit": "px",
+                    "size": 48
+                  },
+                  "title_typography_font_weight": "700",
+                  "align": "center"
+                },
+                "elements": [],
+                "widgetType": "counter"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_stats_3",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_stats_3_widget",
+                "elType": "widget",
+                "settings": {
+                  "title_text": "\u20b9100-500",
+                  "description_text": "cost per lead for our local business clients",
+                  "title_color": "#004CB1",
+                  "description_color": "#666666",
+                  "title_typography_typography": "custom",
+                  "title_typography_font_size": {
+                    "unit": "px",
+                    "size": 48
+                  },
+                  "title_typography_font_weight": "700",
+                  "align": "center"
+                },
+                "elements": [],
+                "widgetType": "counter"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_process",
+    "elType": "section",
+    "settings": {
+      "_title": "Our 5-Step Process",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "30",
+        "bottom": "80",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#FFFFFF"
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_process_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "Our 5-step YouTube Ads system",
+          "header_size": "h2",
+          "align": "center",
+          "title_color": "#1A1A1A",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 36
+          },
+          "typography_font_weight": "700"
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_process_subheading",
+        "elType": "widget",
+        "settings": {
+          "editor": "<p style=\"text-align: center;\">From strategy to scale in 5 weeks</p>",
+          "text_color": "#666666",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 17
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "10",
+            "right": "0",
+            "bottom": "40",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "pbm_svc_process_row1",
+        "elType": "column",
+        "settings": {
+          "content_width": {
+            "unit": "%",
+            "size": 100
+          }
+        },
+        "elements": [
+          {
+            "id": "pbm_svc_process_1",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_process_1_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-1",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Strategy + audience research",
+                  "description_text": "60-min call + 5-page strategy doc. Who, what, where, how much \u2014 all documented before we spend \u20b91.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_process_2",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_process_2_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-2",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Video creative",
+                  "description_text": "Use your existing video, we direct your iPhone shoot, or we produce custom (\u20b915-30K). Most winners are 20-30 sec iPhone clips.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_process_3",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_process_3_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-3",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Campaign structure + targeting",
+                  "description_text": "TrueView for action, layered targeting (location > demo > interest > behavior), custom intent audiences, placement exclusions.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pbm_svc_process_row2",
+        "elType": "column",
+        "settings": {
+          "content_width": {
+            "unit": "%",
+            "size": 100
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "30",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [
+          {
+            "id": "pbm_svc_process_4",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 50
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_process_4_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-4",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Creative testing + iteration",
+                  "description_text": "Multiple video lengths (6-30 sec), hooks, CTAs, landing page variants. Kill bottom 50% after 2 weeks, scale top 50%.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_process_5",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 50
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_process_5_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-5",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Conversion tracking + optimization",
+                  "description_text": "Full Google Ads conversion tracking, GA4 events, call tracking, offline conversion uploads. Weekly bid + creative refreshes.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_industries_yt",
+    "elType": "section",
+    "settings": {
+      "_title": "Industries We Serve",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "30",
+        "bottom": "80",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#F7F8FA"
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_industries_yt_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "Industries we serve best in Tricity",
+          "header_size": "h2",
+          "align": "center",
+          "title_color": "#1A1A1A",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 36
+          },
+          "typography_font_weight": "700"
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_industries_yt_row",
+        "elType": "column",
+        "settings": {
+          "content_width": {
+            "unit": "%",
+            "size": 100
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "40",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [
+          {
+            "id": "pbm_svc_industries_1",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 25
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_industries_1_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-stethoscope",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Doctors + Clinics",
+                  "description_text": "Patient leads at \u20b9150-400 each. Best for: dental implants, cosmetic procedures, IVF, hair transplant, eye surgery.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "align": "left"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_industries_2",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 25
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_industries_2_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-utensils",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Restaurants + Cafes",
+                  "description_text": "Food video ads targeting foodies in your delivery radius. People watch food videos 3x longer than average YouTube videos.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "align": "left"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_industries_3",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 25
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_industries_3_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-cut",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Salons + Spas",
+                  "description_text": "Before/after transformations, stylist showcases, treatment demos. Visual content that converts browsers to bookers.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "align": "left"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_industries_4",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 25
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_industries_4_widget",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-home",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Real Estate (brokers + developers)",
+                  "description_text": "Property walkthroughs, location showcases, amenity tours. Target high-intent buyers in your budget range.",
+                  "icon_color": "custom",
+                  "icon_color_custom": "#004CB1",
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "align": "left"
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_pricing_yt",
+    "elType": "section",
+    "settings": {
+      "_title": "Pricing Tiers",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "30",
+        "bottom": "80",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#FFFFFF"
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_pricing_yt_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "Pricing",
+          "header_size": "h2",
+          "align": "center",
+          "title_color": "#1A1A1A",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 36
+          },
+          "typography_font_weight": "700"
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_pricing_yt_subheading",
+        "elType": "widget",
+        "settings": {
+          "editor": "<p style=\"text-align: center;\">No long-term contracts. Pay monthly. Cancel anytime.</p>",
+          "text_color": "#666666",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 16
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "10",
+            "right": "0",
+            "bottom": "40",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "pbm_svc_pricing_yt_row",
+        "elType": "column",
+        "settings": {
+          "content_width": {
+            "unit": "%",
+            "size": 100
+          }
+        },
+        "elements": [
+          {
+            "id": "pbm_svc_pricing_1",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_pricing_1_widget",
+                "elType": "widget",
+                "settings": {
+                  "title_text": "Starter",
+                  "description_text": "Test the channel",
+                  "price": "\u20b98,000",
+                  "period": "/campaign",
+                  "features_list": [
+                    "1 campaign setup",
+                    "Up to 2 ad groups",
+                    "Basic audience research",
+                    "1 round of creative review",
+                    "Weekly performance check"
+                  ],
+                  "button_text": "Get started",
+                  "button_link": {
+                    "url": "/contact/",
+                    "is_external": "",
+                    "nofollow": "",
+                    "custom_attributes": ""
+                  },
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "price_color": "#004CB1",
+                  "period_color": "#666666",
+                  "features_title_color": "#1A1A1A",
+                  "features_text_color": "#444444",
+                  "ribbon_title": "",
+                  "background_background": "classic",
+                  "background_color": "#F7F8FA",
+                  "button_background_color": "#004CB1",
+                  "button_text_color": "#FFFFFF",
+                  "button_hover_color": "#003380"
+                },
+                "elements": [],
+                "widgetType": "price-table"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_pricing_2",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_pricing_2_widget",
+                "elType": "widget",
+                "settings": {
+                  "title_text": "Growth",
+                  "description_text": "Most popular",
+                  "price": "\u20b98,000 + 10%",
+                  "period": "if ad budget > \u20b91L/mo",
+                  "features_list": [
+                    "Full campaign management",
+                    "Multi-ad-group structure",
+                    "Advanced targeting + retargeting",
+                    "Bi-weekly creative refresh",
+                    "Conversion tracking setup",
+                    "Weekly performance reports",
+                    "10% mgmt fee on budgets > \u20b91L/mo"
+                  ],
+                  "button_text": "Get started",
+                  "button_link": {
+                    "url": "/contact/",
+                    "is_external": "",
+                    "nofollow": "",
+                    "custom_attributes": ""
+                  },
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "price_color": "#004CB1",
+                  "period_color": "#666666",
+                  "features_title_color": "#1A1A1A",
+                  "features_text_color": "#444444",
+                  "ribbon_title": "POPULAR",
+                  "ribbon_background_color": "#FFB800",
+                  "ribbon_text_color": "#1A1A1A",
+                  "background_background": "classic",
+                  "background_color": "#EFF5FF",
+                  "button_background_color": "#004CB1",
+                  "button_text_color": "#FFFFFF",
+                  "button_hover_color": "#003380",
+                  "highlight": "yes"
+                },
+                "elements": [],
+                "widgetType": "price-table"
+              }
+            ]
+          },
+          {
+            "id": "pbm_svc_pricing_3",
+            "elType": "section",
+            "settings": {
+              "_inline_size": {
+                "unit": "%",
+                "size": 33
+              }
+            },
+            "elements": [
+              {
+                "id": "pbm_svc_pricing_3_widget",
+                "elType": "widget",
+                "settings": {
+                  "title_text": "Pro",
+                  "description_text": "Multi-campaign scaling",
+                  "price": "Custom",
+                  "period": "/month",
+                  "features_list": [
+                    "Everything in Growth",
+                    "Multiple campaigns + audiences",
+                    "Custom video production coordination",
+                    "Weekly creative refresh",
+                    "Dedicated account manager",
+                    "Quarterly strategy reviews"
+                  ],
+                  "button_text": "Get started",
+                  "button_link": {
+                    "url": "/contact/",
+                    "is_external": "",
+                    "nofollow": "",
+                    "custom_attributes": ""
+                  },
+                  "title_color": "#1A1A1A",
+                  "description_color": "#666666",
+                  "price_color": "#004CB1",
+                  "period_color": "#666666",
+                  "features_title_color": "#1A1A1A",
+                  "features_text_color": "#444444",
+                  "ribbon_title": "",
+                  "background_background": "classic",
+                  "background_color": "#F7F8FA",
+                  "button_background_color": "#004CB1",
+                  "button_text_color": "#FFFFFF",
+                  "button_hover_color": "#003380"
+                },
+                "elements": [],
+                "widgetType": "price-table"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_faq_yt",
+    "elType": "section",
+    "settings": {
+      "_title": "FAQ",
+      "content_width": {
+        "unit": "px",
+        "size": 1000
+      },
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "30",
+        "bottom": "80",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#F7F8FA"
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_faq_yt_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "Frequently asked questions",
+          "header_size": "h2",
+          "align": "center",
+          "title_color": "#1A1A1A",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 36
+          },
+          "typography_font_weight": "700"
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_faq_yt_accordion",
+        "elType": "widget",
+        "settings": {
+          "tabs": [
+            {
+              "tab_title": "Can I just run YouTube ads myself?",
+              "tab_content": "Yes, you can. But most business owners burn \u20b950K-1,00,000 on testing before figuring out what works. We have data from 30+ campaigns and can usually get to profitable in 2-4 weeks vs 2-4 months of solo testing.",
+              "element_id": "faq1"
+            },
+            {
+              "tab_title": "Do I need a professional video?",
+              "tab_content": "No. We've gotten \u20b90.03 CPV from iPhone footage. The video just needs to be vertical, well-lit, and the first 3 seconds must hook the viewer. We'll direct your iPhone shoot for free \u2014 we send you a shot list, you film, we edit.",
+              "element_id": "faq2"
+            },
+            {
+              "tab_title": "How long until I get leads?",
+              "tab_content": "You can get leads in week 1. Whether they're <em>good</em> leads depends on your offer and sales process. We optimize for <em>qualified</em> leads, not just any lead. Our healthcare clients get patient leads at \u20b9150-400 each that book consultations.",
+              "element_id": "faq3"
+            },
+            {
+              "tab_title": "What about YouTube Shorts?",
+              "tab_content": "Yes, we include Shorts in every strategy. Shorts get even cheaper CPVs (\u20b90.01-0.05) and are huge in India. We test both long-form in-stream and Shorts to find what works for your business.",
+              "element_id": "faq4"
+            },
+            {
+              "tab_title": "What's the minimum ad budget?",
+              "tab_content": "\u20b930,000/month is the minimum for meaningful testing. Below that, you don't have enough data to optimize. We also recommend 3-month minimum commitment \u2014 the algorithm needs 2-4 weeks to learn your audience. We don't run campaigns under \u20b930K budget.",
+              "element_id": "faq5"
+            }
+          ],
+          "faq_schema": "yes",
+          "title_color": "#1A1A1A",
+          "content_color": "#444444",
+          "active_item_color": "#004CB1",
+          "border_color": "#E0E0E0"
+        },
+        "elements": [],
+        "widgetType": "accordion"
+      }
+    ]
+  },
+  {
+    "id": "pbm_svc_cta",
+    "elType": "section",
+    "settings": {
+      "_title": "Final CTA",
+      "content_width": {
+        "unit": "px",
+        "size": 1200
+      },
+      "padding": {
+        "unit": "px",
+        "top": "100",
+        "right": "30",
+        "bottom": "100",
+        "left": "30",
+        "isLinked": false
+      },
+      "background_background": "gradient",
+      "background_color": "#004CB1",
+      "background_color_b": "#003380",
+      "background_gradient_angle": {
+        "unit": "deg",
+        "size": 135
+      }
+    },
+    "elements": [
+      {
+        "id": "pbm_svc_cta_heading",
+        "elType": "widget",
+        "settings": {
+          "title": "Ready to reach 2.5M Tricity viewers on YouTube?",
+          "header_size": "h2",
+          "align": "center",
+          "title_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 40
+          },
+          "typography_font_weight": "700"
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "pbm_svc_cta_subheading",
+        "elType": "widget",
+        "settings": {
+          "editor": "<p style=\"text-align: center;\">Book a free 30-minute call. We'll research your industry's CPV benchmarks, identify your target audience, and send you a custom 90-day YouTube strategy. No commitment.</p>",
+          "text_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 17
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "15",
+            "right": "0",
+            "bottom": "30",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "pbm_svc_cta_button",
+        "elType": "widget",
+        "settings": {
+          "text": "Get a free strategy",
+          "selected_icon": {
+            "value": "fas fa-arrow-right",
+            "library": "fa-solid"
+          },
+          "icon_align": "right",
+          "icon_indent": {
+            "unit": "px",
+            "size": 12
+          },
+          "background_color": "#FFFFFF",
+          "button_text_color": "#004CB1",
+          "hover_color": "#FFFFFF",
+          "button_background_hover_color": "#FFB800",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 18
+          },
+          "typography_font_weight": "600",
+          "border_radius": {
+            "unit": "px",
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8",
+            "isLinked": true
+          },
+          "text_padding": {
+            "unit": "px",
+            "top": "18",
+            "right": "36",
+            "bottom": "18",
+            "left": "36",
+            "isLinked": false
+          },
+          "align": "center",
+          "link": {
+            "url": "/contact/",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+          }
+        },
+        "elements": [],
+        "widgetType": "button"
+      }
+    ]
+  }
+]
