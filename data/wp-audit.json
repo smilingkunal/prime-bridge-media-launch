@@ -1,15 +1,20 @@
 {
-  "version": "2026-08-18",
+  "version": "2026-08-24",
   "tab_title": "WP Audit & Changes",
   "tab_icon": "🔧",
-  "last_updated": "2026-08-18T17:50:00+05:30",
+  "last_updated": "2026-08-24T22:30:00+05:30",
   "summary": {
     "total_items": 19,
     "blockers": 4,
     "critical_d1": 4,
     "should_do": 4,
     "verification": 3,
-    "brand_assets": 4
+    "brand_assets": 4,
+    "done": 4,
+    "partial": 1,
+    "in_progress": 0,
+    "open": 14,
+    "overall_score": "63/100 (from Aug 24 dry-run)"
   },
   "groups": [
     {
@@ -34,7 +39,7 @@
           "how": "Plugins > Add New > search 'Rank Math SEO' > Install > Activate. Run setup wizard.",
           "time": "15 min",
           "priority": "P0",
-          "done": false,
+          "done": true,
           "section": "wp_audit"
         },
         {
@@ -44,7 +49,7 @@
           "how": "Settings > Permalinks > Post name > Save",
           "time": "2 min",
           "priority": "P0",
-          "done": false,
+          "done": true,
           "section": "wp_audit"
         },
         {
@@ -54,7 +59,7 @@
           "how": "Settings > General > Site Title: Prime Bridge Media > Tagline: Digital Marketing Agency in Chandigarh-Tricity",
           "time": "2 min",
           "priority": "P0",
-          "done": false,
+          "done": true,
           "section": "wp_audit"
         }
       ]
@@ -68,7 +73,7 @@
           "id": "WP-05",
           "task": "Delete Breeze plugin",
           "why": "Conflicts with Object Cache Pro (only one can win)",
-          "how": "Plugins > Installed Plugins > Breeze > Delete",
+          "how": "Plugins > Installed Plugins > Breeze > Delete [Aug 24 audit: Breeze is now inactive (conflict neutralized) — safe to delete]",
           "time": "2 min",
           "priority": "P0",
           "done": false,
@@ -246,7 +251,9 @@
     "wp_login": "https://primebridgemedia.com/wp-login.php",
     "rank_math_setup_wizard": "https://rankmath.com/kb/how-to-setup-rank-math/",
     "gsc_verification": "https://search.google.com/search-console/verify",
-    "bing_webmaster": "https://www.bing.com/webmasters"
+    "bing_webmaster": "https://www.bing.com/webmasters",
+    "obsidian_dry_run_audit": "D:/Hermes/Hermes Agent/Prime Bridge Media/WP Audits/2026-08-24 - master.md",
+    "obsidian_audit_dir": "D:/Hermes/Hermes Agent/Prime Bridge Media/WP Audits/"
   },
   "timeline": {
     "sprint_start": "2026-08-18",

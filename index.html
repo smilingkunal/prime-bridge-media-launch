@@ -754,7 +754,7 @@
 
   <nav class="tabs" id="tabs">
     <button class="tab active" data-tab="wp_audit" onclick="switchTab('wp_audit')">
-      <span>🔧</span> WP Audit &amp; Changes <span class="badge" id="badge-wp">0/0</span>
+      <span>🔧</span> WP Audit &amp; Changes <span class="badge" id="badge-wp">0/0</span> <span class="badge" style="background:var(--accent);color:var(--bg);">63/100 Aug 24</span>
     </button>
     <button class="tab" data-tab="gbp" onclick="switchTab('gbp')">
       <span>📍</span> GBP Profiles <span class="badge" id="badge-gbp">0/0</span>
@@ -915,7 +915,7 @@ console.log('PBM dashboard v5 — light theme with brand assets');
 
 <script>
 // =================== STATE ===================
-const STORAGE_KEY = 'pbm-launch-v8';
+const STORAGE_KEY = 'pbm-launch-v12';
 let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null, gsc: null, homepage: null };
 let STATE = loadState();
 
