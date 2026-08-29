@@ -1,0 +1,119 @@
+{
+  "version": "2026-08-29",
+  "last_updated": "2026-08-29T00:00:00+05:30",
+  "area": "Sector 17, Chandigarh",
+  "service_pitched": "Local SEO / Google Ads / Meta Ads + WordPress",
+  "leads": [
+    {
+      "id": "s17-lead-001",
+      "name": "Ghazal",
+      "category": "Restaurant & Pub",
+      "address": "SCO 189-191, Sector 17, Chandigarh",
+      "pitch": "Prime Sector-17 venue (4.6\u2605, high-intent footfall): Local SEO + Google Ads boost pitch",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.739064,76.784784",
+      "phone": "+91 98140 18378",
+      "phone_status": "verified",
+      "website": "https://www.instagram.com/ghazalrestro"
+    },
+    {
+      "id": "s17-lead-002",
+      "name": "Back To Source",
+      "category": "Organic restaurant/cafe",
+      "address": "SCO 10-11-12, Sector 17A, Chandigarh",
+      "pitch": "Organic niche positioning, owns website: Local SEO + content-rich site + Meta Ads to foodies",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.743050,76.786423",
+      "phone": "+91 172 4668444 / +91 172 4633111",
+      "phone_status": "verified",
+      "website": "https://back2source.in"
+    },
+    {
+      "id": "s17-lead-003",
+      "name": "Qisa",
+      "category": "South-Indian / Asian fine dining",
+      "address": "SCO 60-61, Sector-17A, Chandigarh",
+      "pitch": "Premium dining: reservation funnel + Google Ads + Meta retarget",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.743411,76.787131",
+      "phone": "+91 95011 13936",
+      "phone_status": "verified",
+      "website": "https://www.zomato.com/chandigarh/qisa-sector-17"
+    },
+    {
+      "id": "s17-lead-004",
+      "name": "Sindhi Sweets (Since  ́1976)",
+      "category": "Sweets + restaurant",
+      "address": "SCO 108-109, Sector  ́17C, Chandigarh",
+      "pitch": "Big local brand, weak online localization: Local SEO + Google Business Profile overhaul",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.738286,76.783915",
+      "phone": "+91 172 4667827",
+      "phone_status": "verified",
+      "website": "https://www.sindhisweets.com"
+    },
+    {
+      "id": "s17-lead-005",
+      "name": "The English Book Shop",
+      "category": "Books + stationery",
+      "address": "SCO 31, Bridge Market, Sector  17E, Chandigarh",
+      "pitch": "No website / no Facebook: prime WordPress + Local SEO + listings-cleanup lead",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.738388,76.781998",
+      "phone": "+91 172 2702542",
+      "phone_status": "verified",
+      "website": ""
+    },
+    {
+      "id": "s17-lead-006",
+      "name": "AMAYRA Ethnic Wear",
+      "category": "Ethnic clothing boutique",
+      "address": "SCO 11, Shopping Plaza, Sector  17E, Chandigarh",
+      "pitch": "Branded ethnic boutique: Google Ads on search/shopping + Meta; profile + area Local SEO",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.740219,76.780495",
+      "phone": "Verify on-site (listings lack phone)",
+      "phone_status": "verify_on_site",
+      "website": "https://www.facebook.com/AmayraEthnicWear"
+    },
+    {
+      "id": "s17-lead-007",
+      "name": "Mums Mall",
+      "category": "Baby/kids + prams retail",
+      "address": "Sector  17, Chandigarh (flagship)",
+      "pitch": "Prams/baby niche: Local SEO + Meta Ads to new parents across Chandigarh",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.741567,76.790601",
+      "phone": "Verify (+91 9****0029 masked on OSM)",
+      "phone_status": "verify_on_site",
+      "website": "https://mumsmall.in"
+    },
+    {
+      "id": "s17-lead-008",
+      "name": "The Chef",
+      "category": "Multicuisine restaurant",
+      "address": "17G/17F, Near Haryana Roadways Bus Terminal, Sector  17",
+      "pitch": "Good Zomato presence but unclaimed/weak web presence: claim dashboard + Local SEO + delivery-page ad pitch",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.735841,76.778723",
+      "phone": "No phone listed (verify on-site/Zomato)",
+      "phone_status": "verify_on_site",
+      "website": "https://www.zomato.com/chandigarh/the-chef-sector-17"
+    },
+    {
+      "id": "s17-lead-009",
+      "name": "7ven 11ven",
+      "category": "Restaurant",
+      "address": "Sector  17, Chandigarh",
+      "pitch": "Good review volume: Local SEO + Google Ads to lunch crowd",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.743583,76.787329",
+      "phone": "+91 172 501 8711",
+      "phone_status": "verified",
+      "website": ""
+    },
+    {
+      "id": "s17-lead-010",
+      "name": "Fabindia",
+      "category": "Fashion retail(franchisee)",
+      "address": "Sector  17, Chandigarh",
+      "pitch": "National-brand franchisee: high brand demand, store-level Local SEO + Google Ads on brand/Maps",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.743724,76.784316",
+      "phone": "",
+      "phone_status": "franchisee_reach",
+      "website": "https://www.fabindia.com/"
+    }
+  ],
+  "count": 10
+}

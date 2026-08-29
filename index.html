@@ -777,6 +777,9 @@
     <button class="tab" data-tab="homepage" onclick="switchTab('homepage')">
       <span>🏠</span> Homepage SEO <span class="badge" id="badge-hp">0/16</span>
     </button>
+    <button class="tab" data-tab="leads" onclick="switchTab('leads')">
+      <span>🎯</span> Sector 17 Leads <span class="badge" id="badge-leads">10</span>
+    </button>
   </nav>
 
   <main>
@@ -888,6 +891,19 @@
       </div>
       <div id="hp-content"><div class="loading">Loading…</div></div>
     </section>
+
+    <!-- TAB 9: SECTOR 17 LEADS -->
+    <section class="tab-content" id="tab-leads">
+      <div class="tab-summary">
+        <div class="overall" id="lead-overall">10<small>leads</small></div>
+        <div class="info">
+          <h2>Sector 17, Chandigarh — Prospect Leads</h2>
+          <p>Local SEO / Google Ads / Meta Ads + WordPress prospects. Verified-phone leads first; franchisee/retail tier flagged for outreach. Click the maps link for directions/tap-to-open.</p>
+        </div>
+        <div class="stats" id="lead-stats"></div>
+      </div>
+      <div id="lead-list"><div class="loading">Loading…</div></div>
+    </section>
   </main>
 
   <footer>
@@ -916,7 +932,7 @@ console.log('PBM dashboard v5 — light theme with brand assets');
 <script>
 // =================== STATE ===================
 const STORAGE_KEY = 'pbm-launch-v12';
-let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null, gsc: null, homepage: null };
+let DATA = { wp_audit: null, gbp: null, citations: null, week1: null, gbp_perf: null, gsc: null, homepage: null, leads: null };
 let STATE = loadState();
 
 function loadState() {
@@ -1831,6 +1847,42 @@ function renderHomepage() {
   `;
 }
 
+// =================== RENDER SECTOR 17 LEADS ===================
+function renderLeads() {
+  const d = DATA.leads;
+  if (!d || !d.leads) return;
+  const list = d.leads;
+  const verified = list.filter(l => l.phone_status === 'verified').length;
+  document.getElementById('badge-leads').textContent = list.length;
+  document.getElementById('lead-overall').innerHTML = list.length + '<small>leads</small>';
+  const stats = document.getElementById('lead-stats');
+  if (stats) stats.innerHTML = `<span class="stat"><b>${verified}</b> verified phone</span><span class="stat"><b>${list.length - verified}</b> verify on-site</span>`;
+  const cards = list.map((l,i) => {
+    const phoneHtml = l.phone
+      ? `<div class="field" style="margin-top: 10px;"><b>📞 Phone:</b> <span style="font-family: var(--font-mono);">${l.phone}</span> ${l.phone_status === 'verified' ? '<span class="compliance-badge pass" style="font-size: 10px; padding: 2px 6px; margin-left: 8px;">verified</span>' : '<span class="compliance-badge partial" style="font-size: 10px; padding: 2px 6px; margin-left: 8px;">' + l.phone_status.replace(/_/g,' ') + '</span>'}</div>` : '';
+    return `<div class="cit-card" data-cit="${l.id}">
+      <div class="cit-head" onclick="this.parentElement.classList.toggle('expanded')">
+        <div class="left">
+          <span class="name">${l.name}</span>
+          <span class="da">${l.category}</span>
+        </div>
+        <div>
+          <span class="da" style="color: var(--fg-mute); font-family: var(--font-mono); font-size: 11px;">${i + 1}</span>
+          <a href="${l.maps_url}" target="_blank" style="margin-left: 12px; color: var(--brand-blue); font-family: var(--font-mono); font-size: 11px; text-decoration: none; font-weight: 600;">🗺️ Maps</a>
+          ${l.website ? `<a href="${l.website}" target="_blank" style="margin-left: 10px; color: var(--brand-blue); font-family: var(--font-mono); font-size: 11px; text-decoration: none; font-weight:  600;">🌐 Website</a>` : ''}
+        </div>
+      </div>
+      <div class="cit-body">
+        <div class="field"><b>Category:</b> ${l.category}</div>
+        <div class="field"><b>Address:</b> ${l.address}</div>
+        ${phoneHtml}
+        <div class="field" style="margin-top: 10px;"><b>💡 Pitch angle:</b> ${l.pitch}</div>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('lead-list').innerHTML = cards;
+}
+
 // =================== RE-RENDER ALL ===================
 function renderAll() {
   renderWP();
@@ -1842,6 +1894,7 @@ function renderAll() {
   renderCompliance();
   renderGSC();
   renderHomepage();
+  renderLeads();
   updateLastSaved();
 }
 
@@ -1854,14 +1907,15 @@ setInterval(tickClock, 1000); tickClock();
 // =================== BOOT ===================
 async function boot() {
   try {
-    const [wp, gbp, cit, w1, perf, gsc, hp] = await Promise.all([
+    const [wp, gbp, cit, w1, perf, gsc, hp, leads] = await Promise.all([
       fetch('data/wp-audit.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gbp.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/citations.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/week1-content.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gbp-performance.json?v=' + Date.now()).then(r => r.json()),
       fetch('data/gsc-data.json?v=' + Date.now()).then(r => r.json()),
-      fetch('data/homepage-seo.json?v=' + Date.now()).then(r => r.json())
+      fetch('data/homepage-seo.json?v=' + Date.now()).then(r => r.json()),
+      fetch('data/sector17-leads.json?v=' + Date.now()).then(r => r.json())
     ]);
     DATA.wp_audit = wp;
     DATA.gbp = gbp;
@@ -1870,7 +1924,8 @@ async function boot() {
     DATA.gbp_perf = perf;
     DATA.gsc = gsc;
     DATA.homepage = hp;
-    if (cit && cit.directories) {
+      DATA.leads = leads;
+      if (cit && cit.directories) {
       cit.directories.forEach(c => {
         if (STATE[`cit-status-${c.id}`]) c.status = STATE[`cit-status-${c.id}`];
       });
