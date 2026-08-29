@@ -1,0 +1,119 @@
+{
+  "version": "2026-08-29",
+  "last_updated": "2026-08-29T00:00:00+05:30",
+  "area": "Sector 26 (Madhya Marg corridor), Chandigarh",
+  "service_pitched": "Local SEO / Google Ads / Meta Ads + WordPress",
+  "leads": [
+    {
+      "id": "s26-lead-001",
+      "name": "Virgin Courtyard",
+      "category": "Italian fine dining",
+      "address": "SCO 1A, Near Madhya Marg, Sector  ́7C, Chandigarh",
+      "pitch": "Luxury/romantic dining icon (4.5\u2605, 1.6k reviews): Google Ads on high-end dining + Meta; Maps profile strong",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.734920,76.797676",
+      "phone": "+91 172 5070045",
+      "phone_status": "verified",
+      "website": "https://www.zomato.com/chandigarh/virgin-courtyard-sector-7"
+    },
+    {
+      "id": "s26-lead-002",
+      "name": "The Hedgehog Cafe",
+      "category": "Cafe + bookshop",
+      "address": "SCF 12, Inner Market, Sector  ́7C, Chandigarh",
+      "pitch": "Cafe known for books+wifi, huge 2.1k review base: Local SEO + Meta Ads to students/freelancers",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.736197,76.800786",
+      "phone": "+91 172 4730478",
+      "phone_status": "verified",
+      "website": "https://www.zomato.com/chandigarh/the-hedgehog-caf%C3%A9-sector-7"
+    },
+    {
+      "id": "s26-lead-003",
+      "name": "Cafe Nomad (Whispering Willows)",
+      "category": "Cafe / restaurant",
+      "address": "SCO 178, Inner Market, Sector  ́7C, Chandigarh",
+      "pitch": "Local-favourite cafe: Local SEO + Google Maps + Meta Ads to food-lovers; open-till-late angle",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.735400,76.800000",
+      "phone": "+91 84370 31469",
+      "phone_status": "verified",
+      "website": "https://www.thewhisperingwillows.com/cafe-nomad.php"
+    },
+    {
+      "id": "s26-lead-004",
+      "name": "Tikka Freaks",
+      "category": "North-Indian rolls/kebab",
+      "address": "Booth 24 &  ́54, Sector  ́8B, Inner Market, Chandigarh",
+      "pitch": "High-delivery-volume roll joint: Google Ads + delivery-page optimization + Meta retarget",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.740956,76.797479",
+      "phone": "+91 98767 70050",
+      "phone_status": "verified",
+      "website": "https://www.zomato.com/chandigarh/tikka-freaks-sector-8"
+    },
+    {
+      "id": "s26-lead-005",
+      "name": "Beige cafe & bakery",
+      "category": "Cafe + bakery",
+      "address": "SCO 16, Sector  ́7C, Madhya Marg, Chandigarh",
+      "pitch": "Bakery+cafe chainl: Local SEO + content-rich site already — Google Ads on breakfast/brunch near-me",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.732547,76.799404",
+      "phone": "+91 98759 99500",
+      "phone_status": "verified",
+      "website": "https://www.beigecafe.com/"
+    },
+    {
+      "id": "s26-lead-006",
+      "name": "Old Pal Dhaba",
+      "category": "Dhaba (Indian)",
+      "address": "Sector 26 area, Chandigarh",
+      "pitch": "Traditional dhaba with strong local loyalty: Local SEO + Google Business Profile cleanup + Google Ads",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.719507,76.801604",
+      "phone": "+91 172 5078614",
+      "phone_status": "verified",
+      "website": ""
+    },
+    {
+      "id": "s26-lead-007",
+      "name": "Nik Baker's",
+      "category": "Bakery",
+      "address": "SCO 1124-25, Sector  ́22B, Chandigarh",
+      "pitch": "Independent bakery: Local SEO + Google Maps photos/posts + Meta Ads on festive season",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.731956,76.776610",
+      "phone": "+91 172 5062257",
+      "phone_status": "verified",
+      "website": ""
+    },
+    {
+      "id": "s26-lead-008",
+      "name": "Amar Fabrics",
+      "category": "Clothing / fabrics retail",
+      "address": "Sector 26, Chandigarh",
+      "pitch": "Indie textile shop: Local SEO + Google Business Profile + Meta Ads to wedding shoppers",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.730009,76.809112",
+      "phone": "Verify on-site",
+      "phone_status": "verify_on_site",
+      "website": ""
+    },
+    {
+      "id": "s26-lead-009",
+      "name": "Shri Jewelers",
+      "category": "Jewellery retail",
+      "address": "Sector 26, Chandigarh",
+      "pitch": "Local jeweller: Local SEO + Google Ads on gold/rings + Meta Ads to wedding season",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.730009,76.809112",
+      "phone": "Verify on-site",
+      "phone_status": "verify_on_site",
+      "website": ""
+    },
+    {
+      "id": "s26-lead-010",
+      "name": "Mums Mall",
+      "category": "Supermarket / baby-kids retail",
+      "address": "Sector 26, Chandigarh",
+      "pitch": "Retail store: Local SEO + Google Ads on baby/kids products + Meta Ads to new parents",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=30.730009,76.809112",
+      "phone": "Verify (+91 9****0029 masked on OSM)",
+      "phone_status": "verify_on_site",
+      "website": "https://mumsmall.in"
+    }
+  ],
+  "count": 10
+}
