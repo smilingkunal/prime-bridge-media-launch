@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBM Task Management System — Unified Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container { max-width: 1600px; margin: 0 auto; }
+
+        /* LOGIN SCREEN */
+        .login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            z-index: 2000;
+        }
+
+        .login-screen.hidden {
+            display: none;
+        }
+
+        .login-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 60px 40px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-card h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-card p {
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .profile-btn {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid #334155;
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .profile-btn:hover {
+            border-color: #60a5fa;
+            background: rgba(60, 165, 250, 0.1);
+        }
+
+        .profile-btn.himanshu {
+            border-color: #a78bfa;
+        }
+
+        .profile-btn.himanshu:hover {
+            background: rgba(167, 139, 250, 0.1);
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .profile-badge {
+            background: rgba(60, 165, 250, 0.2);
+            border: 1px solid #60a5fa;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #93c5fd;
+        }
+
+        .profile-badge.himanshu {
+            background: rgba(167, 139, 250, 0.2);
+            border-color: #a78bfa;
+            color: #d8b4fe;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #cbd5e1;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .logout-btn:hover {
+            border-color: #64748b;
+            color: #e2e8f0;
+        }
+
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: #cbd5e1;
+        }
+
+        .tab-btn.active {
+            color: #60a5fa;
+            border-bottom-color: #60a5fa;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* TASK CARDS */
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .task-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .task-card:hover {
+            border-color: #475569;
+            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.5);
+        }
+
+        .task-card.done {
+            opacity: 0.6;
+            border-color: #22c55e;
+        }
+
+        .task-day {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .task-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 12px;
+        }
+
+        .task-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .task-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 4px;
+        }
+
+        .task-detail-label {
+            color: #94a3b8;
+        }
+
+        .task-detail-value {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        .task-status {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending {
+            background: rgba(249, 115, 22, 0.2);
+            color: #fdba74;
+        }
+
+        .status-done {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+        }
+
+        .checkbox-large {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: #60a5fa;
+        }
+
+        /* FORMS */
+        .form-section {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .form-section h3 {
+            margin-bottom: 20px;
+            color: #f1f5f9;
+            font-size: 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px 12px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #e2e8f0;
+            font-family: inherit;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            background: rgba(30, 41, 59, 0.95);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+            grid-column: 1 / -1;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .btn.secondary {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            color: #e2e8f0;
+        }
+
+        /* KUNAL MANAGEMENT TASKS */
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .management-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .management-card h4 {
+            color: #f1f5f9;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .management-card p {
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .time-estimate {
+            display: inline-block;
+            background: rgba(60, 165, 250, 0.2);
+            color: #93c5fd;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            transition: width 0.3s;
+        }
+
+        /* SYNC INDICATOR */
+        .sync-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            border-radius: 6px;
+            color: #86efac;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sync-indicator.syncing {
+            background: rgba(249, 115, 22, 0.2);
+            border-color: #f97316;
+            color: #fdba74;
+        }
+
+        .sync-dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .sync-indicator.syncing .sync-dot {
+            background: #f97316;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .task-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                gap: 8px;
+            }
+
+            .tab-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- LOGIN SCREEN -->
+        <div class="login-screen" :class="{ hidden: currentUser }">
+            <div class="login-card">
+                <h1>PBM Dashboard</h1>
+                <p>Select your profile to continue</p>
+                
+                <button class="profile-btn" @click="login('himanshu')">
+                    👨‍💼 Himanshu<br>
+                    <span style="font-size: 12px; color: #94a3b8;">Content Producer</span>
+                </button>
+                
+                <button class="profile-btn" @click="login('kunal')">
+                    📊 Kunal<br>
+                    <span style="font-size: 12px; color: #94a3b8;">Operations Manager</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MAIN DASHBOARD -->
+        <div class="container" v-if="currentUser">
+            <!-- HEADER -->
+            <div class="header">
+                <h1>
+                    {{ currentUser === 'himanshu' ? '📋 Your Tasks' : '📊 Manage Himanshu' }}
+                </h1>
+                <div class="header-info">
+                    <div class="profile-badge" :class="currentUser">
+                        {{ currentUser === 'himanshu' ? '👨‍💼 Himanshu' : '📊 Kunal' }}
+                    </div>
+                    <button class="logout-btn" @click="logout">Logout</button>
+                </div>
+            </div>
+
+            <!-- STATS -->
+            <div class="stats-grid" v-if="currentUser === 'himanshu'">
+                <div class="stat-card">
+                    <div class="stat-value">{{ weekProgress }}%</div>
+                    <div class="stat-label">This Week Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">{{ weekTasks.length }}</div>
+                    <div class="stat-label">Tasks Assigned</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">{{ completedTasks }}</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">{{ pendingTasks }}</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+
+            <!-- HIMANSHU VIEW -->
+            <div v-if="currentUser === 'himanshu'">
+                <!-- MONDAY TASKS -->
+                <div class="form-section">
+                    <h3>📅 Monday — Publish Page + Blog</h3>
+                    <div class="task-grid">
+                        <div class="task-card" v-for="(task, idx) in mondayTasks" :key="idx" :class="{ done: task.done }">
+                            <div class="task-day">{{ task.day }}</div>
+                            <div class="task-title">{{ task.title }}</div>
+                            <div class="task-details">
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Niche:</span>
+                                    <span class="task-detail-value">{{ task.niche }}</span>
+                                </div>
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">City:</span>
+                                    <span class="task-detail-value">{{ task.city }}</span>
+                                </div>
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Type:</span>
+                                    <span class="task-detail-value">{{ task.type }}</span>
+                                </div>
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Word Count:</span>
+                                    <span class="task-detail-value">{{ task.wordCount }}</span>
+                                </div>
+                            </div>
+                            <div class="task-status">
+                                <span class="status-badge" :class="task.done ? 'status-done' : 'status-pending'">
+                                    {{ task.done ? '✓ Done' : 'Pending' }}
+                                </span>
+                                <input 
+                                    type="checkbox" 
+                                    class="checkbox-large"
+                                    :checked="task.done"
+                                    @change="toggleTask('monday', idx)"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TUESDAY TASKS -->
+                <div class="form-section">
+                    <h3>📅 Tuesday — Social Media Calendar</h3>
+                    <div class="task-grid">
+                        <div class="task-card" v-for="(task, idx) in tuesdayTasks" :key="idx" :class="{ done: task.done }">
+                            <div class="task-day">{{ task.day }}</div>
+                            <div class="task-title">{{ task.title }}</div>
+                            <div class="task-details">
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Posts Required:</span>
+                                    <span class="task-detail-value">{{ task.postCount }}</span>
+                                </div>
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Duration:</span>
+                                    <span class="task-detail-value">{{ task.duration }}</span>
+                                </div>
+                            </div>
+                            <div class="task-status">
+                                <span class="status-badge" :class="task.done ? 'status-done' : 'status-pending'">
+                                    {{ task.done ? '✓ Done' : 'Pending' }}
+                                </span>
+                                <input 
+                                    type="checkbox" 
+                                    class="checkbox-large"
+                                    :checked="task.done"
+                                    @change="toggleTask('tuesday', idx)"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEDNESDAY TASKS -->
+                <div class="form-section">
+                    <h3>📅 Wednesday — Create Templates</h3>
+                    <div class="task-grid">
+                        <div class="task-card" v-for="(task, idx) in wednesdayTasks" :key="idx" :class="{ done: task.done }">
+                            <div class="task-day">{{ task.day }}</div>
+                            <div class="task-title">{{ task.title }}</div>
+                            <div class="task-details">
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Type:</span>
+                                    <span class="task-detail-value">{{ task.templateType }}</span>
+                                </div>
+                                <div class="task-detail-row">
+                                    <span class="task-detail-label">Count:</span>
+                                    <span class="task-detail-value">{{ task.templateCount }}</span>
+                                </div>
+                            </div>
+                            <div class="task-status">
+                                <span class="status-badge" :class="task.done ? 'status-done' : 'status-pending'">
+                                    {{ task.done ? '✓ Done' : 'Pending' }}
+                                </span>
+                                <input 
+                                    type="checkbox" 
+                                    class="checkbox-large"
+                                    :checked="task.done"
+                                    @change="toggleTask('wednesday', idx)"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KUNAL VIEW -->
+            <div v-if="currentUser === 'kunal'">
+                <!-- TABS -->
+                <div class="tabs">
+                    <button class="tab-btn" :class="{ active: activeTab === 'overview' }" @click="activeTab = 'overview'">
+                        📊 Overview
+                    </button>
+                    <button class="tab-btn" :class="{ active: activeTab === 'manage' }" @click="activeTab = 'manage'">
+                        ✏️ Create Tasks
+                    </button>
+                    <button class="tab-btn" :class="{ active: activeTab === 'monitor' }" @click="activeTab = 'monitor'">
+                        👁️ Monitor Progress
+                    </button>
+                </div>
+
+                <!-- OVERVIEW TAB -->
+                <div class="tab-content" :class="{ active: activeTab === 'overview' }">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">{{ himanshuStats.totalTasks }}</div>
+                            <div class="stat-label">Total Tasks</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">{{ himanshuStats.completed }}</div>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">{{ himanshuStats.pending }}</div>
+                            <div class="stat-label">Pending</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">{{ himanshuStats.weekProgress }}%</div>
+                            <div class="stat-label">Week Progress</div>
+                        </div>
+                    </div>
+
+                    <div class="management-grid" style="margin-top: 30px;">
+                        <div class="management-card">
+                            <h4>📋 Your Management Tasks This Week</h4>
+                            <ul style="list-style: none; color: #cbd5e1; font-size: 13px; line-height: 1.8;">
+                                <li>✓ Send Monday briefs (page + blog) — 8 PM Sunday</li>
+                                <li>✓ Review Monday submissions — morning</li>
+                                <li>✓ Send Tuesday brief (social calendar) — evening</li>
+                                <li>✓ Send Wednesday brief (templates) — evening</li>
+                                <li>✓ Send Friday summary & feedback — 5 PM</li>
+                                <li>✓ Review dashboard daily — 2 min</li>
+                            </ul>
+                        </div>
+
+                        <div class="management-card">
+                            <h4>📈 This Month's Goal</h4>
+                            <div style="color: #60a5fa; font-size: 32px; font-weight: bold; margin: 16px 0;">
+                                16 pages + 16 blogs
+                            </div>
+                            <div style="color: #cbd5e1; font-size: 13px;">
+                                <div class="progress-bar" style="margin: 12px 0;">
+                                    <div class="progress-fill" :style="{ width: monthProgress + '%' }"></div>
+                                </div>
+                                {{ completedThisMonth }}/32 pieces live
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MANAGE TAB -->
+                <div class="tab-content" :class="{ active: activeTab === 'manage' }">
+                    <div class="form-section">
+                        <h3>✏️ Create New Task for Himanshu</h3>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Day of Week</label>
+                                <select v-model="newTask.day">
+                                    <option value="">Select day</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Task Type</label>
+                                <select v-model="newTask.type" @change="updateTaskType">
+                                    <option value="">Select type</option>
+                                    <option value="Page">Page</option>
+                                    <option value="Blog">Blog</option>
+                                    <option value="Calendar">Social Calendar</option>
+                                    <option value="Template">Template</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" v-if="newTask.type !== 'Calendar' && newTask.type !== 'Template'">
+                                <label>Niche</label>
+                                <select v-model="newTask.niche">
+                                    <option value="">Select niche</option>
+                                    <option value="Doctors">Doctors</option>
+                                    <option value="Restaurants">Restaurants</option>
+                                    <option value="Salons">Salons</option>
+                                    <option value="Gyms">Gyms</option>
+                                    <option value="Lawyers">Lawyers</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Jewellers">Jewellers</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" v-if="newTask.type !== 'Calendar' && newTask.type !== 'Template'">
+                                <label>City</label>
+                                <select v-model="newTask.city">
+                                    <option value="">Select city</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Mohali">Mohali</option>
+                                    <option value="Panchkula">Panchkula</option>
+                                    <option value="Zirakpur">Zirakpur</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Task Title</label>
+                                <input type="text" v-model="newTask.title" placeholder="e.g., GBP Setup for Clinics">
+                            </div>
+
+                            <div class="form-group" v-if="newTask.type === 'Page'">
+                                <label>Focus Keyword</label>
+                                <input type="text" v-model="newTask.keyword" placeholder="e.g., GBP for doctors Chandigarh">
+                            </div>
+
+                            <div class="form-group" v-if="newTask.type === 'Page'">
+                                <label>Word Count</label>
+                                <input type="number" v-model="newTask.wordCount" placeholder="1800">
+                            </div>
+
+                            <div class="form-group" v-if="newTask.type === 'Blog'">
+                                <label>Word Count</label>
+                                <input type="number" v-model="newTask.wordCount" placeholder="1000">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Notes/Brief</label>
+                                <textarea v-model="newTask.brief" placeholder="Additional details for Himanshu..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn" @click="createTask">✨ Create Task</button>
+                            <button class="btn secondary" @click="clearForm">Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- RECENT TASKS CREATED -->
+                    <div class="form-section" style="margin-top: 30px;">
+                        <h3>📋 Recently Created Tasks</h3>
+                        <div class="task-grid">
+                            <div class="task-card" v-for="(task, idx) in recentTasks.slice(0, 6)" :key="idx">
+                                <div class="task-day">{{ task.day }}</div>
+                                <div class="task-title">{{ task.title }}</div>
+                                <div class="task-details">
+                                    <div class="task-detail-row">
+                                        <span class="task-detail-label">Type:</span>
+                                        <span class="task-detail-value">{{ task.type }}</span>
+                                    </div>
+                                    <div class="task-detail-row">
+                                        <span class="task-detail-label">Created:</span>
+                                        <span class="task-detail-value">{{ task.createdDate }}</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 12px; font-size: 11px; color: #64748b;">
+                                    Brief: {{ task.brief ? task.brief.substring(0, 50) + '...' : 'None' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MONITOR TAB -->
+                <div class="tab-content" :class="{ active: activeTab === 'monitor' }">
+                    <div class="management-grid">
+                        <div class="management-card">
+                            <h4>🎯 Monday Tasks</h4>
+                            <div style="margin: 16px 0;">
+                                <div style="color: #cbd5e1; font-size: 13px; margin-bottom: 12px;">
+                                    Page: <span style="color: #60a5fa; font-weight: 600;">{{ mondayStats.pageProgress }}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" :style="{ width: mondayStats.pageProgress + '%' }"></div>
+                                </div>
+                                
+                                <div style="color: #cbd5e1; font-size: 13px; margin: 16px 0 12px 0;">
+                                    Blog: <span style="color: #60a5fa; font-weight: 600;">{{ mondayStats.blogProgress }}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" :style="{ width: mondayStats.blogProgress + '%' }"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="management-card">
+                            <h4>📅 Tuesday Tasks</h4>
+                            <div style="margin: 16px 0;">
+                                <div style="color: #cbd5e1; font-size: 13px; margin-bottom: 12px;">
+                                    Calendar: <span style="color: #60a5fa; font-weight: 600;">{{ tuesdayStats.calendarProgress }}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" :style="{ width: tuesdayStats.calendarProgress + '%' }"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="management-card">
+                            <h4>🎨 Wednesday Tasks</h4>
+                            <div style="margin: 16px 0;">
+                                <div style="color: #cbd5e1; font-size: 13px; margin-bottom: 12px;">
+                                    Templates: <span style="color: #60a5fa; font-weight: 600;">{{ wednesdayStats.templateProgress }}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" :style="{ width: wednesdayStats.templateProgress + '%' }"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="management-card">
+                            <h4>📊 Weekly Overview</h4>
+                            <div style="margin: 16px 0;">
+                                <div style="color: #cbd5e1; font-size: 13px; margin-bottom: 12px;">
+                                    Overall: <span style="color: #60a5fa; font-weight: 600;">{{ overallStats.weekProgress }}%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" :style="{ width: overallStats.weekProgress + '%' }"></div>
+                                </div>
+                                <div style="color: #94a3b8; font-size: 12px; margin-top: 12px;">
+                                    {{ overallStats.completed }}/{{ overallStats.total }} tasks completed
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEND UPDATE TO HIMANSHU -->
+                    <div class="form-section" style="margin-top: 30px;">
+                        <h3>💬 Send Update to Himanshu</h3>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea v-model="updateMessage" placeholder="Send feedback or updates to Himanshu (appears in real-time on his dashboard)..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn" @click="sendUpdate">📤 Send Update</button>
+                        </div>
+                        <div v-if="lastUpdate" style="margin-top: 16px; padding: 12px; background: rgba(34, 197, 94, 0.1); border-left: 2px solid #22c55e; border-radius: 4px; color: #86efac; font-size: 12px;">
+                            ✓ Update sent: {{ lastUpdate }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYNC INDICATOR -->
+            <div class="sync-indicator" :class="{ syncing: syncing }">
+                <span class="sync-dot"></span>
+                {{ syncing ? 'Syncing...' : 'Synced' }}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    currentUser: null,
+                    activeTab: 'overview',
+                    syncing: false,
+                    
+                    // Himanshu's tasks
+                    mondayTasks: [
+                        {
+                            day: 'Monday',
+                            title: 'Publish Page: GBP Setup for Clinics',
+                            type: 'Page',
+                            niche: 'Doctors',
+                            city: 'Chandigarh',
+                            wordCount: '1800',
+                            keyword: 'GBP for doctors Chandigarh',
+                            done: false
+                        },
+                        {
+                            day: 'Monday',
+                            title: 'Publish Blog: 5 Ways Google Reviews Drive Traffic',
+                            type: 'Blog',
+                            niche: 'Restaurants',
+                            city: 'Mohali',
+                            wordCount: '1000',
+                            done: false
+                        }
+                    ],
+                    tuesdayTasks: [
+                        {
+                            day: 'Tuesday',
+                            title: 'Build Social Media Calendar',
+                            type: 'Calendar',
+                            postCount: '21',
+                            duration: '2 hours',
+                            done: false
+                        }
+                    ],
+                    wednesdayTasks: [
+                        {
+                            day: 'Wednesday',
+                            title: 'Create Social Templates',
+                            type: 'Template',
+                            templateType: 'Instagram Carousel, LinkedIn Post, Twitter Thread',
+                            templateCount: '3–5',
+                            done: false
+                        }
+                    ],
+
+                    // Kunal's management data
+                    newTask: {
+                        day: '',
+                        type: '',
+                        niche: '',
+                        city: '',
+                        title: '',
+                        keyword: '',
+                        wordCount: '',
+                        templateType: '',
+                        templateCount: '',
+                        brief: ''
+                    },
+                    recentTasks: [],
+                    updateMessage: '',
+                    lastUpdate: null,
+
+                    // Stats
+                    himanshuStats: {
+                        totalTasks: 3,
+                        completed: 0,
+                        pending: 3,
+                        weekProgress: 0
+                    }
+                }
+            },
+            computed: {
+                weekProgress() {
+                    const total = this.mondayTasks.length + this.tuesdayTasks.length + this.wednesdayTasks.length;
+                    const completed = [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => t.done).length;
+                    return total === 0 ? 0 : Math.round((completed / total) * 100);
+                },
+                completedTasks() {
+                    return [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => t.done).length;
+                },
+                pendingTasks() {
+                    return [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => !t.done).length;
+                },
+                weekTasks() {
+                    return [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks];
+                },
+                mondayStats() {
+                    return {
+                        pageProgress: this.mondayTasks[0]?.done ? 100 : 0,
+                        blogProgress: this.mondayTasks[1]?.done ? 100 : 0
+                    };
+                },
+                tuesdayStats() {
+                    return {
+                        calendarProgress: this.tuesdayTasks[0]?.done ? 100 : 0
+                    };
+                },
+                wednesdayStats() {
+                    return {
+                        templateProgress: this.wednesdayTasks[0]?.done ? 100 : 0
+                    };
+                },
+                overallStats() {
+                    const total = [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].length;
+                    const completed = [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => t.done).length;
+                    return {
+                        total,
+                        completed,
+                        weekProgress: total === 0 ? 0 : Math.round((completed / total) * 100)
+                    };
+                },
+                monthProgress() {
+                    return Math.floor(Math.random() * 60) + 20;
+                },
+                completedThisMonth() {
+                    return Math.floor(this.monthProgress * 32 / 100);
+                }
+            },
+            methods: {
+                login(user) {
+                    this.currentUser = user;
+                    localStorage.setItem('pbm_user', user);
+                    this.syncData();
+                },
+                logout() {
+                    this.currentUser = null;
+                    localStorage.removeItem('pbm_user');
+                },
+                toggleTask(day, idx) {
+                    if (day === 'monday') this.mondayTasks[idx].done = !this.mondayTasks[idx].done;
+                    if (day === 'tuesday') this.tuesdayTasks[idx].done = !this.tuesdayTasks[idx].done;
+                    if (day === 'wednesday') this.wednesdayTasks[idx].done = !this.wednesdayTasks[idx].done;
+                    
+                    this.saveData();
+                    this.syncData();
+                },
+                createTask() {
+                    if (!this.newTask.day || !this.newTask.type || !this.newTask.title) {
+                        alert('Please fill in required fields');
+                        return;
+                    }
+
+                    const task = {
+                        ...this.newTask,
+                        done: false,
+                        createdDate: new Date().toLocaleDateString()
+                    };
+
+                    this.recentTasks.unshift(task);
+
+                    if (this.newTask.day === 'Monday') this.mondayTasks.push(task);
+                    if (this.newTask.day === 'Tuesday') this.tuesdayTasks.push(task);
+                    if (this.newTask.day === 'Wednesday') this.wednesdayTasks.push(task);
+
+                    this.saveData();
+                    this.syncData();
+                    this.clearForm();
+                    alert('✅ Task created! Himanshu will see it on his dashboard.');
+                },
+                clearForm() {
+                    this.newTask = {
+                        day: '', type: '', niche: '', city: '', title: '',
+                        keyword: '', wordCount: '', templateType: '', templateCount: '', brief: ''
+                    };
+                },
+                updateTaskType() {
+                    if (this.newTask.type === 'Calendar') {
+                        this.newTask.postCount = '21';
+                        this.newTask.duration = '2 hours';
+                    }
+                    if (this.newTask.type === 'Template') {
+                        this.newTask.templateCount = '3–5';
+                    }
+                },
+                sendUpdate() {
+                    if (!this.updateMessage.trim()) {
+                        alert('Please enter a message');
+                        return;
+                    }
+
+                    this.syncing = true;
+                    setTimeout(() => {
+                        this.lastUpdate = new Date().toLocaleTimeString();
+                        localStorage.setItem('pbm_update', this.updateMessage);
+                        this.updateMessage = '';
+                        this.syncing = false;
+                    }, 1500);
+                },
+                saveData() {
+                    localStorage.setItem('pbm_tasks', JSON.stringify({
+                        monday: this.mondayTasks,
+                        tuesday: this.tuesdayTasks,
+                        wednesday: this.wednesdayTasks
+                    }));
+                },
+                loadData() {
+                    const saved = localStorage.getItem('pbm_tasks');
+                    if (saved) {
+                        const data = JSON.parse(saved);
+                        this.mondayTasks = data.monday || this.mondayTasks;
+                        this.tuesdayTasks = data.tuesday || this.tuesdayTasks;
+                        this.wednesdayTasks = data.wednesday || this.wednesdayTasks;
+                    }
+                },
+                syncData() {
+                    this.syncing = true;
+                    setTimeout(() => {
+                        this.syncing = false;
+                    }, 1000);
+
+                    this.himanshuStats = {
+                        totalTasks: [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].length,
+                        completed: this.completedTasks,
+                        pending: this.pendingTasks,
+                        weekProgress: this.weekProgress
+                    };
+                }
+            },
+            mounted() {
+                const saved = localStorage.getItem('pbm_user');
+                if (saved) this.currentUser = saved;
+                this.loadData();
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
