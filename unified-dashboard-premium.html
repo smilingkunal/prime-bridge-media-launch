@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBM Task Management System</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a1428 0%, #0f1a2e 50%, #1a1a3e 100%);
+            color: #1a1a2e;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* LOGIN SCREEN */
+        .login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+        }
+
+        .login-screen.hidden {
+            display: none;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 24px;
+            padding: 60px 50px;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-card h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-card p {
+            color: #6b7280;
+            margin-bottom: 48px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .profile-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .profile-btn {
+            padding: 20px 24px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1a1a2e;
+        }
+
+        .profile-btn:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+        }
+
+        .profile-btn .subtitle {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* MAIN APP */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 32px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .user-info {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 32px;
+            border: 1px solid #667eea30;
+        }
+
+        .user-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .user-role {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logout-btn {
+            padding: 12px 16px;
+            background: #fee2e2;
+            color: #dc2626;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .logout-btn:hover {
+            background: #fecaca;
+            transform: translateY(-2px);
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 40px;
+            background: #f9fafb;
+            overflow-y: auto;
+        }
+
+        /* HEADER */
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #667eea;
+        }
+
+        .stat-value {
+            font-size: 42px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #6b7280;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: #667eea;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* TASK GRID */
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .task-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .task-card.completed {
+            opacity: 0.7;
+        }
+
+        .task-day {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .task-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .task-meta {
+            flex: 1;
+        }
+
+        .task-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .task-meta-label {
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .task-meta-value {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .task-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-done {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .checkbox-large {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .section-icon {
+            font-size: 28px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a1a2e;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* FORMS */
+        .form-section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 32px;
+        }
+
+        .form-section h3 {
+            margin-bottom: 28px;
+            color: #1a1a2e;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid #d1d5db;
+            border-radius: 10px;
+            color: #1a1a2e;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+            grid-column: 1 / -1;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+            grid-column: 1 / -1;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn.secondary {
+            background: white;
+            border: 1.5px solid #d1d5db;
+            color: #1a1a2e;
+        }
+
+        .btn.secondary:hover {
+            background: #f9fafb;
+            border-color: #667eea;
+        }
+
+        /* PROGRESS BARS */
+        .progress-bar-container {
+            margin-bottom: 24px;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        /* MANAGEMENT CARDS */
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .management-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .management-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .management-card h4 {
+            color: #1a1a2e;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .management-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        /* SYNC INDICATOR */
+        .sync-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 14px 20px;
+            background: white;
+            border: 1.5px solid #d1d5db;
+            border-radius: 12px;
+            color: #1a1a2e;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .sync-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .sync-indicator.syncing .sync-dot {
+            background: #f59e0b;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
+            color: #6b7280;
+        }
+
+        .empty-state-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 20px;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+                padding: 24px 16px;
+            }
+
+            .main-content {
+                margin-left: 240px;
+                padding: 32px 24px;
+            }
+
+            .task-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-bottom: 1px solid #e5e7eb;
+                padding: 24px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .task-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logout-btn {
+                margin-top: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- LOGIN SCREEN -->
+        <div class="login-screen" :class="{ hidden: currentUser }">
+            <div class="login-card">
+                <h1>PBM</h1>
+                <p>Select your profile to continue</p>
+                
+                <div class="profile-btns">
+                    <button class="profile-btn" @click="login('himanshu')">
+                        <div>👨‍💼 Himanshu</div>
+                        <div class="subtitle">Content Producer</div>
+                    </button>
+                    
+                    <button class="profile-btn" @click="login('kunal')">
+                        <div>📊 Kunal</div>
+                        <div class="subtitle">Operations Manager</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN APP -->
+        <div class="app-container" v-if="currentUser">
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+                <div class="logo">PBM</div>
+                
+                <div class="user-info">
+                    <div class="user-name">{{ currentUser === 'himanshu' ? 'Himanshu' : 'Kunal' }}</div>
+                    <div class="user-role">{{ currentUser === 'himanshu' ? 'Content Producer' : 'Manager' }}</div>
+                </div>
+
+                <button class="logout-btn" @click="logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <!-- HIMANSHU VIEW -->
+                <div v-if="currentUser === 'himanshu'">
+                    <div class="header">
+                        <h1>Your Weekly Tasks</h1>
+                        <div class="header-subtitle">Complete your assignments each day</div>
+                    </div>
+
+                    <!-- STATS -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">{{ weekProgress }}%</div>
+                            <div class="stat-label">Weekly Progress</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">{{ weekTasks.length }}</div>
+                            <div class="stat-label">Total Tasks</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">{{ completedTasks }}</div>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">{{ pendingTasks }}</div>
+                            <div class="stat-label">Pending</div>
+                        </div>
+                    </div>
+
+                    <!-- MONDAY -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">📅</div>
+                            <div>
+                                <div class="section-title">Monday</div>
+                                <div class="section-subtitle">Publish 1 Page + 1 Blog</div>
+                            </div>
+                        </div>
+                        <div class="task-grid">
+                            <div class="task-card" v-for="(task, idx) in mondayTasks" :key="idx" :class="{ completed: task.done }">
+                                <div class="task-day">{{ task.day }}</div>
+                                <div class="task-title">{{ task.title }}</div>
+                                <div class="task-meta">
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Niche</span>
+                                        <span class="task-meta-value">{{ task.niche }}</span>
+                                    </div>
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">City</span>
+                                        <span class="task-meta-value">{{ task.city }}</span>
+                                    </div>
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Type</span>
+                                        <span class="task-meta-value">{{ task.type }}</span>
+                                    </div>
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Word Count</span>
+                                        <span class="task-meta-value">{{ task.wordCount }}</span>
+                                    </div>
+                                </div>
+                                <div class="task-footer">
+                                    <span class="status-badge" :class="task.done ? 'status-done' : 'status-pending'">
+                                        {{ task.done ? '✓ Done' : 'Pending' }}
+                                    </span>
+                                    <input 
+                                        type="checkbox" 
+                                        class="checkbox-large"
+                                        :checked="task.done"
+                                        @change="toggleTask('monday', idx)"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TUESDAY -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">📱</div>
+                            <div>
+                                <div class="section-title">Tuesday</div>
+                                <div class="section-subtitle">Build Social Media Calendar</div>
+                            </div>
+                        </div>
+                        <div class="task-grid">
+                            <div class="task-card" v-for="(task, idx) in tuesdayTasks" :key="idx" :class="{ completed: task.done }">
+                                <div class="task-day">{{ task.day }}</div>
+                                <div class="task-title">{{ task.title }}</div>
+                                <div class="task-meta">
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Posts Required</span>
+                                        <span class="task-meta-value">{{ task.postCount }}</span>
+                                    </div>
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Duration</span>
+                                        <span class="task-meta-value">{{ task.duration }}</span>
+                                    </div>
+                                </div>
+                                <div class="task-footer">
+                                    <span class="status-badge" :class="task.done ? 'status-done' : 'status-pending'">
+                                        {{ task.done ? '✓ Done' : 'Pending' }}
+                                    </span>
+                                    <input 
+                                        type="checkbox" 
+                                        class="checkbox-large"
+                                        :checked="task.done"
+                                        @change="toggleTask('tuesday', idx)"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WEDNESDAY -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">🎨</div>
+                            <div>
+                                <div class="section-title">Wednesday</div>
+                                <div class="section-subtitle">Create Social Media Templates</div>
+                            </div>
+                        </div>
+                        <div class="task-grid">
+                            <div class="task-card" v-for="(task, idx) in wednesdayTasks" :key="idx" :class="{ completed: task.done }">
+                                <div class="task-day">{{ task.day }}</div>
+                                <div class="task-title">{{ task.title }}</div>
+                                <div class="task-meta">
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Template Type</span>
+                                        <span class="task-meta-value">{{ task.templateType }}</span>
+                                    </div>
+                                    <div class="task-meta-row">
+                                        <span class="task-meta-label">Count</span>
+                                        <span class="task-meta-value">{{ task.templateCount }}</span>
+                                    </div>
+                                </div>
+                                <div class="task-footer">
+                                    <span class="status-badge" :class="task.done ? 'status-done' : 'status-pending'">
+                                        {{ task.done ? '✓ Done' : 'Pending' }}
+                                    </span>
+                                    <input 
+                                        type="checkbox" 
+                                        class="checkbox-large"
+                                        :checked="task.done"
+                                        @change="toggleTask('wednesday', idx)"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KUNAL VIEW -->
+                <div v-if="currentUser === 'kunal'">
+                    <div class="header">
+                        <h1>Dashboard</h1>
+                        <div class="header-subtitle">Manage Himanshu's tasks and monitor progress</div>
+                    </div>
+
+                    <!-- TABS -->
+                    <div class="tabs">
+                        <button class="tab-btn" :class="{ active: activeTab === 'overview' }" @click="activeTab = 'overview'">
+                            <i class="fas fa-chart-bar"></i> Overview
+                        </button>
+                        <button class="tab-btn" :class="{ active: activeTab === 'manage' }" @click="activeTab = 'manage'">
+                            <i class="fas fa-plus-circle"></i> Create Tasks
+                        </button>
+                        <button class="tab-btn" :class="{ active: activeTab === 'monitor' }" @click="activeTab = 'monitor'">
+                            <i class="fas fa-eye"></i> Monitor Progress
+                        </button>
+                    </div>
+
+                    <!-- OVERVIEW TAB -->
+                    <div class="tab-content" :class="{ active: activeTab === 'overview' }">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-value">{{ himanshuStats.totalTasks }}</div>
+                                <div class="stat-label">Total Tasks</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">{{ himanshuStats.completed }}</div>
+                                <div class="stat-label">Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">{{ himanshuStats.pending }}</div>
+                                <div class="stat-label">Pending</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">{{ himanshuStats.weekProgress }}%</div>
+                                <div class="stat-label">Weekly Progress</div>
+                            </div>
+                        </div>
+
+                        <div class="management-grid" style="margin-top: 32px;">
+                            <div class="management-card">
+                                <h4>📋 Your Tasks This Week</h4>
+                                <p>✓ Send Monday briefs (page + blog)</p>
+                                <p>✓ Review Monday submissions</p>
+                                <p>✓ Send Tuesday brief (social calendar)</p>
+                                <p>✓ Send Wednesday brief (templates)</p>
+                                <p>✓ Send Friday summary & feedback</p>
+                            </div>
+
+                            <div class="management-card">
+                                <h4>📈 This Month's Goal</h4>
+                                <p style="font-size: 28px; color: #667eea; font-weight: 800; margin: 16px 0;">16+16</p>
+                                <p>Pages + Blogs to be published</p>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" :style="{ width: monthProgress + '%' }"></div>
+                                    </div>
+                                </div>
+                                <p style="margin-top: 12px; font-size: 13px; color: #667eea; font-weight: 600;">{{ completedThisMonth }}/32 live</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MANAGE TAB -->
+                    <div class="tab-content" :class="{ active: activeTab === 'manage' }">
+                        <div class="form-section">
+                            <h3>Create New Task for Himanshu</h3>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Day of Week</label>
+                                    <select v-model="newTask.day">
+                                        <option value="">Select day</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Task Type</label>
+                                    <select v-model="newTask.type">
+                                        <option value="">Select type</option>
+                                        <option value="Page">Page</option>
+                                        <option value="Blog">Blog</option>
+                                        <option value="Calendar">Social Calendar</option>
+                                        <option value="Template">Template</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" v-if="newTask.type === 'Page' || newTask.type === 'Blog'">
+                                    <label>Niche</label>
+                                    <select v-model="newTask.niche">
+                                        <option value="">Select niche</option>
+                                        <option value="Doctors">Doctors</option>
+                                        <option value="Restaurants">Restaurants</option>
+                                        <option value="Salons">Salons</option>
+                                        <option value="Gyms">Gyms</option>
+                                        <option value="Lawyers">Lawyers</option>
+                                        <option value="Real Estate">Real Estate</option>
+                                        <option value="Jewellers">Jewellers</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" v-if="newTask.type === 'Page' || newTask.type === 'Blog'">
+                                    <label>City</label>
+                                    <select v-model="newTask.city">
+                                        <option value="">Select city</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Mohali">Mohali</option>
+                                        <option value="Panchkula">Panchkula</option>
+                                        <option value="Zirakpur">Zirakpur</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Task Title</label>
+                                    <input type="text" v-model="newTask.title" placeholder="e.g., GBP Setup for Clinics">
+                                </div>
+
+                                <div class="form-group" v-if="newTask.type === 'Page'">
+                                    <label>Focus Keyword</label>
+                                    <input type="text" v-model="newTask.keyword" placeholder="e.g., GBP for doctors">
+                                </div>
+
+                                <div class="form-group" v-if="newTask.type === 'Page' || newTask.type === 'Blog'">
+                                    <label>Word Count</label>
+                                    <input type="number" v-model="newTask.wordCount" :placeholder="newTask.type === 'Page' ? '1800' : '1000'">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Brief / Instructions</label>
+                                    <textarea v-model="newTask.brief" placeholder="Additional details for Himanshu..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn" @click="createTask">
+                                    <i class="fas fa-check-circle"></i> Create Task
+                                </button>
+                                <button class="btn secondary" @click="clearForm">
+                                    <i class="fas fa-redo"></i> Clear
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MONITOR TAB -->
+                    <div class="tab-content" :class="{ active: activeTab === 'monitor' }">
+                        <div class="management-grid">
+                            <div class="management-card">
+                                <h4>📅 Monday Progress</h4>
+                                <div class="progress-bar-container">
+                                    <div class="progress-label">
+                                        <span>Page</span>
+                                        <span>{{ mondayStats.pageProgress }}%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" :style="{ width: mondayStats.pageProgress + '%' }"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-label">
+                                        <span>Blog</span>
+                                        <span>{{ mondayStats.blogProgress }}%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" :style="{ width: mondayStats.blogProgress + '%' }"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="management-card">
+                                <h4>📱 Tuesday Progress</h4>
+                                <div class="progress-bar-container">
+                                    <div class="progress-label">
+                                        <span>Calendar</span>
+                                        <span>{{ tuesdayStats.calendarProgress }}%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" :style="{ width: tuesdayStats.calendarProgress + '%' }"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="management-card">
+                                <h4>🎨 Wednesday Progress</h4>
+                                <div class="progress-bar-container">
+                                    <div class="progress-label">
+                                        <span>Templates</span>
+                                        <span>{{ wednesdayStats.templateProgress }}%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" :style="{ width: wednesdayStats.templateProgress + '%' }"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="management-card">
+                                <h4>📊 Weekly Overview</h4>
+                                <div class="progress-bar-container">
+                                    <div class="progress-label">
+                                        <span>Overall</span>
+                                        <span>{{ overallStats.weekProgress }}%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" :style="{ width: overallStats.weekProgress + '%' }"></div>
+                                    </div>
+                                </div>
+                                <p style="margin-top: 16px; font-size: 13px; color: #6b7280;">
+                                    {{ overallStats.completed }}/{{ overallStats.total }} tasks completed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYNC INDICATOR -->
+            <div class="sync-indicator" :class="{ syncing: syncing }">
+                <span class="sync-dot"></span>
+                <span>{{ syncing ? 'Syncing...' : 'Synced' }}</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    currentUser: null,
+                    activeTab: 'overview',
+                    syncing: false,
+                    
+                    mondayTasks: [
+                        {
+                            day: 'Monday',
+                            title: 'Publish Page: GBP Setup for Clinics',
+                            type: 'Page',
+                            niche: 'Doctors',
+                            city: 'Chandigarh',
+                            wordCount: '1800',
+                            done: false
+                        },
+                        {
+                            day: 'Monday',
+                            title: 'Publish Blog: 5 Ways Google Reviews Drive Traffic',
+                            type: 'Blog',
+                            niche: 'Restaurants',
+                            city: 'Mohali',
+                            wordCount: '1000',
+                            done: false
+                        }
+                    ],
+                    tuesdayTasks: [
+                        {
+                            day: 'Tuesday',
+                            title: 'Build Social Media Calendar',
+                            type: 'Calendar',
+                            postCount: '21',
+                            duration: '2 hours',
+                            done: false
+                        }
+                    ],
+                    wednesdayTasks: [
+                        {
+                            day: 'Wednesday',
+                            title: 'Create Social Templates',
+                            type: 'Template',
+                            templateType: 'Instagram, LinkedIn, Twitter',
+                            templateCount: '3–5',
+                            done: false
+                        }
+                    ],
+
+                    newTask: {
+                        day: '',
+                        type: '',
+                        niche: '',
+                        city: '',
+                        title: '',
+                        keyword: '',
+                        wordCount: '',
+                        brief: ''
+                    },
+
+                    himanshuStats: {
+                        totalTasks: 3,
+                        completed: 0,
+                        pending: 3,
+                        weekProgress: 0
+                    }
+                }
+            },
+            computed: {
+                weekProgress() {
+                    const total = this.mondayTasks.length + this.tuesdayTasks.length + this.wednesdayTasks.length;
+                    const completed = [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => t.done).length;
+                    return total === 0 ? 0 : Math.round((completed / total) * 100);
+                },
+                completedTasks() {
+                    return [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => t.done).length;
+                },
+                pendingTasks() {
+                    return [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => !t.done).length;
+                },
+                weekTasks() {
+                    return [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks];
+                },
+                mondayStats() {
+                    return {
+                        pageProgress: this.mondayTasks[0]?.done ? 100 : 0,
+                        blogProgress: this.mondayTasks[1]?.done ? 100 : 0
+                    };
+                },
+                tuesdayStats() {
+                    return {
+                        calendarProgress: this.tuesdayTasks[0]?.done ? 100 : 0
+                    };
+                },
+                wednesdayStats() {
+                    return {
+                        templateProgress: this.wednesdayTasks[0]?.done ? 100 : 0
+                    };
+                },
+                overallStats() {
+                    const total = [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].length;
+                    const completed = [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].filter(t => t.done).length;
+                    return {
+                        total,
+                        completed,
+                        weekProgress: total === 0 ? 0 : Math.round((completed / total) * 100)
+                    };
+                },
+                monthProgress() {
+                    return Math.floor(Math.random() * 60) + 20;
+                },
+                completedThisMonth() {
+                    return Math.floor(this.monthProgress * 32 / 100);
+                }
+            },
+            methods: {
+                login(user) {
+                    this.currentUser = user;
+                    localStorage.setItem('pbm_user', user);
+                },
+                logout() {
+                    this.currentUser = null;
+                    localStorage.removeItem('pbm_user');
+                },
+                toggleTask(day, idx) {
+                    if (day === 'monday') this.mondayTasks[idx].done = !this.mondayTasks[idx].done;
+                    if (day === 'tuesday') this.tuesdayTasks[idx].done = !this.tuesdayTasks[idx].done;
+                    if (day === 'wednesday') this.wednesdayTasks[idx].done = !this.wednesdayTasks[idx].done;
+                    this.saveData();
+                    this.syncData();
+                },
+                createTask() {
+                    if (!this.newTask.day || !this.newTask.type || !this.newTask.title) {
+                        alert('Please fill in required fields');
+                        return;
+                    }
+
+                    const task = { ...this.newTask, done: false };
+                    if (this.newTask.day === 'Monday') this.mondayTasks.push(task);
+                    if (this.newTask.day === 'Tuesday') this.tuesdayTasks.push(task);
+                    if (this.newTask.day === 'Wednesday') this.wednesdayTasks.push(task);
+
+                    this.saveData();
+                    this.syncData();
+                    this.clearForm();
+                    alert('✅ Task created successfully!');
+                },
+                clearForm() {
+                    this.newTask = { day: '', type: '', niche: '', city: '', title: '', keyword: '', wordCount: '', brief: '' };
+                },
+                saveData() {
+                    localStorage.setItem('pbm_tasks', JSON.stringify({
+                        monday: this.mondayTasks,
+                        tuesday: this.tuesdayTasks,
+                        wednesday: this.wednesdayTasks
+                    }));
+                },
+                loadData() {
+                    const saved = localStorage.getItem('pbm_tasks');
+                    if (saved) {
+                        const data = JSON.parse(saved);
+                        this.mondayTasks = data.monday || this.mondayTasks;
+                        this.tuesdayTasks = data.tuesday || this.tuesdayTasks;
+                        this.wednesdayTasks = data.wednesday || this.wednesdayTasks;
+                    }
+                },
+                syncData() {
+                    this.syncing = true;
+                    setTimeout(() => {
+                        this.syncing = false;
+                    }, 1000);
+
+                    this.himanshuStats = {
+                        totalTasks: [...this.mondayTasks, ...this.tuesdayTasks, ...this.wednesdayTasks].length,
+                        completed: this.completedTasks,
+                        pending: this.pendingTasks,
+                        weekProgress: this.weekProgress
+                    };
+                }
+            },
+            mounted() {
+                const saved = localStorage.getItem('pbm_user');
+                if (saved) this.currentUser = saved;
+                this.loadData();
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
