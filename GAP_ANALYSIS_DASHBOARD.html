@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBM Operations Gaps — Priority Matrix</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--card, #f5f5f5);
+            color: var(--foreground, #1a1a1a);
+            padding: 40px 20px;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        h1 { 
+            font-size: 28px; 
+            margin-bottom: 8px;
+            color: var(--foreground, #1a1a1a);
+        }
+        
+        .subtitle { 
+            font-size: 14px; 
+            color: var(--muted-foreground, #666);
+            margin-bottom: 32px;
+        }
+        
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .matrix-section {
+            background: white;
+            border: 1px solid var(--border, #ddd);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .matrix-section h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border, #ddd);
+        }
+        
+        .gap-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .gap-item:hover {
+            transform: translateX(4px);
+            opacity: 0.85;
+        }
+        
+        .gap-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        /* Priority colors */
+        .blocker {
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 3px solid #dc2626;
+            color: #7f1d1d;
+        }
+        
+        .high {
+            background: rgba(251, 146, 60, 0.1);
+            border-left: 3px solid #f97316;
+            color: #7c2d12;
+        }
+        
+        .medium {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            color: #1e3a8a;
+        }
+        
+        .low {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 3px solid #22c55e;
+            color: #15803d;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+        }
+        
+        .timeline-card {
+            flex: 0 0 280px;
+            background: white;
+            border: 1px solid var(--border, #ddd);
+            border-radius: 8px;
+            padding: 16px;
+            min-height: 240px;
+        }
+        
+        .timeline-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--foreground, #1a1a1a);
+        }
+        
+        .timeline-card ul {
+            list-style: none;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        
+        .timeline-card li {
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .timeline-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent, #004cb1);
+            font-weight: bold;
+        }
+        
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .metric-card {
+            background: white;
+            border: 1px solid var(--border, #ddd);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent, #004cb1);
+            margin-bottom: 4px;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: var(--muted-foreground, #666);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Footer */
+        .footer {
+            font-size: 12px;
+            color: var(--muted-foreground, #666);
+            padding-top: 20px;
+            border-top: 1px solid var(--border, #ddd);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PBM Operations — Gap Analysis Priority Matrix</h1>
+        <div class="subtitle">14 gaps categorized by impact & effort. Updated Sept 24, 2026.</div>
+        
+        <!-- Metrics Overview -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Critical Blockers</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">10</div>
+                <div class="metric-label">Infrastructure Gaps</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">2–3 weeks</div>
+                <div class="metric-label">ETA to "Ops Ready"</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$44–64/mo</div>
+                <div class="metric-label">New Monthly Spend</div>
+            </div>
+        </div>
+        
+        <!-- Priority Matrix -->
+        <div class="matrix-grid">
+            <!-- DO FIRST (High impact, low effort) -->
+            <div class="matrix-section">
+                <h2>🔴 DO FIRST (High Impact, Low Effort)</h2>
+                <div class="gap-item blocker">
+                    <strong>1. n8n Credentials + Dry-run</strong>
+                    Unblocks: content factory, daily drafts, 10+ posts/mo
+                </div>
+                <div class="gap-item blocker">
+                    <strong>2. Lead Tracker → CRM + Scoring</strong>
+                    Unblocks: sales funnel visibility, auto-qualification, forecasting
+                </div>
+                <div class="gap-item blocker">
+                    <strong>3. Enable Hermes Cron</strong>
+                    Unblocks: all automation jobs (GSC pull, email send, lead enrich)
+                </div>
+                <div class="gap-item high">
+                    <strong>4. VPS Backups + Monitoring</strong>
+                    Prevents: data loss, unnoticed outages, emergency recovery time
+                </div>
+                <div class="gap-item high">
+                    <strong>5. Obsidian Vault Structure</strong>
+                    Unblocks: bot outputs flowing to organized storage
+                </div>
+            </div>
+            
+            <!-- DO SOON (High impact, medium effort) -->
+            <div class="matrix-section">
+                <h2>🟠 DO SOON (High Impact, Medium Effort)</h2>
+                <div class="gap-item high">
+                    <strong>6. Lead-gen Workflow (Apify → CRM)</strong>
+                    Impact: 50+ qualified leads/week flowing automatically
+                </div>
+                <div class="gap-item high">
+                    <strong>7. Email Campaign + Tracking</strong>
+                    Impact: execute outreach at scale, measure reply rate, auto-follow-up
+                </div>
+                <div class="gap-item high">
+                    <strong>8. Weekly SEO Report (GSC + SERP)</strong>
+                    Impact: visibility into rank movements, anomaly alerts
+                </div>
+                <div class="gap-item high">
+                    <strong>9. KPI Dashboard (MRR, leads, conversion)</strong>
+                    Impact: daily visibility into growth pace, forecasting ₹1Cr timeline
+                </div>
+                <div class="gap-item medium">
+                    <strong>10. One Complete Keyword Map</strong>
+                    Impact: template for all 27 niche×city universes (Doctors × Chandigarh)
+                </div>
+            </div>
+            
+            <!-- POLISH (Lower priority, can wait) -->
+            <div class="matrix-section">
+                <h2>🟡 POLISH (Medium Impact, Medium+ Effort)</h2>
+                <div class="gap-item medium">
+                    <strong>11. Sales Messaging / Pitch Deck</strong>
+                    Impact: faster close rate, clearer value prop per niche
+                </div>
+                <div class="gap-item medium">
+                    <strong>12. Client Delivery Tracker (Portfolio)</strong>
+                    Impact: proof of outcomes, referral credibility, case studies
+                </div>
+                <div class="gap-item medium">
+                    <strong>13. Medical / Lawyer Compliance Gates</strong>
+                    Impact: legal risk reduction, trust with regulated verticals
+                </div>
+                <div class="gap-item low">
+                    <strong>14. Team Runbooks + Handoff Docs</strong>
+                    Impact: future delegation, subs, scaling to team
+                </div>
+            </div>
+            
+            <!-- NOT YET (Lower impact or dependent) -->
+            <div class="matrix-section">
+                <h2>🟢 NOT YET (Dependent / Lower Priority)</h2>
+                <div class="gap-item low">
+                    <strong>Ad Intel (Meta, Google Library)</strong>
+                    Depends on: lead-gen working, competitor baseline defined
+                </div>
+                <div class="gap-item low">
+                    <strong>Local Market Data (Real Estate, Medical)</strong>
+                    Depends on: resource allocation, niche focus confirmed
+                </div>
+                <div class="gap-item low">
+                    <strong>Video / Content Assets at Scale</strong>
+                    Depends on: sales process stabilized, first 5 clients complete
+                </div>
+                <div class="gap-item low">
+                    <strong>Multi-language / Geographic Expansion</strong>
+                    Depends on: Tricity + Zirakpur fully saturated
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timeline -->
+        <h2 style="margin-bottom: 16px; font-size: 18px; font-weight: 600;">Suggested Sprint Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-card">
+                <h3>WEEK 1: Sept 24–30<br><strong style="color: #dc2626;">Remove Blockers</strong></h3>
+                <ul>
+                    <li>n8n: credentials + dry-run</li>
+                    <li>CRM: Lead Tracker → Airtable</li>
+                    <li>Hermes: cron status + verify</li>
+                    <li>VPS: backups scheduled</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-card">
+                <h3>WEEK 2: Oct 1–7<br><strong style="color: #f97316;">Automate Sales</strong></h3>
+                <ul>
+                    <li>Lead-gen bot (Apify)</li>
+                    <li>Email campaign (template + send)</li>
+                    <li>Proposal generator (Elementor)</li>
+                    <li>Obsidian structure live</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-card">
+                <h3>WEEK 3: Oct 8–14<br><strong style="color: #3b82f6;">Automate Reporting</strong></h3>
+                <ul>
+                    <li>Weekly SEO digest (auto)</li>
+                    <li>KPI dashboard (MRR, leads)</li>
+                    <li>Client delivery tracker</li>
+                    <li>First forecasting model</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-card">
+                <h3>WEEK 4+: Oct 15+<br><strong style="color: #22c55e;">Scale & Expand</strong></h3>
+                <ul>
+                    <li>Keyword maps (all 7 niches)</li>
+                    <li>Lead-gen to all markets</li>
+                    <li>Sales process refinement</li>
+                    <li>First team hire prep</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Sign-off -->
+        <div class="footer">
+            <strong>To mark ops "ready":</strong> content drafts running daily ✓ | 50+ leads/week flowing ✓ | email + CRM tracking working ✓ | weekly digest auto-sent ✓ | cron verified ✓ | vault complete ✓
+            <br><br>
+            <strong>Next action:</strong> Pick top 3 from "DO FIRST" and schedule them for this week.
+        </div>
+    </div>
+</body>
+</html>
